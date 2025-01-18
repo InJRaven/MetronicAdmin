@@ -18,11 +18,16 @@ const SideBar: React.FC<SideBarType> = ({ className }) => {
         to="/"
         className="padd relative flex items-center self-stretch gap-[1rem] logo"
       >
-        <span className="font-museo text-gray-900 text-lg uppercase font-bold tracking-[0.05rem]">
-          <i className="fa-solid fa-raccoon"></i>
+        <span className="text-gray-900 text-2.5xl uppercase font-bold tracking-[0.05rem]">
+          <i className="fa-solid fa-list-music"/>
+        </span>
+        <span className="font-museo text-gray-900 text-xl uppercase">
+            MusicWeb
         </span>
       </Link>
+      
     </aside>
+    
   );
 };
 

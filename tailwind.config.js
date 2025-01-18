@@ -12,7 +12,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        museo: ['Museo Sans', "sans-serif"],
+        museo: ['Museo Sans Display', 'sans-serif'],
+        'museo-extra': ['Museo Sans Display ExtraBlack', 'sans-serif'],
         "ki-duotone": "ki-duotone",
         "ki-filled": "ki-filled",
         "ki-outline": "ki-outline",
