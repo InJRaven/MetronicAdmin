@@ -1,7 +1,6 @@
 body{
-    @apply transition-colors duration-200 bg-light;
+    @apply transition-colors duration-200 ;
 }
-
-.container-fixed {
-    
+.padd {
+    @apply p-2.5;
 }

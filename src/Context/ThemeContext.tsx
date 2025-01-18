@@ -37,7 +37,7 @@ const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     document.body.classList.remove("light", "dark");
     document.body.classList.add(theme);
     document.body.setAttribute("data-theme", theme);
-
+    document.querySelector('.sidebar')?.setAttribute("data-theme",'dark');
     // Save theme to localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
