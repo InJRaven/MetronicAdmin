@@ -245,9 +245,6 @@ module.exports = {
           py: "1.2rem",
         },
       },
-      spacing: {
-        2.5: "2.5rem",
-      },
     },
   },
 
