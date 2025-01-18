@@ -1,0 +1,18 @@
+input {
+  @apply placeholder:transition placeholder:text-gray-600 font-regular;
+  &:focus{
+    @apply placeholder:text-gray-800 border-primary text-gray-800;
+  }
+  &:disabled{
+    @apply bg-gray-100 text-gray-400 placeholder:text-gray-400 pointer-events-none;
+  }
+}
+.input {
+  @apply inline-flex items-center self-stretch gap-[1rem] bg-light-active rounded-[0.6rem] border text-gray-600 transition hover:border-gray-400 focus:border-primary focus:text-gray-800;
+
+ 
+}
+
+.form-label{
+  @apply text-gray-800 bg-transparent;
+}

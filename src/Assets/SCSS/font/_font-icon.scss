@@ -1,0 +1,44 @@
+@import "../vendors/keenicons/duotone/style.css";
+@import "../vendors/keenicons/filled/style.css";
+@import "../vendors/keenicons/outline/style.css";
+@import "../vendors/keenicons/solid/style.css";
+
+@font-face {
+  font-family: "ki-duotone";
+  src: url("../vendors/keenicons/duotone/fonts/keenicons-duotone.woff")
+      format("woff"),
+    url("../vendors/keenicons/duotone/fonts/keenicons-duotone.ttf")
+      format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ki-filled";
+  src: url("../vendors/keenicons/filled/fonts/keenicons-filled.woff")
+      format("woff"),
+    url("../vendors/keenicons/filled/fonts/keenicons-filled.ttf")
+      format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ki-outline";
+  src: url("../vendors/keenicons/outline/fonts/keenicons-outline.woff")
+      format("woff"),
+    url("../vendors/keenicons/outline/fonts/keenicons-outline.ttf")
+      format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ki-solid";
+  src: url("/vendors/keenicons/solid/fonts/keenicons-solid.woff")
+      format("woff"),
+    url("/vendors/keenicons/solid/fonts/keenicons-solid.ttf")
+      format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}

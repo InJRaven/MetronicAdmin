@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import './helper/root';
+
+@import './font/font-icon';
+@import "./components/component";
+
+
+@import './helper/normalize';
+@import './helper/custom-layout';
