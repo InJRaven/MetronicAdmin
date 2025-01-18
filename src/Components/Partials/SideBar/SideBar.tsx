@@ -8,7 +8,7 @@ interface SideBarType {
 }
 
 const SideBar: React.FC<SideBarType> = ({ className }) => {
-  const [isCollapse, setIsCollapse] = useState<boolean>(false)
+  const [isCollapse, setIsCollapse] = useState<boolean>(false);
 
   const handleCollapse = () => setIsCollapse((prev) => !prev);
 
@@ -38,10 +38,63 @@ const SideBar: React.FC<SideBarType> = ({ className }) => {
           color="Light"
           variant="Light"
           onClick={handleCollapse}
-          icon={<i className={`ki-filled ki-black-left-line transition-transform duration-200 ${isCollapse && 'rotate-180'}`} />}
+          icon={
+            <i
+              className={`ki-filled ki-black-left-line transition-transform duration-200 ${
+                isCollapse && "rotate-180"
+              }`}
+            />
+          }
           className="!bg-[#FFF] hover:text-coal-600 hover:bg-[#FFF] hover:border-[#F1F1F4] rounded-[0.8rem] absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4 !border-[#F1F1F4] "
         />
       </div>
+      <nav className="w-full flex flex-col items-start gap-[1rem] px-[2.5rem] self-stretch menu">
+        <Link
+          to="/"
+          className="w-full flex py-[1.2rem] px-[0.5rem] rounded-[0.6rem] gap-[1rem] items-center text-gray-800 text-base transition-all duration-200 hover:text-primary font-medium"
+        >
+          <span>
+            <i className="ki-filled ki-element-11 text-lg text-gray-800 font-medium" />
+          </span>
+          Dashboard
+        </Link>
+        <Link
+          to="/"
+          className="w-full flex py-[1.2rem] px-[0.5rem] rounded-[0.6rem] gap-[1rem] items-center text-gray-800 text-base transition-all duration-200 hover:text-primary font-medium"
+        >
+          <span>
+            <i className="ki-filled ki-element-11 text-lg text-gray-800 font-medium" />
+          </span>
+          Dashboard
+        </Link>
+        <Link
+          to="/"
+          className="w-full flex py-[1.2rem] px-[0.5rem] rounded-[0.6rem] gap-[1rem] items-center text-gray-800 text-base transition-all duration-200 hover:text-primary font-medium"
+        >
+          <span>
+            <i className="ki-filled ki-element-11 text-lg text-gray-800 font-medium" />
+          </span>
+          Dashboard
+        </Link>
+        <Link
+          to="/"
+          className="w-full flex py-[1.2rem] px-[0.5rem] rounded-[0.6rem] gap-[1rem] items-center text-gray-800 text-base transition-all duration-200 hover:text-primary font-medium"
+        >
+          <span>
+            <i className="ki-filled ki-element-11 text-lg text-gray-800 font-medium" />
+          </span>
+          Dashboard
+        </Link>
+        <Link
+          to="/"
+          className="w-full flex py-[1.2rem] px-[0.5rem] rounded-[0.6rem] gap-[1rem] items-center text-gray-800 text-base transition-all duration-200 hover:text-primary font-medium"
+        >
+          <span>
+            <i className="ki-filled ki-setting text-lg text-gray-800 font-medium" />
+          </span>
+          Setting
+        </Link>
+      </nav>
     </aside>
   );
 };
