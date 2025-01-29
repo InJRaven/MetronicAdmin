@@ -12,7 +12,7 @@ const Home = () => {
         icon = {<i className="ki-solid ki-eye"/>}
         size="Large"
       />
-      <h1 className="text-xl font-bold">Dashboard</h1>
+      <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const SideBar: React.FC<SideBarType> = ({ className }) => {
   return (
     <aside
       className={clsx(
-        "w-[28rem] bg-coal-600 flex flex-col gap-[2rem]",
+        " background-theme w-[28rem] flex flex-col gap-[2rem] border-r-2 border-gray-100 ",
         className,
         "sidebar"
       )}
@@ -45,7 +45,7 @@ const SideBar: React.FC<SideBarType> = ({ className }) => {
               }`}
             />
           }
-          className="!bg-[#FFF] hover:text-coal-600 hover:bg-[#FFF] hover:border-[#F1F1F4] rounded-[0.8rem] absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4 !border-[#F1F1F4] "
+          className="rounded-[0.8rem] absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4 border-gray-200 bg-light-light dark:bg-coal-500 !text-gray-500 hover:!text-gray-900"
         />
       </div>
       <nav className="w-full flex flex-col items-start gap-[1rem] px-[2.5rem] self-stretch menu">

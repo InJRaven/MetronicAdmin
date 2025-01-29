@@ -1,3 +1,7 @@
 body{
     @apply transition-colors duration-200 ;
 }
+
+.background-theme {
+    @apply transition-colors duration-200  bg-light-light dark:bg-coal-600;
+}
