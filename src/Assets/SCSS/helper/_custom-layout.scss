@@ -1,7 +1,15 @@
 body{
-    @apply transition-colors duration-200 ;
+    @apply transition-colors duration-200;
 }
 
 .background-theme {
     @apply transition-colors duration-200  bg-light-light dark:bg-coal-600;
+}
+
+.menu-icon{
+    @apply flex items-center shrink-0;
+}
+
+.menu-title{
+    @apply flex grow items-center transition-colors duration-200;
 }

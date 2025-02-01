@@ -78,7 +78,7 @@ module.exports = {
         ],
         md: ["1.3rem", { lineHeight: "1.4rem" }],
         base: ["1.4rem", { lineHeight: "1.4rem" }],
-        lg: ["1.8rem", { lineHeight: "100%" }],
+        lg: ["1.8rem", { lineHeight: "1.75rem" }],
         xl: ["2rem", { lineHeight: "100%" }],
         "1.5xl": [
           "2.2rem", // 22px
@@ -197,6 +197,9 @@ module.exports = {
         lg: "1024px",
         xl: "1280px",
         "2xl": "1536px",
+      },
+      height:{
+        header: 'var(--tw-header-height)',
       },
       //work with plugin
       boxShadow: {
