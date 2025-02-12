@@ -1,19 +1,8 @@
-import { Button } from "../../../UI";
+import { PageHeading } from "../../../UI";
 
 const Home = () => {
   return (
-    <div className="w-full">
-      <Button
-        as="button"
-        state="Icon"
-        color="Primary"
-        variant="Light"
-        shape="Circle"
-        icon = {<i className="ki-solid ki-eye"/>}
-        size="Large"
-      />
-      <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
-    </div>
+    <PageHeading title="Dashboard" description="Central Hub for Personal Customization"/>
   );
 };
 export default Home;

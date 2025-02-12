@@ -2,11 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import './helper/root';
 
 @import './font/font';
+
+@import './helper/helper';
+
 @import "./components/component";
-
-
-@import './helper/normalize';
-@import './helper/custom-layout';

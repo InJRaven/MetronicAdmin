@@ -1,9 +1,13 @@
-interface HeaderType {}
+import './Header.scss';
+
+interface HeaderType {
+    className ?: string
+}
 
 const Header : React.FC<HeaderType> = () => {
     return (
-        <header className="px-[4rem] py-[2rem]">
-
+        <header className="header">
+            <h1 className='title-page'>Header</h1>
         </header>
     )
 }

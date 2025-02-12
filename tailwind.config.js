@@ -12,46 +12,98 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        museo: ['Museo Sans Display', 'sans-serif'],
-        'museo-extra': ['Museo Sans Display ExtraBlack', 'sans-serif'],
+        museo: ["Museo Sans Display", "sans-serif"],
+        "museo-extra": ["Museo Sans Display ExtraBlack", "sans-serif"],
         "ki-duotone": "ki-duotone",
         "ki-filled": "ki-filled",
         "ki-outline": "ki-outline",
         "ki-solid": "ki-solid",
       },
       fontSize: {
-        "heading-sm": [
-          "2.2rem",
-          { lineHeight: "2.2rem", letterSpacing: "-0.022rem" },
+        "h-50": ["5rem", { lineHeight: "5.4", fontWeight: "700" }],
+        "h-44": ["4.4rem", { lineHeight: "5.6", fontWeight: "700" }],
+        "h-38": ["3.8rem", { lineHeight: "3.8", fontWeight: "600" }],
+        "h-34-bold": ["3.4rem", { lineHeight: "4.2", fontWeight: "700" }],
+        "h-34": ["3.4rem", { lineHeight: "3.4", fontWeight: "600" }],
+        "h-30": ["3rem", { lineHeight: "3", fontWeight: "600" }],
+        "h-26": ["2.6rem", { lineHeight: "2.6", fontWeight: "600" }],
+        "h-24": ["2.4rem", { lineHeight: "2.4", fontWeight: "600" }],
+        "h-22-bold": ["2.2rem", { lineHeight: "3.8", fontWeight: "500" }],
+        "h-22": ["2.2rem", { lineHeight: "2.2", fontWeight: "600" }],
+        "b-20-30": ["2rem", { lineHeight: "3", fontWeight: "500" }],
+        "b-20-20": ["2rem", { lineHeight: "2", fontWeight: "500" }],
+        "b-20-20-semibold": ["2rem", { lineHeight: "3", fontWeight: "600" }],
+        "b-18-30": ["1.8rem", { lineHeight: "3", fontWeight: "500" }],
+        "b-18-25-light": ["1.8rem", { lineHeight: "2.5", fontWeight: "300" }],
+        "b-18-25": ["1.8rem", { lineHeight: "2.5", fontWeight: "500" }],
+        "b-18-25-semibold": [
+          "1.8rem",
+          { lineHeight: "2.5", fontWeight: "600" },
         ],
-        "heading-md": [
-          "2.4rem",
-          { lineHeight: "2.4rem", letterSpacing: "-0.024rem" },
+        "b-18-18": ["1.8rem", { lineHeight: "1.8", fontWeight: "500" }],
+        "b-18-18-semibold": [
+          "1.8rem",
+          { lineHeight: "1.8", fontWeight: "600" },
         ],
-        "heading-lg": [
-          "2.6rem",
-          { lineHeight: "2.6rem", letterSpacing: "-0.052rem" },
+        "b-16-25": ["1.6rem", { lineHeight: "2.5", fontWeight: "500" }],
+        "b-16-25-semibold": [
+          "1.6rem",
+          { lineHeight: "2.5", fontWeight: "600" },
         ],
-        "heading-xl": [
-          "3rem",
-          { lineHeight: "3rem", letterSpacing: "-0.06rem" },
+        "b-16-16": ["1.6rem", { lineHeight: "1.6", fontWeight: "400" }],
+        "b-16-16-medium": ["1.6rem", { lineHeight: "1.6", fontWeight: "500" }],
+        "b-16-16-semibold": [
+          "1.6rem",
+          { lineHeight: "1.6", fontWeight: "600" },
         ],
-        "heading-2xl": [
-          "3.4rem",
-          { lineHeight: "3.4rem", letterSpacing: "-0.068rem" },
+        "b-15-24": ["1.5rem", { lineHeight: "2.4", fontWeight: "400" }],
+        "b-15-24-medium": ["1.5rem", { lineHeight: "2.4", fontWeight: "500" }],
+        "b-15-16": ["1.5rem", { lineHeight: "1.6", fontWeight: "400" }],
+        "b-15-16-medium": ["1.5rem", { lineHeight: "1.6", fontWeight: "500" }],
+        "b-15-16-semibold": [
+          "1.5rem",
+          { lineHeight: "1.6", fontWeight: "600" },
         ],
-        "heading-3xl": [
-          "3.8rem",
-          { lineHeight: "3.8rem", letterSpacing: "-0.076rem" },
+        "b-14-22": ["1.4rem", { lineHeight: "2.2", fontWeight: "400" }],
+        "b-14-22-medium": ["1.4rem", { lineHeight: "2.2", fontWeight: "500" }],
+        "b-14-14": ["1.4rem", { lineHeight: "1.4", fontWeight: "400" }],
+        "b-14-14-medium": ["1.4rem", { lineHeight: "1.4", fontWeight: "500" }],
+        "b-14-14-semibold": [
+          "1.4rem",
+          { lineHeight: "1.4", fontWeight: "600" },
         ],
-        "heading-4xl": [
-          "4.4rem",
-          { lineHeight: "5.6rem", letterSpacing: "-0.088rem" },
+        "b-14-14-bold": ["1.4rem", { lineHeight: "1.4", fontWeight: "700" }],
+        "b-13-20": ["1.3rem", { lineHeight: "2", fontWeight: "400" }],
+        "b-13-20-medium": ["1.3rem", { lineHeight: "2", fontWeight: "500" }],
+        "b-13-14": ["1.3rem", { lineHeight: "1.4", fontWeight: "400" }],
+        "b-13-14-medium": ["1.3rem", { lineHeight: "1.4", fontWeight: "500" }],
+        "b-13-14-semibold": [
+          "1.3rem",
+          { lineHeight: "1.4", fontWeight: "600" },
         ],
-        "heading-5xl": [
-          "5rem",
-          { lineHeight: "5.6rem", letterSpacing: "-0.1rem" },
+        "b-13-14-bold": ["1.3rem", { lineHeight: "1.4", fontWeight: "700" }],
+        "b-12-12": ["1.2rem", { lineHeight: "1.2", fontWeight: "400" }],
+        "b-12-12-medium": ["1.2rem", { lineHeight: "1.2", fontWeight: "500" }],
+        "b-12-12-semibold": [
+          "1.2rem",
+          { lineHeight: "1.2", fontWeight: "600" },
         ],
+        "b-12-12-bold": ["1.2rem", { lineHeight: "1.2", fontWeight: "700" }],
+        "b-11-12": ["1.1rem", { lineHeight: "1.2", fontWeight: "400" }],
+        "b-11-12-medium": ["1.1rem", { lineHeight: "1.2", fontWeight: "500" }],
+        "b-11-12-semibold": [
+          "1.1rem",
+          { lineHeight: "1.2", fontWeight: "600" },
+        ],
+        "b-10-10": ["1.0rem", { lineHeight: "1.0", fontWeight: "400" }],
+        "b-10-10-medium": ["1.0rem", { lineHeight: "1.0", fontWeight: "500" }],
+        "b-10-10-semibold": [
+          "1.0rem",
+          { lineHeight: "1.0", fontWeight: "600" },
+        ],
+        "b-9-10": ["0.9rem", { lineHeight: "1.0", fontWeight: "400" }],
+        "b-9-10-medium": ["0.9rem", { lineHeight: "1.0", fontWeight: "500" }],
+        "b-9-10-semibold": ["0.9rem", { lineHeight: "1.0", fontWeight: "600" }],
         "3xs": [
           "0.9rem", // 9px
           {
@@ -76,9 +128,9 @@ module.exports = {
             lineHeight: "1.2rem",
           },
         ],
-        md: ["1.3rem", { lineHeight: "1.4rem" }],
-        base: ["1.4rem", { lineHeight: "1.4rem" }],
-        lg: ["1.8rem", { lineHeight: "1.75rem" }],
+        md: ["1.3rem", { lineHeight: "1.4" }],
+        base: ["1.4rem", { lineHeight: "1.4" }],
+        lg: ["1.8rem", { lineHeight: "1.75" }],
         xl: ["2rem", { lineHeight: "100%" }],
         "1.5xl": [
           "2.2rem", // 22px
@@ -198,8 +250,8 @@ module.exports = {
         xl: "1280px",
         "2xl": "1536px",
       },
-      height:{
-        header: 'var(--tw-header-height)',
+      height: {
+        header: "var(--tw-header-height)",
       },
       //work with plugin
       boxShadow: {
