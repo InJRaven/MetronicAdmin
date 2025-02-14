@@ -95,9 +95,7 @@ const SideBar: React.FC<SideBarType> = () => {
               >
                 <span className="menu-icon items-start text-gray-500 dark:text-gray-400 w-[20px]">
                   <i
-                    className={`fa-light fa-user-music text-lg${
-                      isCollapse ? '': " text-[1.7rem]"
-                    }`}
+                    className='fa-light fa-user-music text-lg'
                   ></i>
                 </span>
                 <span

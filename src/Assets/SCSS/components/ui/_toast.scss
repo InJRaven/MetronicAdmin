@@ -1,0 +1,25 @@
+.toast {
+  @apply flex py-[1.7rem] px-[1.4rem] gap-[4rem] rounded-[0.8rem] items-center transition-colors duration-200;
+  &.basic {
+    @apply border;
+  }
+  &.solid {
+    @apply border-none;
+  }
+  &.light{
+    @apply border-none;
+  }
+  &.outline{
+    @apply border outline-none;
+  }
+  &.dash{
+    @apply border border-dashed;
+  }
+
+  .icon-left{
+    @apply flex justify-center items-center p-[0.3rem] w-[3.4rem] h-[3.4rem] transition-colors duration-200;
+    .icon{
+        @apply text-h-30;
+    }
+  }
+}
