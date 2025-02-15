@@ -7,7 +7,9 @@ const Home = () => {
         title="Dashboard"
         description="Central Hub for Personal Customization"
       />
-      <Toast alert="Hello" description="Test Alert" state="Dash Outline" colors="Warning" iconLeft = {<i className="icon ki-shield-cross ki-duotone"/>}/>
+      <Toast icon="Cross" alert="Hello" description="Test Alert" state="Solid" colors="Success"/>
+      <Toast icon="Tick" alert="Hello" description="Test Alert" state="Basic" colors="Primary" />
+    
     </>
   );
 };
