@@ -265,6 +265,7 @@ module.exports = {
           warning: "0px 4px 12px 0px rgba(246, 192, 0, 0.35)",
           dark: "0px 4px 12px 0px rgba(37, 47, 74, 0.35)",
           widget: " 0px 3px 4px 0px rgba(0, 0, 0, 0.03)",
+          calendar: "0px 10px 14px 0px rgba(15, 42, 81, 0.03)",
         },
         dark: {
           default: "none",
@@ -276,6 +277,8 @@ module.exports = {
           warning: "none",
           dark: "none",
           widget: "none",
+          calendar: "none",
+
         },
       },
       backgroundImage: {

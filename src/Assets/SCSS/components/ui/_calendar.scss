@@ -1,0 +1,53 @@
+.calendar {
+  @apply bg-light border border-gray-200 rounded-[0.6rem] p-[1rem] transition-all duration-200 shadow-light-calendar;
+  &.double{
+    @apply flex gap-[1rem];
+  
+    .calendar__range{
+      &.start-range{
+        @apply rounded-tl-[0.6rem] rounded-tr-none rounded-br-none rounded-bl-[0.6rem] text-light dark:text-gray-900;
+  
+      }
+      &.end-range{
+        @apply rounded-tl-none rounded-tr-[0.6rem] rounded-br-[0.6rem] rounded-bl-none text-light dark:text-gray-900;
+      }
+  
+    }
+  }
+  &__header {
+    @apply flex justify-between items-center self-stretch py-[0.4rem];
+  }
+  &__navigation {
+    @apply flex w-[3rem] h-[3rem] p-[1rem] justify-center items-center gap-[1rem] rounded-[0.6rem] bg-gray-100 text-base text-gray-600 transition-colors duration-200 hover:text-gray-900 hover:bg-gray-200;
+  }
+
+  &__date{
+    @apply grid gap-1;
+    &--item{
+        @apply p-[1rem] flex items-center justify-center gap-[1rem] rounded-[0.6rem] cursor-pointer text-b-13-14 text-gray-900 h-[3.2rem];
+    }
+  }
+
+  &__days{
+    @apply grid;
+    &--item,{
+        @apply p-[1rem] flex items-center justify-center gap-[1rem] rounded-[0.6rem] cursor-pointer text-b-13-14 h-[3.2rem];
+    }
+  }
+
+  &__week-number{
+    @apply p-[1rem] flex items-center justify-center cursor-pointer text-b-13-14 h-[3.2rem];
+  }
+
+  &__range{
+    @apply bg-primary-light rounded-none text-primary;
+    &.start-range{
+      @apply bg-primary rounded-tl-[2rem] rounded-tr-none rounded-br-none rounded-bl-[2rem] text-light dark:text-gray-900;
+
+    }
+    &.end-range{
+      @apply bg-primary rounded-tl-none rounded-tr-[2rem] rounded-br-[2rem] rounded-bl-none text-light dark:text-gray-900;
+    }
+
+  }
+}
