@@ -11,7 +11,9 @@ const Home = () => {
       />
       <DatePicker />
       <Calendar mode="Double"/>
-      <Toast alert="Hello" description="Test Alert" state="Dash Outline" colors="Warning" iconLeft = {<i className="icon ki-shield-cross ki-duotone"/>}/>
+      <Calendar mode="Range"/>
+
+      <Toast alert="Hello" description="Test Alert" state="Dash Outline" colors="Warning" icon = 'Tick'/>
     </>
   );
 };

@@ -19,6 +19,7 @@ const DatePicker: React.FC<DatePickerType> = ({ className }) => {
       {isOpen && (
         <div className="absolute top-0 left-0 z-50 bg-white transition-transform duration-300 scale-95 w-fit h-fit">
           <Calendar
+            mode="Single"
             selectedDate={selectedDate}
             onSelectDate={(date) => {
               setSelectedDate(date);

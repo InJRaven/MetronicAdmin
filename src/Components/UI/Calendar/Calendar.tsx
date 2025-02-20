@@ -39,18 +39,23 @@ const Calendar: React.FC<CalendarProps> = ({
   });
   const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-  const handlePrevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
-  const handleNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
+  const handleMonthChange = (direction: "prev" | "next") =>
+    setCurrentMonth((prev) =>
+      direction === "prev" ? subMonths(prev, 1) : addMonths(prev, 1)
+    );
 
-  const handleRangeSelection = (date: Date) => {
-    
-    if (!range.start || (range.start && range.end)) {
-      setRange({ start: date, end: null });
-    } else {
-      setRange({ start: range.start, end: date });
-      onSelectRange?.({ start: range.start, end: date });
-    }
-  };
+    const handleRangeSelection = (date: Date) => {
+      setRange((prev) => {
+        if (!prev.start || prev.end) {
+          return { start: date, end: null };
+        }
+        const start = prev.start < date ? prev.start : date;
+        const end = prev.start < date ? date : prev.start;
+        const newRange = { start, end };
+        onSelectRange?.(newRange);
+        return newRange;
+      });
+    };
 
   const renderDays = () => (
     <>
@@ -98,15 +103,15 @@ const Calendar: React.FC<CalendarProps> = ({
         const isEndOfRange = range.end && isSameDay(day, range.end);
 
         const dayClass = clsx(
-          "calendar__days--item", // Base class cho tất cả các ngày
+          "calendar__days--item",
           {
-            "text-gray-400": !isCurrentMonth, // nếu không phải tháng hiện tại
-            "text-gray-900": isCurrentMonth, // nếu là tháng hiện tại
-            "!bg-primary text-white": isSelected, // nếu ngày được chọn
-            calendar__range: isInRange && isCurrentMonth, // nếu nằm trong dải ngày
-            "hover:bg-gray-200": !isInRange, // nếu không nằm trong dải ngày
-            "start-range": isStartOfRange, // nếu là ngày bắt đầu của dải ngày
-            "end-range": isEndOfRange, // nếu là ngày kết thúc của dải ngày
+            "text-gray-400": !isCurrentMonth, 
+            "text-gray-900": isCurrentMonth, 
+            "!bg-primary text-white": isSelected, 
+            calendar__range: isInRange && isCurrentMonth, 
+            "hover:bg-gray-200": !isInRange, 
+            "start-range": isStartOfRange, 
+            "end-range": isEndOfRange, 
           }
         );
         daysInWeek.push(
@@ -129,112 +134,63 @@ const Calendar: React.FC<CalendarProps> = ({
       weeks.push(
         <div
           key={day.toString()}
-          className={`calendar__days ${
+          className={clsx(
+            "calendar__days",
             mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
-          }`}
+          )}
         >
           {daysInWeek}
         </div>
       );
     }
 
-    return <div className="calender__cell">{weeks}</div>;
+    return weeks;
   };
 
-  const renderDoubleMode = () => {
-    const firstMonth = currentMonth;
-    const secondMonth = addMonths(currentMonth, 1);
-    return (
-      <>
-        <div className="calendar__month">
-          <div className="calendar__header">
-            <button className="calendar__navigation" onClick={handlePrevMonth}>
-              <i className="ki-filled ki-left" />
-            </button>
-            <span className="text-b-13-14-medium text-gray-900">
-              {format(firstMonth, "MMMM yyyy")}
-            </span>
-            <button
-              disabled
-              className="calendar__navigation !bg-transparent pointer-events-none"
-            >
-              <i className="ki-filled ki-right !hidden" />
-            </button>
-          </div>
-          <div className="calendar__body">
-            <div
-              className={`calendar__date ${
-                mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
-              }`}
-            >
-              {renderDays()}
-            </div>
-            {renderCells(firstMonth)}
-          </div>
+  const renderCalendarView = (month: Date, disabledButtonPrev: boolean = false, disabledButtonNext: boolean = false) => (
+    <>
+      <div className="calendar__header">
+        <button
+          className={clsx("calendar__navigation", {disabled: disabledButtonPrev})}
+          onClick={() => handleMonthChange("prev")}
+        >
+          <i className="ki-filled ki-left" />
+        </button>
+        <span className="text-b-13-14-medium text-gray-900">
+          {format(month, "MMMM yyyy")}
+        </span>
+        <button
+          className={clsx("calendar__navigation", {disabled: disabledButtonNext})}
+          onClick={() => handleMonthChange("next")}
+        >
+          <i className="ki-filled ki-right" />
+        </button>
+      </div>
+      <div className="calendar__body">
+        <div
+          className={clsx(
+            "calendar__date",
+            mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
+          )}
+        >
+          {renderDays()}
         </div>
-        <div className="calendar__month">
-          <div className="calendar__header">
-            <button
-              disabled
-              className="calendar__navigation !bg-transparent !pointer-events-none"
-            >
-              <i className="ki-filled ki-left !hidden" />
-            </button>
-            <span className="text-b-13-14-medium text-gray-900">
-              {format(secondMonth, "MMMM yyyy")}
-            </span>
-            <button onClick={handleNextMonth} className="calendar__navigation">
-              <i className="ki-filled ki-right" />
-            </button>
-          </div>
-          <div className="calendar__body">
-            <div
-              className={`calendar__date ${
-                mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
-              }`}
-            >
-              {renderDays()}
-            </div>
-            {renderCells(secondMonth)}
-          </div>
-        </div>
-      </>
-    );
-  };
-
-  const renderAnotherMode = () => {
-    return (
-      <>
-        <div className="calendar__header">
-          <button className="calendar__navigation" onClick={handlePrevMonth}>
-            <i className="ki-filled ki-left" />
-          </button>
-          <span className="text-b-13-14-medium text-gray-900">
-            {format(currentMonth, "MMMM yyyy")}
-          </span>
-          <button className="calendar__navigation" onClick={handleNextMonth}>
-            <i className="ki-filled ki-right" />
-          </button>
-        </div>
-        <div className="calendar__body">
-          <div
-            className={`calendar__date ${
-              mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
-            }`}
-          >
-            {renderDays()}
-          </div>
-          {renderCells(currentMonth)}
-        </div>
-      </>
-    );
-  };
-
+        {renderCells(month)}
+      </div>
+    </>
+  );
   return (
     <div
-      className={clsx("calendar", { double: mode === "Double" }, "max-w-fit")}
+      className={clsx("calendar", mode === "Double" && "double", "max-w-fit")}
     >
-      {mode === "Double" ? renderDoubleMode() : renderAnotherMode()}
+      {mode === "Double" ? (
+        <>
+          <div>{renderCalendarView(currentMonth, false, true)}</div>
+          <div>{renderCalendarView(addMonths(currentMonth, 1),true, false)}</div>
+        </>
+      ) : (
+        renderCalendarView(currentMonth)
+      )}
     </div>
   );
 };
