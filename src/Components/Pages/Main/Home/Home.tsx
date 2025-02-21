@@ -10,6 +10,9 @@ const Home = () => {
         description="Central Hub for Personal Customization"
       />
       <DatePicker />
+      <Calendar mode="Single"/>
+      <Calendar mode="Week Numbers"/>
+
       <Calendar mode="Double"/>
       <Calendar mode="Range"/>
 
