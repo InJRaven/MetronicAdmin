@@ -3,45 +3,29 @@ import clsx from "clsx";
 import { addMonths } from "date-fns";
 import CalendarCells from "./CalendarCells";
 import CalendarDays from "./CalendarDays";
-import CalendarHeader from "./CalendArHeader";
+import CalendarHeader from "./CalendarHeader";
 
 interface CalendarProps {
   mode: "Basic" | "Single" | "Week Numbers" | "Range" | "Double";
   option?: "Preset" | "Time";
   selectedDate?: Date;
   selectedDates?: Date[];
-  selectedRange?: { start: Date | null; end: Date | null };
   onSelectDate?: (date: Date) => void;
-  onSelectMultiple?: (dates: Date[]) => void;
-  onSelectRange?: (range: { start: Date | null; end: Date | null }) => void;
+  range: { start: Date | null; end: Date | null };
+  handleRangeSelection: (date: Date) => void;
 }
 
 const Calendar: React.FC<CalendarProps> = ({
   mode = "Single",
   selectedDate,
-  selectedRange,
   onSelectDate,
-  onSelectRange,
+  range,
+  handleRangeSelection
 }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const currentYear = new Date().getFullYear();
-  const [range, setRange] = useState<{ start: Date | null; end: Date | null }>({
-    start: selectedRange?.start || null,
-    end: selectedRange?.end || null,
-  });
 
-  const handleRangeSelection = (date: Date) => {
-    setRange((prev) => {
-      if (!prev.start || prev.end) {
-        return { start: date, end: null };
-      }
-      const start = prev.start < date ? prev.start : date;
-      const end = prev.start < date ? date : prev.start;
-      const newRange = { start, end };
-      onSelectRange?.(newRange);
-      return newRange;
-    });
-  };
+  
 
   const renderCalendarView = (
     month: Date,

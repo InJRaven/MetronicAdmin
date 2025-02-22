@@ -1,34 +1,76 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import "react-datepicker/dist/react-datepicker.css";
+import * as Popover from "@radix-ui/react-popover";
 import Calendar from "../Calendar/Calendar";
 
-interface DatePickerType {
-  className?: string;
+interface DatePickerPropsType {
+  mode: "Basic" | "Single" | "Week Numbers" | "Range" | "Double";
+  selectedDate?: Date;
+  onSelectDate?: (date: Date) => void;
+  selectedRange?: { start: Date | null; end: Date | null };
+  onSelectRange?: (range: { start: Date | null; end: Date | null }) => void;
 }
+const DatePicker: React.FC<DatePickerPropsType> = ({
+  mode,
+  selectedDate,
+  onSelectDate,
+  selectedRange,
+  onSelectRange,
+}) => {
+  const [date, setDate] = useState<Date>(selectedDate || new Date());
 
-const DatePicker: React.FC<DatePickerType> = ({ className }) => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [range, setRange] = useState<{ start: Date | null; end: Date | null }>({
+    start: selectedRange?.start || null,
+    end: selectedRange?.end || null,
+  });
+
+  const handleRangeSelection = (date: Date) => {
+    setRange((prev) => {
+      if (!prev.start || prev.end) {
+        return { start: date, end: null };
+      }
+      const start = prev.start < date ? prev.start : date;
+      const end = prev.start < date ? date : prev.start;
+      const newRange = { start, end };
+      onSelectRange?.(newRange);
+      return newRange;
+    });
+  };
+
   return (
-    <div className="relative flex" onClick={() => setIsOpen(!isOpen)}>
-      <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem];">
-        <i className="ki-filled ki-calendar" />
-        {format(selectedDate, "MMM dd, yyyy")}
-      </button>
-      {isOpen && (
-        <div className="absolute top-0 left-0 z-50 bg-white transition-transform duration-300 scale-95 w-fit h-fit">
+    <Popover.Root>
+      <Popover.Trigger asChild>
+        <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit">
+          <i className="ki-filled ki-calendar" />
+          {mode === "Range" || mode === "Double"
+            ? range.start && range.end
+              ? `${format(range.start, "MMM dd, yyyy")} - ${format(range.end, "MMM dd, yyyy")}`
+              : "Select Date Range"
+            : format(date, "MMM dd, yyyy")}
+          
+        </button>
+      </Popover.Trigger>
+
+      <Popover.Portal>
+        <Popover.Content
+          align="center"
+          sideOffset={5}
+          className="PopoverContent"
+          
+        >
           <Calendar
-            mode="Single"
-            selectedDate={selectedDate}
-            onSelectDate={(date) => {
-              setSelectedDate(date);
-              setIsOpen(false);
+            mode={mode}
+            selectedDate={date}
+            range={range}
+            onSelectDate={(selected) => {
+              setDate(selected);
+              onSelectDate?.(selected);
             }}
+            handleRangeSelection={handleRangeSelection}
           />
-        </div>
-      )}
-    </div>
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   );
 };
 

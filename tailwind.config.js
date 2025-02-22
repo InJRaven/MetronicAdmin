@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,tsx,scss}"],
   safelist: [
+    
     {
       // Allow dynamic classes for colors
       pattern:

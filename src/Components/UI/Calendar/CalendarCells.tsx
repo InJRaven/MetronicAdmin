@@ -51,7 +51,7 @@ const CalendarCells: React.FC<CalendarCellsPropsType>  = ({
     for (let i = 0; i < 7; i++) {
       const cloneDay = day;
       const isCurrentMonth = isSameMonth(day, monthStart);
-      const isSelected = isSameDay(day, selectedDate);
+      const isSelected =  selectedDate && isSameDay(day, selectedDate) && mode !== "Range" && mode !== "Double";
       const isInRange =
         range.start &&
         range.end &&

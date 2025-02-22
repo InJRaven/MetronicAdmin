@@ -1,22 +1,37 @@
-import { PageHeading, Toast } from "../../../UI";
-import Calendar from "../../../UI/Calendar/Calendar";
+import { useState } from "react";
 import DatePicker from "../../../UI/DatePicker/DatePicker";
 
 const Home = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [selectedRange, setSelectedRange] = useState<{
+    start: Date | null;
+    end: Date | null;
+  }>({
+    start: null,
+    end: null,
+  });
   return (
     <>
-      <PageHeading
-        title="Dashboard"
-        description="Central Hub for Personal Customization"
+      <DatePicker
+        mode="Range"
+        selectedRange={selectedRange}
+        onSelectRange={setSelectedRange}
       />
-      <DatePicker />
-      <Calendar mode="Single"/>
-      <Calendar mode="Week Numbers"/>
+      <h2 className="text-base">
+        Selected Range:{" "}
+        {selectedRange.start && selectedRange.end
+          ? `${selectedRange.start.toDateString()} - ${selectedRange.end.toDateString()}`
+          : "None"}
+      </h2>
 
-      <Calendar mode="Double"/>
-      <Calendar mode="Range"/>
-
-      <Toast alert="Hello" description="Test Alert" state="Dash Outline" colors="Warning" icon = 'Tick'/>
+      <DatePicker
+        mode="Single"
+        selectedDate={selectedDate}
+        onSelectDate={setSelectedDate}
+      />
+      <h2 className="text-base">
+        Selected Date: {selectedDate ? selectedDate.toDateString() : "None"}
+      </h2>
     </>
   );
 };
