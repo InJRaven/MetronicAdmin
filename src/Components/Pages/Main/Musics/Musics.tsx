@@ -1,9 +1,12 @@
-import { PageHeading } from "../../../UI"
+import { PageHeading } from "../../../ui";
 
 const Musics = () => {
-    return (
-        <PageHeading title="Musics Page" description="Curate and control your music library."/>
-    )
-}
+  return (
+    <PageHeading
+      title="Musics Page"
+      description="Curate and control your music library."
+    />
+  );
+};
 
 export default Musics;

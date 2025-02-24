@@ -1,10 +1,11 @@
+import { Header, SideBar } from "@partials";
 import { Outlet } from "react-router-dom";
-import { Header, SideBar } from "../../Components/Partials";
+// import { Header, SideBar } from "../../components/partials";
 
 const MainLayout = () => {
   return (
     <div className="main-layout">
-      <SideBar/>
+      <SideBar />
       <main id="main" className="main">
         <Header />
         <div className="container">

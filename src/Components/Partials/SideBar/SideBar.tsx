@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { Button } from "../../UI";
+import { Button } from "../../ui";
 import { useState } from "react";
 import "./Sidebar.scss";
 interface SideBarType {
@@ -94,9 +94,7 @@ const SideBar: React.FC<SideBarType> = () => {
                 }`}
               >
                 <span className="menu-icon items-start text-gray-500 dark:text-gray-400 w-[20px]">
-                  <i
-                    className='fa-light fa-user-music text-lg'
-                  ></i>
+                  <i className="fa-light fa-user-music text-lg"></i>
                 </span>
                 <span
                   className={`menu-title text-base font-medium text-gray-800 group-hover:!text-primary transition-all overflow-hidden duration-200 ${

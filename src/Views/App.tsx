@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import { ThemeProvider, useTheme } from "../Context/ThemeContext";
+import { ThemeProvider, useTheme } from "../context/ThemeContext";
 import { useRoutes } from "react-router-dom";
-import { authRoutesConfig, mainRoutesConfig } from "../Routes/RoutesConfig";
-import ScrollToTop from "../Utils/ScrollToTop";
+import { authRoutesConfig, mainRoutesConfig } from "../routes/RoutesConfig";
+import ScrollToTop from "../utils/ScrollToTop";
 
 export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

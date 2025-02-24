@@ -1,7 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,tsx,scss}"],
   safelist: [
-    
     {
       // Allow dynamic classes for colors
       pattern:
@@ -279,7 +278,6 @@ module.exports = {
           dark: "none",
           widget: "none",
           calendar: "none",
-
         },
       },
       backgroundImage: {
@@ -313,7 +311,7 @@ module.exports = {
         html: { fontSize: "62.5%" }, // 1rem = 10px
       });
     },
-    require("./src/Views/plugins/BoxShadowPlugin"),
-    require("./src/Views/plugins/InputSizePlugin"),
+    require("./plugins/BoxShadowPlugin"),
+    require("./plugins/InputSizePlugin"),
   ],
 };

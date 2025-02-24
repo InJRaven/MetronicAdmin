@@ -1,7 +1,13 @@
-import { SignIn, SignUp } from "../Components/Pages/Auth";
-import { Albums, Home, Settings, Singers, Musics } from "../Components/Pages/Main";
+import { SignIn, SignUp } from "@pages/auth";
+import {
+  Albums,
+  Home,
+  Settings,
+  Singers,
+  Musics,
+} from "@pages/main";
 
-import { AuthLayout, MainLayout } from "../Views/layout";
+import { AuthLayout, MainLayout } from "../views/layout";
 
 const mainRoutesConfig = [
   {

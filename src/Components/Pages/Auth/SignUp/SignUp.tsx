@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button, Icon, Input } from "../../../UI";
+import { Button, Icon, Input } from "../../../ui";
 
 const SignUp = () => {
   return (

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { Button, Icon, Input } from "../../../UI";
+import { Button, Icon, Input } from "../../../ui";
 
 const SignIn = () => {
   return (
-
     <>
       <div className="w-full flex flex-col gap-[1rem] items-center self-stretch">
         <h2 className="text-2.5xl font-medium text-center text-gray-900">
@@ -62,14 +61,14 @@ const SignIn = () => {
           label="Password"
           name="password"
           placeholder=""
-          iconRight ={<i className="ki-filled ki-eye" />}
+          iconRight={<i className="ki-filled ki-eye" />}
         />
-        <Button 
-            state="Default"
-            as="button"
-            size="Large"
-            color="Primary"
-            text="Sign In"
+        <Button
+          state="Default"
+          as="button"
+          size="Large"
+          color="Primary"
+          text="Sign In"
         />
       </form>
     </>

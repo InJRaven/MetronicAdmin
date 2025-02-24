@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { format } from "date-fns";
+import { Calendar } from "../../widgets";
 import * as Popover from "@radix-ui/react-popover";
-import Calendar from "../Calendar/Calendar";
 
 interface DatePickerPropsType {
   mode: "Basic" | "Single" | "Week Numbers" | "Range" | "Double";
