@@ -11,7 +11,7 @@ export default defineConfig({
       "@pages": '/src/components/pages', // Alias cho '@pages'
       "@partials": '/src/components/partials', // Alias cho '@partials'
       "@ui": '/src/components/ui', // Alias cho '@ui'
-      "@widgets": '/src/components/pages', // Alias cho '@widgets'
+      "@widgets": '/src/components/widgets', // Alias cho '@widgets'
       "@context": '/src/context', // Alias cho '@context'
       "@hook": '/src/hooks', // Alias cho '@hook'
       "@views":'/src/views' // Alias cho 'VIEW'

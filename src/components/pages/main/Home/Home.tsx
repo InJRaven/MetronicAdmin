@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { DatePicker } from "@/components/ui";
+// @ts-expect-error: '@ui'
+import { DatePicker, TimePicker } from "@ui";
+// @ts-expect-error: '@widgets' 
+import { DigitalClock } from "@widgets";
+
 
 
 const Home = () => {
@@ -11,6 +15,9 @@ const Home = () => {
     start: null,
     end: null,
   });
+
+
+  const [time, setTime] = useState<Date>()
   return (
     <>
       <DatePicker
@@ -33,6 +40,10 @@ const Home = () => {
       <h2 className="text-base">
         Selected Date: {selectedDate ? selectedDate.toDateString() : "None"}
       </h2>
+
+
+      <TimePicker initialTime={time} onTimeChange ={setTime}/>
+      <DigitalClock />
     </>
   );
 };

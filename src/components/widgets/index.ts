@@ -1,3 +1,3 @@
 import Calendar from './Calendar/Calendar'
-
-export {Calendar}
+import DigitalClock from './DigitalClock/DigitalClock'
+export {Calendar, DigitalClock}

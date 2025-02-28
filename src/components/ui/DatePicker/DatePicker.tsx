@@ -23,7 +23,7 @@ const DatePicker: React.FC<DatePickerPropsType> = ({
     start: selectedRange?.start || null,
     end: selectedRange?.end || null,
   });
-
+  const [isOpen, setIsOpen] = useState(false); 
   const handleRangeSelection = (date: Date) => {
     setRange((prev) => {
       if (!prev.start || prev.end) {
@@ -38,10 +38,10 @@ const DatePicker: React.FC<DatePickerPropsType> = ({
   };
 
   return (
-    <Popover.Root>
+    <Popover.Root  open={isOpen} onOpenChange={setIsOpen}>
       <Popover.Trigger asChild>
         <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit">
-          <i className="ki-filled ki-calendar" />
+          <i className="ki-filled ki-calendar" onClick={(e) => e.stopPropagation()}/>
           {mode === "Range" || mode === "Double"
             ? range.start && range.end
               ? `${format(range.start, "MMM dd, yyyy")} - ${format(range.end, "MMM dd, yyyy")}`

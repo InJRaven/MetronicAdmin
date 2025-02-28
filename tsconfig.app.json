@@ -33,8 +33,7 @@
       "@widgets/*": ["src/components/widgets/*"],
       "@context/*": ["src/context/*"],
       "@hook/*": ["src/hooks/*"],
-      "@views":["src/views/*"]
-
+      "@views": ["src/views/*"]
     }
   },
   "include": ["src", "plugins"]
