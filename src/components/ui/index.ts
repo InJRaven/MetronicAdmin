@@ -5,6 +5,7 @@ import Input from "./Inputs/Inputs";
 import DataDisplay from "./DataDisplay/DataDisplay";
 import DatePicker from "./DatePicker/DatePicker";
 import TimePicker from "./TimePicker/TimePicker";
+import Rating from "./Rating/Rating";
 import Toast from "./Toast/Toast";
 
 export {
@@ -15,5 +16,6 @@ export {
   DataDisplay,
   DatePicker,
   TimePicker,
+  Rating,
   Toast,
 };

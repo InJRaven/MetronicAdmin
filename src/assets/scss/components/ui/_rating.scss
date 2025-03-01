@@ -1,0 +1,7 @@
+.rating {
+  @apply w-fit inline-flex items-center gap-[0.1rem];
+  &__item {
+    @apply cursor-pointer w-[1.6rem] h-[1.6rem] flex items-center justify-center transition-transform duration-200 ease-in-out transform aspect-square hover:scale-125;
+  }
+
+}
