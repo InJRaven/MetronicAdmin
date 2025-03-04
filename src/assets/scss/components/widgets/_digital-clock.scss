@@ -1,0 +1,12 @@
+.digital-clock {
+  @apply w-fit grid grid-cols-[3.8rem_3.8rem_3.8rem_3.8rem_3.8rem] grid-rows-1 gap-0 content-center;
+  &__group {
+    @apply flex flex-col;
+    .item__button {
+      @apply p-[1rem] flex items-center justify-center gap-[1rem] w-full h-[3.2rem] text-gray-600 bg-light transition-colors duration-200 hover:bg-gray-200 hover:text-gray-900 rounded-[0.6rem];
+    }
+    .item__input {
+      @apply p-[1rem] flex items-center justify-center text-center gap-[1rem] w-full h-[4rem] text-b-13-14 bg-transparent text-gray-900 transition-colors duration-200;
+    }
+  }
+}
