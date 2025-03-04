@@ -1,11 +1,11 @@
-import { SignIn, SignUp } from "@/components/pages/auth";
+import { SignIn, SignUp } from "@pages/auth";
 import {
   Albums,
   Home,
   Settings,
   Singers,
   Musics,
-} from "@/components/pages/main";
+} from "@pages/main";
 
 import { AuthLayout, MainLayout } from "../views/layout";
 
