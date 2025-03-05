@@ -8,6 +8,7 @@ import DataDisplay from "./DataDisplay/DataDisplay";
 import DatePicker from "./DatePicker/DatePicker";
 import TimePicker from "./TimePicker/TimePicker";
 import Rating from "./Rating/Rating";
+import ProgressBar from "./ProgressBar/ProgressBar";
 import Toast from "./Toast/Toast";
 
 export {
@@ -20,5 +21,6 @@ export {
   DatePicker,
   TimePicker,
   Rating,
+  ProgressBar,
   Toast,
 };

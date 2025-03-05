@@ -2,6 +2,7 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { Calendar } from "../../widgets";
 import * as Popover from "@radix-ui/react-popover";
+import Icons from "../Icons/Icons";
 
 interface DatePickerPropsType {
   mode: "Basic" | "Single" | "Week Numbers" | "Range" | "Double";
@@ -38,10 +39,14 @@ const DatePicker: React.FC<DatePickerPropsType> = ({
   };
 
   return (
-    <Popover.Root  open={isOpen} onOpenChange={setIsOpen}>
+    <Popover.Root  open={isOpen} onOpenChange={setIsOpen} >
       <Popover.Trigger asChild>
-        <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit">
-          <i className="ki-filled ki-calendar" onClick={(e) => e.stopPropagation()}/>
+        <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit" onClick={(e) => e.stopPropagation()}>
+          <Icons 
+            name='Calendar'
+            type="Filled"
+          />
+          
           {mode === "Range" || mode === "Double"
             ? range.start && range.end
               ? `${format(range.start, "MMM dd, yyyy")} - ${format(range.end, "MMM dd, yyyy")}`

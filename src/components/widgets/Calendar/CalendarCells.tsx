@@ -1,3 +1,4 @@
+
 import clsx from "clsx";
 import {
   addDays,
@@ -20,7 +21,7 @@ interface CalendarCellsPropsType {
   onSelectDate?: (date: Date) => void;
   handleRangeSelection: (date: Date) => void;
 }
-const CalendarCells: React.FC<CalendarCellsPropsType>  = ({
+const CalendarCells: React.FC<CalendarCellsPropsType> = ({
   month,
   mode,
   range,
@@ -33,31 +34,39 @@ const CalendarCells: React.FC<CalendarCellsPropsType>  = ({
   const startDate = startOfWeek(monthStart);
   const endDate = endOfWeek(monthEnd);
 
-  let day = startDate;
-  const weeks = [];
 
-  while (day <= endDate) {
+  const calendarWeeks = [];
+
+  for (
+    let weekStart = startDate;
+    weekStart <= endDate;
+    weekStart = addDays(weekStart, 7)
+  ) {
     const daysInWeek = [];
     if (mode === "Week Numbers") {
       daysInWeek.push(
         <div
-          key={`week-${getISOWeek(day)}`}
+          key={`week-${getISOWeek(weekStart)}`}
           className="calendar__week-number text-gray-400 hover:bg-gray-200 border-r border-gray-300"
         >
-          {getISOWeek(day)}
+          {getISOWeek(weekStart)}
         </div>
       );
     }
     for (let i = 0; i < 7; i++) {
-      const cloneDay = day;
-      const isCurrentMonth = isSameMonth(day, monthStart);
-      const isSelected =  selectedDate && isSameDay(day, selectedDate) && mode !== "Range" && mode !== "Double";
+      const currentDay = addDays(weekStart, i);
+      const isCurrentMonth = isSameMonth(currentDay, monthStart);
+      const isSelected =
+        selectedDate &&
+        isSameDay(currentDay, selectedDate) &&
+        mode !== "Range" &&
+        mode !== "Double";
       const isInRange =
         range.start &&
         range.end &&
-        isWithinInterval(day, { start: range.start, end: range.end });
-      const isStartOfRange = range.start && isSameDay(day, range.start);
-      const isEndOfRange = range.end && isSameDay(day, range.end);
+        isWithinInterval(currentDay, { start: range.start, end: range.end });
+      const isStartOfRange = range.start && isSameDay(currentDay, range.start);
+      const isEndOfRange = range.end && isSameDay(currentDay, range.end);
 
       const dayClass = clsx("calendar__days--item", {
         "text-gray-400": !isCurrentMonth,
@@ -70,24 +79,23 @@ const CalendarCells: React.FC<CalendarCellsPropsType>  = ({
       });
       daysInWeek.push(
         <div
-          key={day.toString()}
+          key={currentDay.toString()}
           className={dayClass}
           onClick={() => {
             if (mode === "Range" || mode === "Double") {
-              handleRangeSelection(cloneDay);
+              handleRangeSelection(currentDay);
             } else {
-              onSelectDate?.(cloneDay);
+              onSelectDate?.(currentDay);
             }
           }}
         >
-          {format(day, "d")}
+          {format(currentDay, "d")}
         </div>
       );
-      day = addDays(day, 1);
     }
-    weeks.push(
+    calendarWeeks.push(
       <div
-        key={day.toString()}
+        key={addDays(weekStart, 7).toString()}
         className={clsx(
           "calendar__days",
           mode === "Week Numbers" ? "grid-cols-8" : "grid-cols-7"
@@ -98,7 +106,7 @@ const CalendarCells: React.FC<CalendarCellsPropsType>  = ({
     );
   }
 
-  return weeks;
+  return calendarWeeks;
 };
 
 export default CalendarCells;

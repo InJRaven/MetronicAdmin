@@ -1,9 +1,10 @@
 import clsx from "clsx";
+import { memo } from "react";
 
 interface CalendarDaysPropsType {
   mode: string;
 }
-const CalendarDays: React.FC<CalendarDaysPropsType> = ({ mode }) => {
+const CalendarDays: React.FC<CalendarDaysPropsType> = memo(({ mode }) => {
   const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
   return (
     <div
@@ -22,6 +23,6 @@ const CalendarDays: React.FC<CalendarDaysPropsType> = ({ mode }) => {
       ))}
     </div>
   );
-};
+});
 
 export default CalendarDays;

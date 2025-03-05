@@ -3,7 +3,7 @@ import { memo } from "react";
 
 interface IconPropsType {
   className?: string;
-  name: keyof typeof NameIcon;
+  name: keyof typeof nameIcon;
   type: "Duotone" | "Filled" | "Outline" | "Solid";
 }
 
@@ -14,7 +14,7 @@ const TypeIcon = {
   Solid: "ki-solid",
 };
 
-const NameIcon = {
+const nameIcon = {
   "Abstract 1": "ki-abstract-1",
   "Abstract 2": "ki-abstract-2",
   "Abstract 3": "ki-abstract-3",
@@ -585,7 +585,7 @@ const Icon: React.FC<IconPropsType> = ({
   name,
   type = "Duotone",
   className,
-}) => <i className={clsx(NameIcon[name], TypeIcon[type], className)} />;
+}) => <i className={clsx(nameIcon[name], TypeIcon[type], className)} />;
 
 
 export default memo(Icon)

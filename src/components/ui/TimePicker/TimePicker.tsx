@@ -3,6 +3,7 @@ import { DigitalClock } from "@widgets";
 import * as Popover from "@radix-ui/react-popover";
 import React, { useState } from "react";
 import { format } from "date-fns";
+import Icons from "../Icons/Icons";
 
 interface TimePickerPropsType {
   initialTime: Date;
@@ -18,8 +19,8 @@ const TimePicker: React.FC<TimePickerPropsType> = ({
   return (
     <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
       <Popover.Trigger asChild>
-        <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit">
-          <i className="ki-filled ki-time" onClick={(e) => e.stopPropagation()}/>
+        <button className="btn gap-[1rem] text-gray-700 bg-transparent text-sm font-medium border border-gray-300 hover:border-gray-300 hover:shadow-light-default cursor-pointer px-[1.2rem] py-[1rem] rounded-[0.6rem]; w-fit" onClick={(e) => e.stopPropagation()}>
+          <Icons name="Time" type="Filled"/>
           {format(time,'HH:mm a')}
         </button>
       </Popover.Trigger>
