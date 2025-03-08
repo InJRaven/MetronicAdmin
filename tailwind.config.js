@@ -265,6 +265,7 @@ module.exports = {
           warning: "0px 4px 12px 0px rgba(246, 192, 0, 0.35)",
           dark: "0px 4px 12px 0px rgba(37, 47, 74, 0.35)",
           widget: " 0px 3px 4px 0px rgba(0, 0, 0, 0.03)",
+          input:" 0px 0px 10px 0px rgba(0, 0, 0, 0.10)",
           calendar: "0px 10px 14px 0px rgba(15, 42, 81, 0.03)",
         },
         dark: {
@@ -291,15 +292,12 @@ module.exports = {
         },
         sm: {
           px: "1rem",
-          py: "0.8rem",
         },
         md: {
           px: "1.2rem",
-          py: "1rem",
         },
         lg: {
-          px: "1.4rem",
-          py: "1.2rem",
+          px: "1.2rem",
         },
       },
     },

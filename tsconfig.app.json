@@ -25,15 +25,31 @@
     /* Alias */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/components/pages/*"],
-      "@partials/*": ["src/components/partials/*"],
-      "@ui/*": ["src/components/ui/*"],
-      "@widgets/*": ["src/components/widgets/*"],
-      "@context/*": ["src/context/*"],
-      "@hook/*": ["src/hooks/*"],
-      "@views": ["src/views/*"]
+      "@/*": ["./src/*"],
+
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"],
+
+      "@pages": ["./src/components/pages/*"],
+      "@pages/*": ["./src/components/pages/*"],
+
+      "@partials": ["./src/components/partials"],
+      "@partials/*": ["./src/components/partials/*"],
+
+      "@ui": ["./src/components/ui"],
+      "@ui/*": ["./src/components/ui/*"],
+
+      "@widgets": ["./src/components/widgets"],
+      "@widgets/*": ["./src/components/widgets/*"],
+
+      "@context": ["./src/context"],
+      "@context/*": ["./src/context/*"],
+
+      "@hook": ["./src/hooks"],
+      "@hook/*": ["./src/hooks/*"],
+
+      "@views": ["./src/views"],
+      "@views/*": ["./src/views/*"]
     }
   },
   "include": ["src", "plugins"]

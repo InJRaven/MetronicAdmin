@@ -1,3 +1,4 @@
+// @ts-expect-error: '@partials'
 import { Header, SideBar } from "@partials";
 import { Outlet } from "react-router-dom";
 // import { Header, SideBar } from "../../components/partials";

@@ -3,6 +3,7 @@ import Icons from "./Icons/Icons";
 
 import PageHeading from "./PageHeading/Heading";
 import Button from "./Button/Button";
+import InputFiled from "./Forms/InputFiled";
 import Input from "./Inputs/Inputs";
 import DataDisplay from "./DataDisplay/DataDisplay";
 import DatePicker from "./DatePicker/DatePicker";
@@ -16,6 +17,7 @@ export {
   Icons,
   PageHeading,
   Button,
+  InputFiled,
   Input,
   DataDisplay,
   DatePicker,
