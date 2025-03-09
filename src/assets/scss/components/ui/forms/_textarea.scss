@@ -1,0 +1,11 @@
+.textarea {
+  @apply px-[1.2rem] py-[0.8rem] w-full bg-light-active rounded-[0.6rem] border border-gray-300 text-gray-700 text-b-13-14-medium focus-within:bg-light focus-within:border-primary transition-colors duration-200 focus-within:text-gray-800 font-medium min-h-[3.5rem];
+
+  &.textarea-sm {
+    @apply text-b-11-12-medium px-[1rem] py-[0.6rem] min-h-[3rem];
+  }
+
+  &.textarea-lg {
+    @apply text-b-14-14-semibold min-h-[4rem];
+  }
+}

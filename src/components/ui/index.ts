@@ -5,6 +5,7 @@ import PageHeading from "./PageHeading/Heading";
 import Button from "./Button/Button";
 import InputFiled from "./Forms/InputFiled";
 import Input from "./Inputs/Inputs";
+import Textarea from "./Forms/Textarea";
 import DataDisplay from "./DataDisplay/DataDisplay";
 import DatePicker from "./DatePicker/DatePicker";
 import TimePicker from "./TimePicker/TimePicker";
@@ -19,6 +20,7 @@ export {
   Button,
   InputFiled,
   Input,
+  Textarea,
   DataDisplay,
   DatePicker,
   TimePicker,

@@ -1,16 +1,17 @@
 import clsx from "clsx";
 import { ChangeEvent, FC, memo, ReactNode } from "react";
+import InputLayout from "./InputLayout";
 
 interface InputFiledsPropsType {
+  state: "Default" | "Label" | "Icon" | "Label + Icon";
   label?: string;
   type: "text" | "number" | "email" | "password" | "search" | "tel" | "url";
-  size: "Large" | "Medium" | "Small";
-  variant: "Outline" | "Tertiary";
+  size: "Large" | "Default" | "Small";
   value: string | number;
   name?: string;
   placeholder?: string;
   id?: string;
-  flexDirection?: "Column" | "Column Reverse" | "Row" | "Row Reverse";
+  htmlFor?: string;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -19,21 +20,22 @@ interface InputFiledsPropsType {
   readOnly?: boolean;
   required?: boolean;
   disabled?: boolean;
-  inputFiledClassName?: string;
-  inputClassName?: string;
-  labelClassName?: string;
+  CustomLayoutClassName?: string;
+  InputClassName?: string;
+  GroupClassName?: string;
+  LabelClassName?: string;
 }
 
 const InputFiled: FC<InputFiledsPropsType> = memo(
   ({
+    state = "Default",
     label,
     type = "text",
-    size = "Medium",
-    variant = "Outline",
+    size = "Default",
     value = "",
     name,
     id,
-    flexDirection = 'Row',
+    htmlFor,
     placeholder,
     iconLeft,
     iconRight,
@@ -43,96 +45,56 @@ const InputFiled: FC<InputFiledsPropsType> = memo(
     readOnly,
     required,
     disabled,
-    inputClassName,
-    labelClassName,
-    inputFiledClassName,
+    CustomLayoutClassName,
+    GroupClassName,
+    LabelClassName,
+    InputClassName,
   }) => {
     const inputSize = {
-      Large: "input-lg",
-      Medium: "input-md",
-      Small: "input-sm",
-    };
-    const inputVariant = {
-      Outline: "border border-gray-300",
-      Tertiary: "",
-    };
-    const fontSize = {
-      Large: "text-b-14-14",
-      Medium: "text-b-13-14",
-      Small: "text-b-11-12",
-    };
-    const flexDirectionStyle = {
-      Column: "flex-col items-baseline gap-[0.5rem]",
-      "Column Reverse": "flex-col-reverse items-baseline gap-[0.5rem]",
-      Row: "flex-row items-center gap-[1rem]",
-      "Row Reverse": "flex-row-reverse items-baseline gap-[1rem]",
-    };
-
+      Default:'',
+      Small:'input-sm',
+      Large:'input-lg' 
+    }
     return (
-      <>
-        {label ? (
-          <div className={clsx('w-full flex',flexDirectionStyle[flexDirection])}>
-            <label
-              htmlFor={name}
-              className={clsx(fontSize[size], labelClassName)}
-            >
-              {label}
-              {required && <span className="ml-1 text-warning">*</span>}
-            </label>
-            <div
-              className={clsx(
-                "input-field",
-                inputSize[size],
-                inputVariant[variant],
-                inputFiledClassName
-              )}
-            >
-              {iconLeft && iconLeft}
-              <input
-                type={type}
-                id={id}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                onChange={onChange}
-                autoCapitalize={autoCapitalize}
-                autoComplete={autoComplete}
-                readOnly={readOnly}
-                required={required}
-                disabled={disabled}
-                className={clsx(fontSize[size], inputClassName)}
-              />
-              {iconRight && iconRight}
-            </div>
-          </div>
-        ) : (
-          <div
-            className={clsx(
-              "input-field",
-              inputSize[size],
-              inputVariant[variant],
-              inputFiledClassName
-            )}
-          >
-            {iconLeft && iconLeft}
-            <input
-              type={type}
-              id={id}
-              name={name}
-              value={value}
-              placeholder={placeholder}
-              onChange={onChange}
-              autoCapitalize={autoCapitalize}
-              autoComplete={autoComplete}
-              readOnly={readOnly}
-              required={required}
-              disabled={disabled}
-              className={clsx(fontSize[size], inputClassName)}
-            />
-            {iconRight && iconRight}
-          </div>
+      <InputLayout
+        state={state}
+        size={size}
+        label={label}
+        htmlFor={htmlFor}
+        GroupClassName={clsx(
+          {
+            input: state === "Icon" || state === "Label + Icon",
+          },
+          inputSize[size],
+          GroupClassName
         )}
-      </>
+        LabelClassName={LabelClassName}
+        CustomLayoutClassName={CustomLayoutClassName}
+        iconLeft = {iconLeft}
+        iconRight= {iconRight}
+        Components={
+          <input
+            type={type}
+            id={id}
+            value={value}
+            name={name}
+            placeholder={placeholder}
+            onChange={onChange}
+            autoCapitalize={autoCapitalize}
+            readOnly={readOnly}
+            disabled={disabled}
+            autoComplete={autoComplete}
+            required={required}
+            className={clsx(
+              {
+                input: state === "Default" || state === "Label",
+              },
+              inputSize[size],
+              InputClassName
+            )}
+          />
+        }
+      />
     );
   }
 );
