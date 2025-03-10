@@ -1,0 +1,7 @@
+.checkbox[type="checkbox"] {
+  @apply cursor-pointer rounded-[0.6rem] appearance-none h-[2.2rem] w-[2.2rem] border border-gray-300 focus:border-primary bg-no-repeat bg-[50%] bg-auto;
+
+  &:checked{
+    @apply bg-primary border-primary;
+  }
+}

@@ -10,7 +10,7 @@ interface InputLayoutPropsType {
   iconRight?: ReactNode;
   Components?: ReactNode;
   GroupClassName?: string;
-  LabelClassName?: string;
+  FormLabelClassName?: string;
   CustomLayoutClassName?: string;
 }
 const InputLayout: FC<InputLayoutPropsType> = ({
@@ -22,13 +22,13 @@ const InputLayout: FC<InputLayoutPropsType> = ({
   iconRight,
   Components,
   GroupClassName,
-  LabelClassName,
+  FormLabelClassName,
   CustomLayoutClassName,
 }) => {
   const fontSize = {
-    Default: "text-b-13-14-medium",
+    Default: "",
     Large: "text-b-14-14-medium",
-    Small: "text-b-11-12-medium",
+    Small: "text-b-12-12-medium",
   };
   switch (state) {
     case "Label":
@@ -42,7 +42,7 @@ const InputLayout: FC<InputLayoutPropsType> = ({
           >
             <label
               htmlFor={htmlFor}
-              className={clsx(fontSize[size], LabelClassName)}
+              className={clsx('form-label',fontSize[size], FormLabelClassName)}
             >
               {label}
             </label>
@@ -68,7 +68,7 @@ const InputLayout: FC<InputLayoutPropsType> = ({
               CustomLayoutClassName
             )}
           >
-            <label className={clsx(fontSize[size], LabelClassName)}>
+            <label className={clsx('form-label',fontSize[size], FormLabelClassName)}>
               {label}
             </label>
             <div className={GroupClassName}>

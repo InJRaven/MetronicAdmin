@@ -1,14 +1,26 @@
 import { ChangeEvent, useState } from "react";
 
 import { Icons, Inputs, ProgressBar, Textarea } from "@ui";
+import CheckBox from "@/components/ui/Forms/Checkbox";
 
 const Home = () => {
   const [value, setValue] = useState<string>("");
-  const [textareaValue,setTextareaValue] =useState<string>("")
+  const [textareaValue, setTextareaValue] = useState<string>("");
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
   return (
     <>
       <Textarea state="Default" placeholder="Textarea" />
-      <Textarea state="Label" value={textareaValue} onChange={(e:ChangeEvent<HTMLTextAreaElement>) => setTextareaValue(e.target.value)} placeholder="Label Mode" label="Label TextArea" />
+      <Textarea
+        state="Label"
+        value={textareaValue}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setTextareaValue(e.target.value)
+        }
+        placeholder="Label Mode"
+        label="Label TextArea"
+        disabled
+      />
       <Inputs
         state="Default"
         size="Default"
@@ -30,7 +42,7 @@ const Home = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setValue(e.target.value)
         }
-        CustomLayoutClassName='!gap-[0.5rem]'
+        CustomLayoutClassName="!gap-[0.5rem]"
         placeholder="Label mode"
       />
       <Inputs
@@ -43,11 +55,14 @@ const Home = () => {
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setValue(e.target.value)
         }
-        iconLeft = {<Icons name="Abstract 1" type="Duotone"/>}
-        iconRight= {<Icons name="Abstract 1" type="Duotone"/>}
-        CustomLayoutClassName='!gap-[0.5rem]'
+        iconLeft={<Icons name="Abstract 1" type="Duotone" />}
+        iconRight={<Icons name="Abstract 1" type="Duotone" />}
+        CustomLayoutClassName="!gap-[0.5rem]"
         placeholder="Label + Icon mode"
+        disabled
       />
+
+      <CheckBox size="Default" checked={isChecked} label="Test" onChange={() => setIsChecked(!isChecked)} />
       <ProgressBar size="Medium" colors="Dark" max={100} />
     </>
   );

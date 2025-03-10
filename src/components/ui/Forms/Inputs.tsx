@@ -22,7 +22,7 @@ interface InputFiledsPropsType {
   disabled?: boolean;
   CustomLayoutClassName?: string;
   GroupClassName?: string;
-  LabelClassName?: string;
+  FormLabelClassName?: string;
   InputClassName?: string;
 }
 
@@ -47,7 +47,7 @@ const Inputs: FC<InputFiledsPropsType> = memo(
     disabled,
     CustomLayoutClassName,
     GroupClassName,
-    LabelClassName,
+    FormLabelClassName,
     InputClassName,
   }) => {
     const inputSize = {
@@ -69,7 +69,7 @@ const Inputs: FC<InputFiledsPropsType> = memo(
           (state === "Icon" || state === "Label + Icon") && inputSize[size],
           GroupClassName
         )}
-        LabelClassName={LabelClassName}
+        FormLabelClassName={FormLabelClassName}
         CustomLayoutClassName={CustomLayoutClassName}
         iconLeft={iconLeft}
         iconRight={iconRight}

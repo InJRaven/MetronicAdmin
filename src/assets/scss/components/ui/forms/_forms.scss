@@ -1,2 +1,6 @@
-@import './inputs';
-@import './textarea';
+@import "./inputs";
+@import "./textarea";
+@import "./checkbox";
+.form-label {
+    @apply flex w-fit text-b-13-14-medium text-gray-700; 
+}
