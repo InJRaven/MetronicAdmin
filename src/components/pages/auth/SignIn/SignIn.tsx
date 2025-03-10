@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Button, Icon, Input } from "../../../ui";
+import { Button, Icon} from "../../../ui";
 
 const SignIn = () => {
   return (
     <>
-      <div className="w-full flex flex-col gap-[1rem] items-center self-stretch">
+      {/* <div className="w-full flex flex-col gap-[1rem] items-center self-stretch">
         <h2 className="text-2.5xl font-medium text-center text-gray-900">
           Sign In
         </h2>
@@ -70,7 +70,7 @@ const SignIn = () => {
           color="Primary"
           text="Sign In"
         />
-      </form>
+      </form> */}
     </>
   );
 };

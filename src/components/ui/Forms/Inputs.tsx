@@ -4,9 +4,9 @@ import InputLayout from "./InputLayout";
 
 interface InputFiledsPropsType {
   state: "Default" | "Label" | "Icon" | "Label + Icon";
-  label?: string;
   type: "text" | "number" | "email" | "password" | "search" | "tel" | "url";
   size: "Large" | "Default" | "Small";
+  label?: string;
   value: string | number;
   name?: string;
   placeholder?: string;
@@ -21,12 +21,12 @@ interface InputFiledsPropsType {
   required?: boolean;
   disabled?: boolean;
   CustomLayoutClassName?: string;
-  InputClassName?: string;
   GroupClassName?: string;
   LabelClassName?: string;
+  InputClassName?: string;
 }
 
-const InputFiled: FC<InputFiledsPropsType> = memo(
+const Inputs: FC<InputFiledsPropsType> = memo(
   ({
     state = "Default",
     label,
@@ -51,10 +51,11 @@ const InputFiled: FC<InputFiledsPropsType> = memo(
     InputClassName,
   }) => {
     const inputSize = {
-      Default:'',
-      Small:'input-sm',
-      Large:'input-lg' 
-    }
+      Default: "",
+      Small: "input-sm",
+      Large: "input-lg",
+    };
+
     return (
       <InputLayout
         state={state}
@@ -65,13 +66,13 @@ const InputFiled: FC<InputFiledsPropsType> = memo(
           {
             input: state === "Icon" || state === "Label + Icon",
           },
-          inputSize[size],
+          (state === "Icon" || state === "Label + Icon") && inputSize[size],
           GroupClassName
         )}
         LabelClassName={LabelClassName}
         CustomLayoutClassName={CustomLayoutClassName}
-        iconLeft = {iconLeft}
-        iconRight= {iconRight}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
         Components={
           <input
             type={type}
@@ -89,7 +90,7 @@ const InputFiled: FC<InputFiledsPropsType> = memo(
               {
                 input: state === "Default" || state === "Label",
               },
-              inputSize[size],
+              (state === "Default" || state === "Label") && inputSize[size],
               InputClassName
             )}
           />
@@ -99,4 +100,4 @@ const InputFiled: FC<InputFiledsPropsType> = memo(
   }
 );
 
-export default InputFiled;
+export default Inputs;

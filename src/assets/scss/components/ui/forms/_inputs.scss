@@ -1,0 +1,19 @@
+.input {
+  @apply px-[1.2rem] py-[0.8rem] w-full bg-light-active rounded-[0.6rem] border border-gray-300 text-gray-700 text-b-13-14-medium focus-within:bg-light focus-within:border-primary transition duration-200 focus-within:text-gray-800 focus-within:shadow-light-input;
+  
+  &.input-lg {
+    @apply text-b-14-14-medium;
+  }
+
+  
+  &.input-sm {
+    @apply text-b-11-12-medium px-[1rem] py-[0.6rem];
+  }
+
+  &:not(input){
+    @apply flex gap-[0.6rem] items-center;
+  }
+  input{
+    @apply w-full bg-transparent;
+  }
+}
