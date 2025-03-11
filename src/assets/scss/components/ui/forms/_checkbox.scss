@@ -1,7 +1,12 @@
 .checkbox[type="checkbox"] {
-  @apply cursor-pointer rounded-[0.6rem] appearance-none h-[2.2rem] w-[2.2rem] border border-gray-300 focus:border-primary bg-no-repeat bg-[50%] bg-auto;
+  @apply rounded-[0.6rem] appearance-none h-[2.2rem] w-[2.2rem] border border-gray-300 focus:border-primary bg-no-repeat bg-[50%] bg-auto transition-colors duration-200 hover:border-gray-400 checked:bg-primary checked:border-primary indeterminate:bg-primary indeterminate:border-primary;
 
-  &:checked{
-    @apply bg-primary border-primary;
+  &:checked {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9' fill='none'%3E%3Cpath fill='%23fff' d='M10.367.542 4.8 6.108 1.567 2.875a.833.833 0 0 0-1.175 0 .833.833 0 0 0 0 1.175l3.825 3.825a.833.833 0 0 0 1.175 0l6.15-6.15A.833.833 0 1 0 10.367.542'/%3E%3C/svg%3E");
   }
+  &:indeterminate {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3E%3C/svg%3E");
+  }
+
+ 
 }

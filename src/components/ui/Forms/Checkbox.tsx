@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ChangeEvent, FC, forwardRef } from "react";
+import { ChangeEvent, forwardRef, useEffect } from "react";
 
 // Define the props for CheckBox component
 interface CheckBoxPropsType {
@@ -20,7 +20,7 @@ interface CheckBoxPropsType {
 }
 
 // Apply forwardRef to pass the ref from parent to child component
-const CheckBox: FC<CheckBoxPropsType> = forwardRef<
+const CheckBox = forwardRef<
   HTMLInputElement,
   CheckBoxPropsType
 >(
@@ -34,6 +34,7 @@ const CheckBox: FC<CheckBoxPropsType> = forwardRef<
       htmlFor,
       id,
       name,
+      indeterminate = false,
       autoFocus = false,
       required = false,
       disabled = false,
@@ -42,15 +43,21 @@ const CheckBox: FC<CheckBoxPropsType> = forwardRef<
     },
     ref
   ) => {
+    useEffect(() => {
+      if (ref && typeof ref !== 'function' && ref.current) {
+        ref.current.indeterminate = indeterminate;
+      }
+    }, [indeterminate, ref]);
     return (
       <label
         className={clsx(
-          "form-label flex items-center gap-[0.5rem] cursor-pointer",
+          "form-label flex items-center gap-[0.5rem] select-none",
           {
             Default: "",
             Large: "text-b-14-14-medium",
             Small: "text-b-12-12-medium",
           }[size],
+          {'opacity-55 pointer-events-none': disabled},
           FormLabelClassName
         )}
         htmlFor={htmlFor}

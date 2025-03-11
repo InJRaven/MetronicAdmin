@@ -16,13 +16,13 @@ interface TextareaPropsType {
   cols?: number;
   readOnly?: boolean;
   disabled?: boolean;
-  LabelClassName?: string;
+  FormLabelClassName?: string;
   TextareaClassName?: string;
   CustomLayoutClassName?: string;
 }
 const Textarea: FC<TextareaPropsType> = ({
   state = "Default",
-  size = 'Default',
+  size = "Default",
   label,
   htmlFor,
   id,
@@ -34,24 +34,31 @@ const Textarea: FC<TextareaPropsType> = ({
   cols,
   readOnly = false,
   disabled = false,
-  LabelClassName,
+  FormLabelClassName,
   TextareaClassName,
   CustomLayoutClassName,
 }) => {
-
   return (
     <InputLayout
       state={state}
       size={size}
       label={label}
       htmlFor={htmlFor}
-      LabelClassName={LabelClassName}
-      CustomLayoutClassName={CustomLayoutClassName}
+      FormLabelClassName={FormLabelClassName}
+      CustomLayoutClassName={clsx(
+        { "opacity-55 pointer-event-none": state === "Label" && disabled },
+        CustomLayoutClassName
+      )}
       Components={
         <textarea
           id={id}
           name={name}
-          className={clsx('textarea',{Default:'', Small:'textarea-sm', Large:'textarea-lg'}[size],TextareaClassName)}
+          className={clsx(
+            "textarea",
+            { Default: "", Small: "textarea-sm", Large: "textarea-lg" }[size],
+            { "opacity-55 pointer-event-none": state === "Default" && disabled },
+            TextareaClassName
+          )}
           value={value}
           placeholder={placeholder}
           onChange={onChange}
