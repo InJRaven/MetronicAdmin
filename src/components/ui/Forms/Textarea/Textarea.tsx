@@ -1,6 +1,7 @@
 import { ChangeEvent, FC } from "react";
-import InputLayout from "./InputLayout";
+
 import clsx from "clsx";
+import FormLayout from "../FormLayout/FormLayout";
 
 interface TextareaPropsType {
   state: "Default" | "Label";
@@ -39,7 +40,7 @@ const Textarea: FC<TextareaPropsType> = ({
   CustomLayoutClassName,
 }) => {
   return (
-    <InputLayout
+    <FormLayout
       state={state}
       size={size}
       label={label}

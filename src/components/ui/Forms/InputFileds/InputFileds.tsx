@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { ChangeEvent, FC, memo, ReactNode } from "react";
-import InputLayout from "./InputLayout";
+import FormLayout from "../FormLayout/FormLayout";
+
 
 interface InputFiledsPropsType {
   state: "Default" | "Label" | "Icon" | "Label + Icon";
@@ -57,7 +58,7 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
     };
 
     return (
-      <InputLayout
+      <FormLayout
         state={state}
         size={size}
         label={label}

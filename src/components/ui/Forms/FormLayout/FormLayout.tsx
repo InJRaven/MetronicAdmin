@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC, ReactNode } from "react";
 
-interface InputLayoutPropsType {
+interface FormLayoutPropsType {
   state: "Default" | "Label" | "Icon" | "Label + Icon";
   size: "Large" | "Small" | "Default";
   label?: string;
@@ -13,7 +13,7 @@ interface InputLayoutPropsType {
   FormLabelClassName?: string;
   CustomLayoutClassName?: string;
 }
-const InputLayout: FC<InputLayoutPropsType> = ({
+const FormLayout: FC<FormLayoutPropsType> = ({
   state = "Default",
   size = "Default",
   label,
@@ -88,4 +88,4 @@ const InputLayout: FC<InputLayoutPropsType> = ({
   }
 };
 
-export default InputLayout;
+export default FormLayout;
