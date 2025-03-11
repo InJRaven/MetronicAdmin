@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
-import { Icons, Inputs, ProgressBar, Textarea } from "@ui";
+import { Icons, InputFileds, ProgressBar, Textarea } from "@ui";
 import CheckBox from "@/components/ui/Forms/Checkbox";
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
         label="Label TextArea"
         disabled
       />
-      <Inputs
+      <InputFileds
         state="Default"
         size="Default"
         type="text"
@@ -32,7 +32,7 @@ const Home = () => {
         }
         placeholder="Default mode"
       />
-      <Inputs
+      <InputFileds
         state="Label"
         size="Small"
         type="text"
@@ -45,7 +45,7 @@ const Home = () => {
         CustomLayoutClassName="!gap-[0.5rem]"
         placeholder="Label mode"
       />
-      <Inputs
+      <InputFileds
         state="Label + Icon"
         size="Large"
         type="text"

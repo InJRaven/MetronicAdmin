@@ -3,7 +3,7 @@ import Icons from "./Icons/Icons";
 
 import PageHeading from "./PageHeading/Heading";
 import Button from "./Button/Button";
-import Inputs from "./Forms/Inputs";
+import InputFileds from "./Forms/InputFileds";
 import Textarea from "./Forms/Textarea";
 import DataDisplay from "./DataDisplay/DataDisplay";
 import DatePicker from "./DatePicker/DatePicker";
@@ -17,7 +17,7 @@ export {
   Icons,
   PageHeading,
   Button,
-  Inputs,
+  InputFileds,
   Textarea,
   DataDisplay,
   DatePicker,

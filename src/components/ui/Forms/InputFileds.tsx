@@ -26,7 +26,7 @@ interface InputFiledsPropsType {
   InputClassName?: string;
 }
 
-const Inputs: FC<InputFiledsPropsType> = memo(
+const InputFileds: FC<InputFiledsPropsType> = memo(
   ({
     state = "Default",
     label,
@@ -100,4 +100,4 @@ const Inputs: FC<InputFiledsPropsType> = memo(
   }
 );
 
-export default Inputs;
+export default InputFileds;
