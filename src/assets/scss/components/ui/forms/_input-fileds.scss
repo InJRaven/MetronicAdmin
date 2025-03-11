@@ -1,29 +1,13 @@
 .input {
-  @apply px-[1.2rem] py-[0.8rem] w-full bg-light-active rounded-[0.6rem] border border-gray-300 hover:border-gray-400 text-gray-700 text-b-13-14-medium focus-within:bg-light focus-within:border-primary transition duration-200 focus-within:text-gray-800 focus-within:shadow-light-input;
+  @apply px-[1.2rem] py-[0.8rem] w-full bg-light-active rounded-[0.6rem] border border-gray-300 hover:border-gray-400 text-gray-700 text-b-13-14-medium focus-within:bg-light focus-within:border-primary transition duration-200 focus-within:text-gray-800 focus-within:shadow-light-input focus:outline-none has-[input]:flex has-[input]:gap-[0.6rem] has-[input]:items-center focus-within:hover:border-primary;
 
-  &[type="text"]:read-only,
-  &[type="number"]:read-only,
-  &[type="url"]:read-only,
-  &[type="email"]:read-only,
-  &[type="password"]:read-only,
-  &[type="search"]:read-only,
-  &[type="tel"]:read-only,
-  &[type="url"]:read-only {
-    @apply pointer-events-none;
-  }
-  
+
+
   &.input-lg {
     @apply text-b-14-14-medium;
   }
 
   &.input-sm {
     @apply text-b-11-12-medium px-[1rem] py-[0.6rem];
-  }
-
-  &:not(input) {
-    @apply flex gap-[0.6rem] items-center;
-  }
-  input {
-    @apply w-full bg-transparent;
   }
 }

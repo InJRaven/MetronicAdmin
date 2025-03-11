@@ -25,11 +25,7 @@ const InputLayout: FC<InputLayoutPropsType> = ({
   FormLabelClassName,
   CustomLayoutClassName,
 }) => {
-  const fontSize = {
-    Default: "",
-    Large: "text-b-14-14-medium",
-    Small: "text-b-12-12-medium",
-  };
+  
   switch (state) {
     case "Label":
       return (
@@ -42,7 +38,11 @@ const InputLayout: FC<InputLayoutPropsType> = ({
           >
             <label
               htmlFor={htmlFor}
-              className={clsx('form-label',fontSize[size], FormLabelClassName)}
+              className={clsx('form-label',{
+    Default: "",
+    Large: "label-lg",
+    Small: "label-sm",
+  }[size], FormLabelClassName)}
             >
               {label}
             </label>
@@ -68,7 +68,11 @@ const InputLayout: FC<InputLayoutPropsType> = ({
               CustomLayoutClassName
             )}
           >
-            <label className={clsx('form-label',fontSize[size], FormLabelClassName)}>
+            <label className={clsx('form-label',{
+    Default: "",
+    Large: "label-lg",
+    Small: "label-sm",
+  }[size], FormLabelClassName)}>
               {label}
             </label>
             <div className={GroupClassName}>

@@ -1,6 +1,15 @@
+
 @import "./input-fileds";
-@import "./textarea";
 @import "./checkbox";
+@import "./radio";
+@import "./textarea";
 .form-label {
-    @apply flex w-fit text-b-13-14-medium text-gray-700; 
-}
+    @apply flex w-fit text-b-13-14-medium text-gray-700;
+    &.label-sm{
+        @apply text-b-11-12-medium;
+    }
+
+    &.label-lg{
+        @apply text-b-14-14-medium;
+    }
+  }

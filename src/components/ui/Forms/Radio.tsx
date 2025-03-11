@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { ChangeEvent, forwardRef, useEffect } from "react";
+import { ChangeEvent, forwardRef } from "react";
 
-// Define the props for CheckBox component
-interface CheckBoxPropsType {
+interface RadioInputPropsType {
   label?: string;
   size?: "Small" | "Default" | "Large";
   value?: string | number;
@@ -10,52 +9,45 @@ interface CheckBoxPropsType {
   htmlFor?: string;
   id?: string;
   name?: string;
-  checked: boolean;
-  indeterminate?: boolean;
+  ariaLabel?: string;
+  tabIndex?: number; 
+  checked?: boolean;
   autoFocus?: boolean;
   required?: boolean;
   disabled?: boolean;
   FormLabelClassName?: string;
-  CheckBoxClassName?: string;
+  RadioButtonClassName?: string;
 }
 
-// Apply forwardRef to pass the ref from parent to child component
-const CheckBox = forwardRef<
-  HTMLInputElement,
-  CheckBoxPropsType
->(
+const Radio = forwardRef<HTMLInputElement, RadioInputPropsType>(
   (
     {
       label,
-      size = "Defautl",
+      size = "Default",
       value,
       onChange,
       checked,
       htmlFor,
       id,
       name,
-      indeterminate = false,
+      ariaLabel,
+      tabIndex,
       autoFocus = false,
       required = false,
       disabled = false,
       FormLabelClassName,
-      CheckBoxClassName,
+      RadioButtonClassName,
     },
-    ref
+    ref // Lấy ref từ component cha
   ) => {
-    useEffect(() => {
-      if (ref && typeof ref !== 'function' && ref.current) {
-        ref.current.indeterminate = indeterminate;
-      }
-    }, [indeterminate, ref]);
     return (
       <label
         className={clsx(
           "form-label flex items-center gap-[0.5rem] select-none",
           {
             Default: "",
-            Large: "label-lg",
-            Small: "label-sm",
+            Large: "text-b-14-14-medium",
+            Small: "text-b-12-12-medium",
           }[size],
           {'opacity-55 pointer-events-none': disabled},
           FormLabelClassName
@@ -63,8 +55,8 @@ const CheckBox = forwardRef<
         htmlFor={htmlFor}
       >
         <input
-          ref={ref}
-          type="checkbox"
+          ref={ref} // Truyền ref từ component cha
+          type="radio"
           value={value}
           id={id}
           name={name}
@@ -73,14 +65,16 @@ const CheckBox = forwardRef<
           autoFocus={autoFocus}
           required={required}
           disabled={disabled}
+          aria-label = {ariaLabel}
+          tabIndex={tabIndex}
           className={clsx(
-            "checkbox",
+            "radio",
             {
               Default: "",
-              Small: "checkbox-sm",
-              Large: "checkbox-lg",
+              Small: "radio-sm",
+              Large: "radio-lg",
             }[size],
-            CheckBoxClassName
+            RadioButtonClassName
           )}
         />
         {label}
@@ -89,4 +83,4 @@ const CheckBox = forwardRef<
   }
 );
 
-export default CheckBox;
+export default Radio;

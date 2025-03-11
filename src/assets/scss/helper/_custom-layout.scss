@@ -17,9 +17,9 @@ section.page-heading {
 .menu-title {
   @apply flex grow items-center transition-colors duration-200;
 }
-#halfGradient{
- @apply text-warning; 
+#halfGradient {
+  @apply text-warning;
 }
-#strokeGradient{
+#strokeGradient {
   @apply text-gray-400;
 }
