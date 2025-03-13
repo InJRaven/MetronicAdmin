@@ -26,21 +26,26 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-
       "@assets": ["./src/assets"],
       "@assets/*": ["./src/assets/*"],
-
       "@pages": ["./src/components/pages/*"],
       "@pages/*": ["./src/components/pages/*"],
 
       "@partials": ["./src/components/partials"],
       "@partials/*": ["./src/components/partials/*"],
 
-      "@ui": ["./src/components/ui"],
-      "@ui/*": ["./src/components/ui/*"],
+      "@base": ["./src/components/ui/Base"],
+      "@base/*": ["./src/components/ui/Base/*"],
+
+      "@forms": ["./src/components/ui/Forms"],
+      "@forms/*": ["./src/components/ui/Forms/*"],
+
+      "@custom": ["./src/components/ui/Custom"],
+      "@custom/*": ["./src/components/ui/Custom/*"],
 
       "@widgets": ["./src/components/widgets"],
       "@widgets/*": ["./src/components/widgets/*"],
+
 
       "@context": ["./src/context"],
       "@context/*": ["./src/context/*"],
@@ -48,8 +53,6 @@
       "@hook": ["./src/hooks"],
       "@hook/*": ["./src/hooks/*"],
 
-      "@views": ["./src/views"],
-      "@views/*": ["./src/views/*"]
     }
   },
   "include": ["src", "plugins"]

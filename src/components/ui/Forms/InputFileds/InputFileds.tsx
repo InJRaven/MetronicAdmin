@@ -66,14 +66,14 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
         GroupClassName={clsx(
           {
             input: state === "Icon" || state === "Label + Icon",
-            "opacity-55 pointer-event-none": state === "Icon" && disabled,
+            disabled: state === "Icon" && disabled,
           },
           (state === "Icon" || state === "Label + Icon") && inputSize[size],
           GroupClassName
         )}
         FormLabelClassName={FormLabelClassName}
         CustomLayoutClassName={clsx(
-          { "opacity-55 pointer-event-none": disabled },
+          { disabled: disabled },
           CustomLayoutClassName
         )}
         iconLeft={iconLeft}
@@ -94,7 +94,7 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
             className={clsx(
               {
                 input: state === "Default" || state === "Label",
-                "opacity-55": state === "Default" && disabled,
+                disabled: state === "Default" && disabled,
               },
               (state === "Default" || state === "Label") && inputSize[size],
               InputClassName

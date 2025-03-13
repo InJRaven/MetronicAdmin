@@ -281,6 +281,7 @@ module.exports = {
           calendar: "none",
         },
       },
+     
       backgroundImage: {
         "auth-light": "url('../img/auth_light.jpg')",
         "auth-dark": "url('../img/auth_dark.jpg')",

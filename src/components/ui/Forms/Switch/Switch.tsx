@@ -1,10 +1,10 @@
 import clsx from "clsx";
-import { ChangeEvent, forwardRef, ReactNode, useEffect } from "react";
+import { ChangeEvent, forwardRef, ReactNode } from "react";
 
 // Define the props for CheckBox component
-interface CheckBoxPropsType {
+interface SwitchPropsType {
   label?: string;
-  size?: "Small" | "Default" | "Large";
+  size?: "Small" | "Default" | "Large"; // Corrected the typo here
   value?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   htmlFor?: string;
@@ -12,20 +12,20 @@ interface CheckBoxPropsType {
   name?: string;
   checked: boolean;
   icon?: ReactNode;
-  indeterminate?: boolean;
   autoFocus?: boolean;
   required?: boolean;
   disabled?: boolean;
-  FormLabelClassName?: string;
+  reverse?:true;
+  SwitchClassName?: string;
   CheckBoxClassName?: string;
 }
 
 // Apply forwardRef to pass the ref from parent to child component
-const CheckBox = forwardRef<HTMLInputElement, CheckBoxPropsType>(
+const Switch = forwardRef<HTMLInputElement, SwitchPropsType>(
   (
     {
       label,
-      size = "Defautl",
+      size = "Default", // Corrected the typo here as well
       value,
       onChange,
       checked,
@@ -33,31 +33,22 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxPropsType>(
       id,
       name,
       icon,
-      indeterminate = false,
       autoFocus = false,
       required = false,
       disabled = false,
-      FormLabelClassName,
+      reverse =false,
+      SwitchClassName,
       CheckBoxClassName,
     },
     ref
   ) => {
-    useEffect(() => {
-      if (ref && typeof ref !== "function" && ref.current) {
-        ref.current.indeterminate = indeterminate;
-      }
-    }, [indeterminate, ref]);
     return (
       <label
         className={clsx(
-          "form-label flex items-center gap-[0.5rem] select-none",
-          {
-            Default: "",
-            Large: "label-lg",
-            Small: "label-sm",
-          }[size],
+          "switch",
           { disabled: disabled },
-          FormLabelClassName
+          { Default: "", Large: "switch-lg", Small: "switch-sm" }[size],{'flex-row-reverse' :reverse},
+          SwitchClassName
         )}
         htmlFor={htmlFor}
       >
@@ -72,21 +63,13 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxPropsType>(
           autoFocus={autoFocus}
           required={required}
           disabled={disabled}
-          className={clsx(
-            "checkbox",
-            {
-              Default: "",
-              Small: "checkbox-sm",
-              Large: "checkbox-lg",
-            }[size],
-            CheckBoxClassName
-          )}
+          className={clsx(CheckBoxClassName)} // Added the dynamic class name for the checkbox
         />
-        {label}
+        {label && <span className="switch-label">{label}</span>}
         {icon}
       </label>
     );
   }
 );
 
-export default CheckBox;
+export default Switch;

@@ -47,7 +47,7 @@ const Textarea: FC<TextareaPropsType> = ({
       htmlFor={htmlFor}
       FormLabelClassName={FormLabelClassName}
       CustomLayoutClassName={clsx(
-        { "opacity-55 pointer-event-none": state === "Label" && disabled },
+        { disabled: state === "Label" && disabled },
         CustomLayoutClassName
       )}
       Components={
@@ -57,7 +57,7 @@ const Textarea: FC<TextareaPropsType> = ({
           className={clsx(
             "textarea",
             { Default: "", Small: "textarea-sm", Large: "textarea-lg" }[size],
-            { "opacity-55 pointer-event-none": state === "Default" && disabled },
+            { disabled: state === "Default" && disabled },
             TextareaClassName
           )}
           value={value}

@@ -1,9 +1,10 @@
-// @ts-expect-error: '@widgets' 
+
 import { DigitalClock } from "@widgets";
 import * as Popover from "@radix-ui/react-popover";
 import React, { useState } from "react";
 import { format } from "date-fns";
-import Icons from "../Icons/Icons";
+import { Icons } from "@base";
+
 
 interface TimePickerPropsType {
   initialTime: Date;

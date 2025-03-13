@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent, forwardRef, ReactNode } from "react";
 
 interface RadioInputPropsType {
   label?: string;
@@ -9,8 +9,9 @@ interface RadioInputPropsType {
   htmlFor?: string;
   id?: string;
   name?: string;
+  icon?: ReactNode;
   ariaLabel?: string;
-  tabIndex?: number; 
+  tabIndex?: number;
   checked?: boolean;
   autoFocus?: boolean;
   required?: boolean;
@@ -26,10 +27,11 @@ const Radio = forwardRef<HTMLInputElement, RadioInputPropsType>(
       size = "Default",
       value,
       onChange,
-      checked,
+      checked = false,
       htmlFor,
       id,
       name,
+      icon,
       ariaLabel,
       tabIndex,
       autoFocus = false,
@@ -49,7 +51,7 @@ const Radio = forwardRef<HTMLInputElement, RadioInputPropsType>(
             Large: "text-b-14-14-medium",
             Small: "text-b-12-12-medium",
           }[size],
-          {'opacity-55 pointer-events-none': disabled},
+          { disabled: disabled },
           FormLabelClassName
         )}
         htmlFor={htmlFor}
@@ -65,7 +67,7 @@ const Radio = forwardRef<HTMLInputElement, RadioInputPropsType>(
           autoFocus={autoFocus}
           required={required}
           disabled={disabled}
-          aria-label = {ariaLabel}
+          aria-label={ariaLabel}
           tabIndex={tabIndex}
           className={clsx(
             "radio",
@@ -78,6 +80,7 @@ const Radio = forwardRef<HTMLInputElement, RadioInputPropsType>(
           )}
         />
         {label}
+        {icon}
       </label>
     );
   }

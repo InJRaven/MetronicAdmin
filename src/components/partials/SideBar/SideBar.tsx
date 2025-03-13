@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { Button } from "../../ui";
+import { Button } from "@base";
 import { useState } from "react";
 import "./Sidebar.scss";
 interface SideBarType {

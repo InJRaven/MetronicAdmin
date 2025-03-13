@@ -21,3 +21,6 @@ input{
 label{
   @apply text-b-13-14-medium;
 }
+.disabled{
+  @apply opacity-55 pointer-events-none;
+}

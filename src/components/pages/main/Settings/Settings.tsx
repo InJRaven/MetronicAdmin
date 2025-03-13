@@ -1,4 +1,5 @@
-import { PageHeading } from "../../../ui";
+import {PageHeading} from "@custom";
+
 
 interface SettingsType {
   className?: string;

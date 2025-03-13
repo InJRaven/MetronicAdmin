@@ -1,4 +1,5 @@
-import { PageHeading } from "../../../ui";
+import {PageHeading} from "@custom";
+
 
 const Singers = () => {
   return (
