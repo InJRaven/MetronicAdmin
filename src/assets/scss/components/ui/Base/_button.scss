@@ -233,7 +233,6 @@
   }
 }
 
-
 .btn-outline.btn-secondary,
 .btn-outline.btn-light,
 .btn-outline.btn-dark,
@@ -241,6 +240,24 @@
 .btn-clear.btn-dark,
 .btn-subtle.btn-secondary,
 .btn-subtle.btn-light,
-.btn-subtle.btn-dark{
+.btn-subtle.btn-dark {
   @apply hidden;
+}
+
+.btn-link {
+  @apply text-primary h-auto pb-[0.25em] ps-0 pe-0 bg-transparent border-b border-dashed border-primary;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    @apply bg-transparent border-b border-dashed border-primary-active text-primary-active;
+  }
+
+  &.btn-sm{
+    font-size: theme('fontSize.xs');
+  }
+
+  &.btn-lg{
+    font-size: theme('fontSize.sm');
+  }
 }
