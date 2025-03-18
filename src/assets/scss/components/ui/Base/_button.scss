@@ -39,7 +39,6 @@
   i {
     font-size: theme("custom.components.btn.sm.iconFontSize");
   }
-
 }
 
 .btn-lg {
@@ -52,7 +51,6 @@
   i {
     font-size: theme("custom.components.btn.lg.iconFontSize");
   }
-
 }
 //Button Icon
 .btn-icon {
@@ -82,4 +80,167 @@
   }
 }
 
-//Button Size
+// Button Color
+
+@each $color
+  in (
+    "primary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "dark",
+    "secondary",
+    "light"
+  )
+{
+  .btn-#{$color} {
+    color: theme("colors.white");
+    background-color: var(--tw-#{$color});
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--tw-#{$color}-active);
+      box-shadow: var(--tw-#{$color}-box-shadow);
+    }
+  }
+  .btn-outline.btn-#{$color} {
+    color: var(--tw-#{$color});
+    background-color: var(--tw-#{$color}-light);
+    border-color: var(--tw-#{$color}-clarity);
+    i {
+      color: var(--tw-#{$color});
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: var(--tw-#{$color}-inverse);
+      background-color: var(--tw-#{$color});
+      border-color: var(--tw-#{$color});
+      box-shadow: none;
+      i {
+        color: var(--tw-#{$color}-inverse);
+      }
+    }
+  }
+
+  .btn-clear.btn-#{$color} {
+    @apply bg-transparent border-transparent;
+    color: var(--tw-#{$color});
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: var(--tw-#{$color}-inverse);
+      background-color: var(--tw-#{$color});
+      border-color: var(--tw-#{$color});
+      box-shadow: none;
+      i {
+        color: var(--tw-#{$color}-inverse);
+      }
+    }
+  }
+  .btn-subtle.btn-#{$color} {
+    @apply bg-transparent border-transparent;
+    i {
+      color: var(--tw-#{$color});
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: var(--tw-#{$color});
+      background-color: var(--tw-#{$color}-light);
+      border-color: var(--tw-#{$color}-light);
+      box-shadow: none;
+      i {
+        color: var(--tw-#{$color});
+      }
+    }
+  }
+}
+.btn-light {
+  @apply text-gray-700 border-gray-300 bg-light;
+  i {
+    @apply text-gray-500;
+  }
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    @apply border-gray-300 bg-light-active shadow-default text-gray-800;
+    i {
+      @apply text-gray-600;
+    }
+  }
+  &[disabled],
+  &.disabled {
+    @apply opacity-100 text-gray-500 border-gray-200 bg-light;
+    i {
+      @apply text-gray-400;
+    }
+  }
+
+  &.btn-clear {
+    @apply border-transparent bg-transparent text-gray-700;
+    i {
+      @apply text-gray-600;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      @apply border-transparent bg-gray-200 shadow-none text-gray-800;
+      i {
+        @apply text-gray-700;
+      }
+    }
+    &[disabled],
+    &.disabled {
+      @apply opacity-100 text-gray-500 border-transparent bg-transparent;
+      i {
+        @apply text-gray-400;
+      }
+    }
+  }
+}
+
+.btn-secondary {
+  @apply text-gray-700 border-gray-200 bg-secondary;
+  i {
+    @apply text-gray-500;
+  }
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    @apply border-gray-300 bg-secondary-active shadow-default text-gray-800;
+    i {
+      @apply text-gray-600;
+    }
+  }
+  &[disabled],
+  &.disabled {
+    @apply opacity-100 text-gray-500 border-gray-200 bg-light;
+    i {
+      @apply text-gray-400;
+    }
+  }
+}
+
+
+.btn-outline.btn-secondary,
+.btn-outline.btn-light,
+.btn-outline.btn-dark,
+.btn-clear.btn-secondary,
+.btn-clear.btn-dark,
+.btn-subtle.btn-secondary,
+.btn-subtle.btn-light,
+.btn-subtle.btn-dark{
+  @apply hidden;
+}

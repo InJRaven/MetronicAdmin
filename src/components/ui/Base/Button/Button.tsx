@@ -6,33 +6,61 @@ import { cn } from "@/lib/utils";
 const buttonVariants = cva("btn", {
   variants: {
     variant: {
-      default: '',
-      outline:'btn-outline',
-      clear: 'btn-clear'
+      Default: "",
+      Outline: "btn-outline",
+      Clear: "btn-clear",
+      Subtle:"btn-subtle"
     },
     size: {
-      "extra small": "btn-xs",
-      default:'',
-      small: "btn-sm",
-      large: "btn-lg",
+      "Extra Small": "btn-xs",
+      Default: "",
+      Small: "btn-sm",
+      Large: "btn-lg",
     },
-    colors:{
-      
-    }
+    color: {
+      Primary: "btn-primary",
+      Secondary: "btn-secondary",
+      Success: "btn-success",
+      Danger: "btn-danger",
+      Warning: "btn-warning",
+      Info: "btn-info",
+      Dark: "btn-dark",
+      Light: "btn-light",
+    },
   },
   defaultVariants: {
-    variant: "default",
-    size: "default",
+    variant: "Default",
+    size: "Default",
+    color: "Primary",
   },
 });
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
   asChild?: boolean;
+  variant?: VariantProps<typeof buttonVariants>["variant"];
+  size?: VariantProps<typeof buttonVariants>["size"];
+  color?: VariantProps<typeof buttonVariants>["color"];
 }
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild, className, ...props }, ref) => {
+  (
+    {
+      asChild,
+      variant = "Default",
+      size = "Default",
+      color = "Primary",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
-    return <Comp ref={ref} className={cn(className)} {...props} />;
+    return (
+      <Comp
+        ref={ref}
+        className={cn(buttonVariants({ variant, size, color }), className)}
+        {...props}
+      />
+    );
   }
 );
 export default Button;

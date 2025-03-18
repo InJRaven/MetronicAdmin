@@ -4,24 +4,59 @@ import { useState } from "react";
 
 const Home = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const colors = [
+    "light",
+    "secondary",
+    "primary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "dark",
+  ];
   return (
     <>
       <div className="inline-flex gap-5">
-        <button className="btn btn-icon btn-xs bg-primary">
-          <Icons name="Abstract 10" type="Filled" />
-        </button>
-
-        <button className="btn btn-icon btn-sm bg-primary">
-          <Icons name="Abstract 10" type="Filled" />
-        </button>
-        <button className="btn btn-icon bg-primary">
-          <Icons name="Abstract 10" type="Filled" />
-        </button>
-        <button className="btn btn-icon btn-lg bg-primary">
-          <Icons name="Abstract 10" type="Filled" />
-        </button>
+        {colors.map((item, index) => (
+          <button className={`btn btn-icon btn-outline btn-${item}`} key={index}>
+            <Icons name="Abstract 1" type="Filled" />
+          </button>
+        ))}
       </div>
 
+      <div className="inline-flex gap-5">
+        {colors.map((item, index) => (
+          <button className={`btn btn-icon btn-clear btn-${item}`} key={index}>
+            <Icons name="Abstract 1" type="Filled" />
+          </button>
+        ))}
+      </div>
+
+      <div className="inline-flex gap-5">
+        {colors.map((item, index) => (
+          <button className={`btn btn-icon btn-subtle btn-${item}`} key={index}>
+            <Icons name="Abstract 1" type="Filled" />
+          </button>
+        ))}
+      </div>
+      <div className="inline-flex gap-5">
+        {colors.map((item, index) => (
+          <button className={`btn btn-icon btn-${item}`} key={index}>
+            <Icons name="Abstract 1" type="Filled" />
+          </button>
+        ))}
+      </div>
+
+      <div className="inline-flex gap-5">
+        {colors.map((item, index) => (
+          <button className={`btn btn-${item}`} key={index}>
+            <Icons name="Abstract 1" type="Filled" />
+            Test
+            <Icons name="Abstract 2" type="Filled" />
+
+          </button>
+        ))}
+      </div>
       {/* <Textarea state="Default" disabled/>
       <InputFileds state="Default" disabled/>
       <InputFileds size="Small" type="number" state="Label" label="test"/>
