@@ -1,12 +1,23 @@
-import clsx from "clsx";
-import { ChangeEvent, FC, memo, ReactNode } from "react";
+import { ChangeEvent, forwardRef, ReactNode } from "react";
 import FormLayout from "../FormLayout/FormLayout";
+import { cn } from "@/lib/utils"; 
 
 
+type State = "Default" | "Label" | "Icon" | "Label + Icon";
+type TypeInput =
+  | "text"
+  | "number"
+  | "email"
+  | "password"
+  | "search"
+  | "tel"
+  | "url";
+
+type Size = "Large" | "Default" | "Small";
 interface InputFiledsPropsType {
-  state: "Default" | "Label" | "Icon" | "Label + Icon";
-  type: "text" | "number" | "email" | "password" | "search" | "tel" | "url";
-  size: "Large" | "Default" | "Small";
+  state: State;
+  type: TypeInput;
+  size: Size;
   label?: string;
   value: string | number;
   name?: string;
@@ -27,30 +38,33 @@ interface InputFiledsPropsType {
   InputClassName?: string;
 }
 
-const InputFileds: FC<InputFiledsPropsType> = memo(
-  ({
-    state = "Default",
-    label,
-    type = "text",
-    size = "Default",
-    value = "",
-    name,
-    id,
-    htmlFor,
-    placeholder,
-    iconLeft,
-    iconRight,
-    onChange,
-    autoCapitalize,
-    autoComplete,
-    readOnly,
-    required,
-    disabled = false,
-    CustomLayoutClassName,
-    GroupClassName,
-    FormLabelClassName,
-    InputClassName,
-  }) => {
+const InputFileds = forwardRef<HTMLInputElement, InputFiledsPropsType>(
+  (
+    {
+      state = "Default",
+      label,
+      type = "text",
+      size = "Default",
+      value = "",
+      name,
+      id,
+      htmlFor,
+      placeholder,
+      iconLeft,
+      iconRight,
+      onChange,
+      autoCapitalize,
+      autoComplete,
+      readOnly,
+      required,
+      disabled = false,
+      CustomLayoutClassName,
+      GroupClassName,
+      FormLabelClassName,
+      InputClassName,
+    },
+    ref
+  ) => {
     const inputSize = {
       Default: "",
       Small: "input-sm",
@@ -63,7 +77,7 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
         size={size}
         label={label}
         htmlFor={htmlFor}
-        GroupClassName={clsx(
+        GroupClassName={cn(
           {
             input: state === "Icon" || state === "Label + Icon",
             disabled: state === "Icon" && disabled,
@@ -72,7 +86,7 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
           GroupClassName
         )}
         FormLabelClassName={FormLabelClassName}
-        CustomLayoutClassName={clsx(
+        CustomLayoutClassName={cn(
           { disabled: disabled },
           CustomLayoutClassName
         )}
@@ -80,6 +94,7 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
         iconRight={iconRight}
         Components={
           <input
+            ref={ref}
             type={type}
             id={id}
             value={value}
@@ -91,11 +106,14 @@ const InputFileds: FC<InputFiledsPropsType> = memo(
             disabled={disabled}
             autoComplete={autoComplete}
             required={required}
-            className={clsx(
+            className={cn(
               {
                 input: state === "Default" || state === "Label",
                 disabled: state === "Default" && disabled,
+              
               },
+              
+              
               (state === "Default" || state === "Label") && inputSize[size],
               InputClassName
             )}

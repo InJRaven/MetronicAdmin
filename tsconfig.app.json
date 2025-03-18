@@ -46,14 +46,12 @@
       "@widgets": ["./src/components/widgets"],
       "@widgets/*": ["./src/components/widgets/*"],
 
-
       "@context": ["./src/context"],
       "@context/*": ["./src/context/*"],
 
       "@hook": ["./src/hooks"],
-      "@hook/*": ["./src/hooks/*"],
-
+      "@hook/*": ["./src/hooks/*"]
     }
   },
-  "include": ["src", "plugins"]
+  "include": ["src", "src/plugins"]
 }

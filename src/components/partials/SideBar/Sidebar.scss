@@ -1,7 +1,7 @@
 .sidebar {
   @apply col-start-1 row-start-1 col-span-1 row-span-1 flex flex-col border-r border-gray-200 transition-all duration-200;
   .sidebar__header {
-    @apply relative flex items-center self-stretch px-[2.5rem] border-b border-gray-200 h-header transition-colors duration-200;
+    @apply relative flex items-center self-stretch px-[2.5rem] border-b border-gray-200 h-[7rem] transition-colors duration-200;
   }
   .sidebar__menu {
     @apply flex-col grow gap-[0.5rem];

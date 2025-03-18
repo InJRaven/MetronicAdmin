@@ -1,0 +1,85 @@
+.btn {
+  @apply inline-flex items-center cursor-pointer leading-[1] border border-transparent outline-none;
+  border-radius: theme("custom.components.common.borderRadius.btn");
+  height: theme("custom.components.btn.DEFAULT.height");
+  padding-inline-start: theme("custom.components.btn.DEFAULT.px");
+  padding-inline-end: theme("custom.components.btn.DEFAULT.px");
+  gap: theme("custom.components.btn.DEFAULT.gap");
+  font-weight: theme("custom.components.btn.DEFAULT.fontWeight");
+  font-size: theme("custom.components.btn.DEFAULT.fontSize");
+
+  i {
+    @apply leading-0;
+    font-size: theme("custom.components.btn.DEFAULT.iconFontSize");
+  }
+  &[disabled],
+  &.disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+}
+.btn-xs {
+  height: theme("custom.components.btn.xs.height");
+  padding-inline-start: theme("custom.components.btn.xs.px");
+  padding-inline-end: theme("custom.components.btn.xs.px");
+  font-size: theme("custom.components.btn.xs.fontSize");
+  gap: theme("custom.components.btn.xs.gap");
+
+  i {
+    font-size: theme("custom.components.btn.xs.iconFontSize");
+  }
+}
+
+.btn-sm {
+  height: theme("custom.components.btn.sm.height");
+  padding-inline-start: theme("custom.components.btn.sm.px");
+  padding-inline-end: theme("custom.components.btn.sm.px");
+  font-size: theme("custom.components.btn.sm.fontSize");
+  gap: theme("custom.components.btn.sm.gap");
+
+  i {
+    font-size: theme("custom.components.btn.sm.iconFontSize");
+  }
+
+}
+
+.btn-lg {
+  height: theme("custom.components.btn.lg.height");
+  padding-inline-start: theme("custom.components.btn.lg.px");
+  padding-inline-end: theme("custom.components.btn.lg.px");
+  font-size: theme("custom.components.btn.lg.fontSize");
+  gap: theme("custom.components.btn.lg.gap");
+
+  i {
+    font-size: theme("custom.components.btn.lg.iconFontSize");
+  }
+
+}
+//Button Icon
+.btn-icon {
+  @apply items-center flex-shrink-0 p-0 gap-0 justify-center;
+  width: theme("custom.components.btn.DEFAULT.height");
+  i {
+    font-size: theme("custom.components.btn.DEFAULT.onlyIconFontSize");
+  }
+  &.btn-xs {
+    width: theme("custom.components.btn.xs.height");
+    i {
+      font-size: theme("custom.components.btn.xs.iconFontSize");
+    }
+  }
+  &.btn-sm {
+    width: theme("custom.components.btn.sm.height");
+    i {
+      font-size: theme("custom.components.btn.sm.iconFontSize");
+    }
+  }
+
+  &.btn-lg {
+    width: theme("custom.components.btn.lg.height");
+    i {
+      font-size: theme("custom.components.btn.lg.onlyIconFontSize");
+    }
+  }
+}
+
+//Button Size

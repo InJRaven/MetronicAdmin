@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", serif;
+  @apply m-0 p-0 box-border font-sans transition-colors duration-200;
+}
+html {
+  @apply text-[62.5%];
 }
 :focus {
-  outline: none;
+  @apply outline-none;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -15,12 +15,3 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input{
-  @apply appearance-none read-only:pointer-events-none w-full bg-transparent;
-}
-label{
-  @apply text-b-13-14-medium;
-}
-.disabled{
-  @apply opacity-55 pointer-events-none;
-}
