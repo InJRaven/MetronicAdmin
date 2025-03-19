@@ -1,0 +1,65 @@
+.badge {
+  @apply inline-flex items-center justify-center leading-[1] p-[0.8rem] gap-[0.6rem] border border-transparent text-2xs text-gray-700 bg-gray-200;
+  font-weight: theme("fontWeight.medium");
+  border-radius: theme("custom.components.common.borderRadius.badge");
+  &.badge-pill {
+    @apply rounded-[3rem] ps-[1rem] pe-[1rem];
+  }
+}
+.badge-circle,
+.badge-dot {
+  @apply w-[0.6rem] h-[0.6rem] p-0 rounded-[50%] bg-gray-700 flex-shrink-0 leading-0;
+}
+.badge-outline {
+  @apply text-gray-600 border-gray-300 bg-gray-100;
+}
+
+.badge-xs {
+  @apply text-3xs py-[0.3rem] px-[0.4rem] gap-[0.4rem];
+  &.badge-pill {
+    @apply ps-[0.4rem] pe-[0.4rem];
+  }
+  .badge-dot{
+    @apply w-[0.4rem] h-[0.4rem];
+  }
+}
+.badge-sm {
+  @apply py-[0.5rem] px-[0-6rem] gap-[0.5rem];
+  &.badge-pill {
+    @apply ps-[0.6rem] pe-[0.6rem];
+  }
+
+  .badge-dot{
+    @apply w-[0.5rem] h-[0.5rem];
+  }
+}
+.badge-lg {
+  @apply px-[1.1rem] py-[0.9rem] text-2sm gap-[0.7rem];
+  &.badge-pill {
+    @apply ps-[1.1rem] pe-[1.1rem];
+  }
+  .badge-dot{
+    @apply w-[0.7rem] h-[0.7rem];
+  }
+}
+
+@each $color in ("primary", "success", "danger", "warning", "info", "dark") {
+  .badge-#{$color} {
+    color: theme("colors.white");
+    background-color: var(--tw-#{$color});
+    .badge-circle,
+    .badge-dot {
+      background-color: theme("colors.white");
+    }
+  }
+
+  .badge-outline.badge-#{$color} {
+    color: var(--tw-#{$color});
+    background-color: var(--tw-#{$color}-light);
+    border-color: var(--tw-#{$color}-clarity);
+    .badge-circle,
+    .badge-dot {
+      background-color: var(--tw-#{$color});
+    }
+  }
+}

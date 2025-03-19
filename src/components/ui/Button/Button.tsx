@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = cva("btn", {
   variants: {
-    isIcon:{
-      true: 'btn-icon'
+    isIcon: {
+      true: "btn-icon",
     },
     variant: {
       Default: "",
       Outline: "btn-outline",
       Clear: "btn-clear",
       Subtle: "btn-subtle",
-      Link:"btn-link"
+      Link: "btn-link",
     },
     size: {
       "Extra Small": "btn-xs",
@@ -52,9 +52,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       asChild,
-      variant = "Default",
-      size = "Default",
-      color = "Primary",
+      variant,
+      size,
+      color,
       isIcon = false,
       className,
       ...props
@@ -66,7 +66,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          buttonVariants({ isIcon,variant, size, color }),
+          buttonVariants({ isIcon, variant, size, color }),
           className
         )}
         {...props}

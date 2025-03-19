@@ -1,73 +1,23 @@
-import { Icons, ProgressBar } from "@/components/ui/Base";
+import { Badge } from "@/components/ui";
+import { Button, Icons, ProgressBar } from "@/components/ui/Base";
 import { Switch } from "@/components/ui/Forms";
 import { useState } from "react";
 
 const Home = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const colors = [
-    "light",
-    "secondary",
-    "primary",
-    "success",
-    "danger",
-    "warning",
-    "info",
-    "dark",
-  ];
+    "Default",
+    "Primary",
+    "Success",
+    "Danger",
+    "Warning",
+    "Info",
+    "Dark",
+  ] as const;
+
+  const sizes = ["Extra Small", "Small", "Default", "Large"] as const;
   return (
     <>
-      <div className="inline-flex gap-5">
-        {colors.map((item, index) => (
-          <button className={`btn btn-icon btn-outline btn-${item}`} key={index}>
-            <Icons name="Abstract 1" type="Filled" />
-          </button>
-        ))}
-      </div>
-
-      <div className="inline-flex gap-5">
-        {colors.map((item, index) => (
-          <button className={`btn btn-icon btn-clear btn-${item}`} key={index}>
-            <Icons name="Abstract 1" type="Filled" />
-          </button>
-        ))}
-      </div>
-
-      <div className="inline-flex gap-5">
-        {colors.map((item, index) => (
-          <button className={`btn btn-icon btn-subtle btn-${item}`} key={index}>
-            <Icons name="Abstract 1" type="Filled" />
-          </button>
-        ))}
-      </div>
-      <div className="inline-flex gap-5">
-        {colors.map((item, index) => (
-          <button className={`btn btn-icon btn-${item}`} key={index}>
-            <Icons name="Abstract 1" type="Filled" />
-          </button>
-        ))}
-      </div>
-
-      <div className="inline-flex gap-5">
-        {colors.map((item, index) => (
-          <button className={`btn btn-${item}`} key={index}>
-            <Icons name="Abstract 1" type="Filled" />
-            Test
-            <Icons name="Abstract 2" type="Filled" />
-
-          </button>
-        ))}
-      </div>
-      {/* <Textarea state="Default" disabled/>
-      <InputFileds state="Default" disabled/>
-      <InputFileds size="Small" type="number" state="Label" label="test"/>
-      <InputFileds state="Label + Icon" label="label + icon" iconLeft={<Icons name="Abstract 12" type="Duotone"/>}/>
-      <Radio  size="Default" label="Radion Button"/>
-      <Radio size="Small" label="Radion Button"/>
-      <Radio size="Large" label="Radion Button"/>
-
-      <CheckBox size="Default" label="CheckBox Button"/>
-      <CheckBox size="Small" label="CheckBox Button"/>
-      <CheckBox size="Large" label="CheckBox Button"/> */}
       <div className="w-fit">
         <Switch
           size="Small"
@@ -76,7 +26,43 @@ const Home = () => {
           label="Switch Component"
         />
       </div>
+      <div>
+        <span className="badge badge-lg badge-outline badge-success badge-pill">
+          <span className="badge badge-dot"></span>Badge
+        </span>
+      </div>
 
+      {sizes.map((size) => {
+        return (
+          <div className="inline-flex items-center gap-5">
+            {colors.map((color) => (
+              <Badge
+                key={`${size}-${color}`}
+                color={color} // Ép kiểu nếu cần
+                size={size} // Ép kiểu nếu cần
+                content="Badge"
+              />
+            ))}
+          </div>
+        );
+      })}
+
+      {sizes.map((size) => {
+        return (
+          <div className="inline-flex items-center gap-5">
+            {colors.map((color) => (
+              <Badge
+                type="Pill"
+                key={`${size}-${color}`}
+                color={color} // Ép kiểu nếu cần
+                size={size} // Ép kiểu nếu cần
+                content="Badge"
+                isDot
+              />
+            ))}
+          </div>
+        );
+      })}
       <ProgressBar size="Medium" colors="Primary" progress={30} max={100} />
     </>
   );
