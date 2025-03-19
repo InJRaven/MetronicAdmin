@@ -47,15 +47,19 @@ interface BadgeProps
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ type, variant, size, color, isDot, className, content, ...props }) => {
+  (
+    { type, variant, size, color, isDot, className, content, ...props },
+    ref
+  ) => {
     return (
-      <div
+      <span
+        ref={ref}
         className={cn(badgeVariants({ type, variant, size, color }), className)}
         {...props}
       >
         {isDot && <span className="badge badge-dot"></span>}
         {content}
-      </div>
+      </span>
     );
   }
 );

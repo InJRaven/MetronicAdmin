@@ -1,0 +1,11 @@
+.tooltip {
+  @apply hidden text-white z-50 px-[0.8rem] py-[0.6rem] text-xs;
+  box-shadow: var(--tw-tooltip-box-shadow);
+  background-color: var(--tw-tooltip-background-color);
+  border-radius: theme("custom.components.common.borderRadius.tooltip");
+  border: var(--tw-tooltip-border);
+  font-weight: theme('fontWeight.normal');
+  &.show{
+    @apply block;
+  }
+}
