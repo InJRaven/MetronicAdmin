@@ -11,7 +11,7 @@ const TooltipContent = forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      "tooltip data-[state=instant-open]:show",
+      "tooltip",
       className
     )}
     {...props}

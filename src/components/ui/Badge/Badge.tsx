@@ -37,7 +37,7 @@ const badgeVariants = cva("badge", {
 });
 
 interface BadgeProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "color" | "content"> {
+  extends Omit<HTMLAttributes<HTMLSpanElement>, "color" | "content"> {
   type?: VariantProps<typeof badgeVariants>["type"];
   variant?: VariantProps<typeof badgeVariants>["variant"];
   size?: VariantProps<typeof badgeVariants>["size"];
