@@ -70,4 +70,4 @@ const Card = {
   Table: CardTable,
   Footer: CardFooter,
 };
-export default Card;
+export { Card };

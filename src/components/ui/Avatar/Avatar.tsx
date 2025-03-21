@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, HTMLAttributes } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementRef,
+  forwardRef,
+} from "react";
 import { Root, Image, Fallback } from "@radix-ui/react-avatar";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -18,15 +22,18 @@ const avatarVariants = cva("avatar", {
   },
 });
 interface AvatarProps extends ComponentPropsWithoutRef<typeof Root> {
-    size?: VariantProps<typeof avatarVariants>['size']
+  size?: VariantProps<typeof avatarVariants>["size"];
 }
 
-const AvatarRoot = forwardRef<
-  ElementRef<typeof Root>,
-  AvatarProps
->(({ className,size, ...props }, ref) => (
-  <Root ref={ref} className={cn(avatarVariants({size}), className)} {...props} />
-));
+const AvatarRoot = forwardRef<ElementRef<typeof Root>, AvatarProps>(
+  ({ className, size, ...props }, ref) => (
+    <Root
+      ref={ref}
+      className={cn(avatarVariants({ size }), className)}
+      {...props}
+    />
+  )
+);
 
 AvatarRoot.displayName = Root.displayName || "AvatarRoot";
 
@@ -53,4 +60,4 @@ const Avatar = {
   Fallback: AvatarFallback,
 };
 
-export default Avatar;
+export { Avatar };

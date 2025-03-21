@@ -50,15 +50,7 @@ interface ButtonProps
 }
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      asChild,
-      variant,
-      size,
-      color,
-      isIcon = false,
-      className,
-      ...props
-    },
+    { asChild, variant, size, color, isIcon = false, className, ...props },
     ref
   ) => {
     const Comp = asChild ? Slot : "button";
@@ -74,4 +66,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-export default Button;
+
+Button.displayName = "Button";
+export { Button };

@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import Rating from "./Rating/Rating";
 import Icons from "./Icons/Icons";

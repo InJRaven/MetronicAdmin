@@ -10,10 +10,7 @@ const TooltipContent = forwardRef<
   <Content
     ref={ref}
     sideOffset={sideOffset}
-    className={cn(
-      "tooltip",
-      className
-    )}
+    className={cn("tooltip", className)}
     {...props}
   />
 ));
@@ -24,4 +21,4 @@ const Tooltip = {
   Trigger: Trigger,
   Content: TooltipContent,
 };
-export default Tooltip;
+export { Tooltip };

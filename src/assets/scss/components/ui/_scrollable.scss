@@ -1,0 +1,83 @@
+.scrollable,
+.scrollable-y,
+.scrollable-x,
+.scrollable-hover,
+.scrollable-y-hover,
+.scrollable-x-hover,
+.scrollable-auto,
+.scrollable-y-auto,
+.scrollable-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  position: relative;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1.5rem;
+    }
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+  }
+}
+
+.scrollable,
+.scrollable-hover {
+  overflow: scroll !important;
+}
+.scrollable-y,
+.scrollable-y-hover {
+  overflow-y: scroll !important;
+}
+.scrollable-x,
+.scrollable-x-hover {
+  overflow-x: scroll !important;
+}
+.scrollable-auto {
+  overflow: auto !important;
+}
+.scrollable-y-auto {
+  overflow-y: auto !important;
+}
+.scrollable-x-auto {
+  overflow-x: auto !important;
+}
+.scrollable,
+.scrollable-y,
+.scrollable-x,
+.scrollable-auto,
+.scrollable-y-auto,
+.scrollable-x-auto,
+.scrollable-hover:hover,
+.scrollable-y-hover:hover,
+.scrollable-x-hover:hover {
+  scrollbar-color: var(--tw-scrollbar-thumb-color, var(--tw-gray-200))
+    transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--tw-scrollbar-thumb-color, var(--tw-gray-200));
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+@media (max-width: theme("screens.lg")) {
+  .scrollable,
+  .scrollable-hover {
+    overflow: auto;
+  }
+
+  .scrollable-y,
+  .scrollable-y-hover {
+    overflow-y: auto;
+  }
+
+  .scrollable-x,
+  .scrollable-x-hover {
+    overflow-x: auto;
+  }
+}
