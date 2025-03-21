@@ -1,7 +1,10 @@
 .switch {
   @apply flex cursor-pointer items-center gap-[1rem];
   input[type="checkbox"] {
-    @apply appearance-none bg-gray-300 relative flex-shrink-0 h-[2.2rem] w-[3.4rem] rounded-[2.2rem] transition-all duration-[150ms] ease-in-out before:absolute before:flex before:content-[''] before:h-[1.6rem] before:w-[1.6rem] before:rounded-[100%] before:bg-light before:top-1/2 before:-translate-y-1/2 before:drop-shadow-[0_3px_4px_rgba(0,0,0,0.03)] before:transition-all before:duration-[150ms] before:ease-in-out checked:before:bg-white checked:before:translate-x-[-100%] checked:before:translate-y-[-50%] checked:bg-primary;
+    @apply appearance-none bg-gray-300 relative flex-shrink-0 cursor-pointer rounded-[2.2rem] transition-all duration-[150ms] ease-in-out before:absolute before:flex before:content-[''] before:h-[1.6rem] before:w-[1.6rem] before:rounded-[100%] before:bg-light before:top-1/2 before:-translate-y-1/2 before:drop-shadow-[0_3px_4px_rgba(0,0,0,0.03)] before:transition-all before:duration-[150ms] before:ease-in-out checked:before:bg-white checked:before:translate-x-[-100%] checked:before:translate-y-[-50%] checked:bg-primary disabled:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-300 disabled:opacity-50 disabled:checked:bg-primary-clarity disabled:checked:border-0 disabled:checked:before:bg-light;
+
+    height: theme("custom.components.switch.DEFAULT.height");
+    width: theme("custom.components.switch.DEFAULT.width");
     &:before {
       inset-inline-start: 0.4rem;
     }
@@ -10,23 +13,62 @@
       inset-inline-start: calc(100% - 0.4rem);
     }
   }
+  button[role="switch"] {
+    @apply inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[state=checked]:bg-primary data-[state=unchecked]:bg-input disabled:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-300 disabled:opacity-50 disabled:aria-[checked="true"]:bg-primary-clarity disabled:aria-[checked="true"]:border-0;
+
+    height: theme("custom.components.switch.DEFAULT.height");
+    width: theme("custom.components.switch.DEFAULT.width");
+
+    .switch-circle {
+      @apply pointer-events-none block h-[1.6rem] w-[1.6rem] rounded-full bg-background shadow-lg ring-0 transition-all data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0;
+    }
+    &:disabled {
+      &[aria-checked="true"] {
+        .switch-circle {
+          @apply bg-light;
+        }
+      }
+    }
+  }
   .switch-label {
-    @apply text-b-14-14-medium leading-[1.6rem];
+    @apply text-sm font-medium leading-[1.6rem];
   }
   &.switch-sm {
     input[type="checkbox"] {
-      @apply w-[3rem] h-[1.8rem] before:h-[1.2rem] before:w-[1.2rem];
+      height: theme("custom.components.switch.sm.height");
+      width: theme("custom.components.switch.sm.width");
+      border-radius: theme("custom.components.switch.sm.height");
+      @apply before:h-[1.2rem] before:w-[1.2rem];
     }
-    .switch-label{
-        @apply text-[1.3rem];
+    button[role="switch"] {
+      height: theme("custom.components.switch.sm.height");
+      width: theme("custom.components.switch.sm.width");
+      border-radius: theme("custom.components.switch.sm.height");
+      .switch-circle {
+        @apply h-[1.2rem] w-[1.2rem];
+      }
+    }
+    & + .switch-label {
+      @apply text-2sm;
     }
   }
   &.switch-lg {
     input[type="checkbox"] {
-      @apply w-[3.8rem] h-[2.6rem] before:h-[2rem] before:w-[2rem];
+      height: theme("custom.components.switch.lg.height");
+      width: theme("custom.components.switch.lg.width");
+      border-radius: theme("custom.components.switch.lg.height");
+      @apply before:h-[2rem] before:w-[2rem];
     }
-    .switch-label{
-        @apply text-[1.5rem];
+    button[role="switch"] {
+      height: theme("custom.components.switch.lg.height");
+      width: theme("custom.components.switch.lg.width");
+      border-radius: theme("custom.components.switch.lg.height");
+      .switch-circle {
+        @apply h-[2rem] w-[2rem];
+      }
+    }
+    .switch-label {
+      @apply text-md;
     }
   }
 }

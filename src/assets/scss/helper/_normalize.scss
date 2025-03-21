@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
-* {
-  @apply m-0 p-0 box-border font-sans transition-colors duration-200;
+*,
+*::after,
+*::before {
+  @apply m-0 p-0 box-border font-sans transition-colors duration-150;
 }
 html {
   @apply text-[62.5%];
@@ -14,4 +16,3 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-

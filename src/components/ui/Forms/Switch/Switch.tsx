@@ -1,75 +1,39 @@
-import clsx from "clsx";
-import { ChangeEvent, forwardRef, ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { Root, Thumb } from "@radix-ui/react-switch";
+import { cva, type VariantProps } from "class-variance-authority";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
-// Define the props for CheckBox component
-interface SwitchPropsType {
-  label?: string;
-  size?: "Small" | "Default" | "Large"; // Corrected the typo here
-  value?: string | number;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+const switchVariants = cva("switch", {
+  variants: {
+    size: {
+      Small: "switch-sm",
+      Default: "",
+      Large: "switch-lg",
+    },
+  },
+  defaultVariants: {
+    size: "Default",
+  },
+});
+
+interface SwitchProps
+  extends Omit<ComponentPropsWithoutRef<typeof Root>, "size"> {
+  size?: VariantProps<typeof switchVariants>["size"];
   htmlFor?: string;
-  id?: string;
-  name?: string;
-  checked: boolean;
-  icon?: ReactNode;
-  autoFocus?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  reverse?:true;
-  SwitchClassName?: string;
-  CheckBoxClassName?: string;
+  label?: string;
 }
 
-// Apply forwardRef to pass the ref from parent to child component
-const Switch = forwardRef<HTMLInputElement, SwitchPropsType>(
-  (
-    {
-      label,
-      size = "Default", // Corrected the typo here as well
-      value,
-      onChange,
-      checked,
-      htmlFor,
-      id,
-      name,
-      icon,
-      autoFocus = false,
-      required = false,
-      disabled = false,
-      reverse =false,
-      SwitchClassName,
-      CheckBoxClassName,
-    },
-    ref
-  ) => {
-    return (
-      <label
-        className={clsx(
-          "switch",
-          { disabled: disabled },
-          { Default: "", Large: "switch-lg", Small: "switch-sm" }[size],{'flex-row-reverse' :reverse},
-          SwitchClassName
-        )}
-        htmlFor={htmlFor}
-      >
-        <input
-          ref={ref}
-          type="checkbox"
-          value={value}
-          id={id}
-          name={name}
-          checked={checked}
-          onChange={onChange}
-          autoFocus={autoFocus}
-          required={required}
-          disabled={disabled}
-          className={clsx(CheckBoxClassName)} // Added the dynamic class name for the checkbox
-        />
-        {label && <span className="switch-label">{label}</span>}
-        {icon}
-      </label>
-    );
-  }
+const Switch = forwardRef<ElementRef<typeof Root>, SwitchProps>(
+  ({ className, size, htmlFor, label, ...props }, ref) => (
+    <label htmlFor={htmlFor} className={cn(switchVariants({ size }))}>
+      <Root className={cn(className)} {...props} ref={ref}>
+        <Thumb className={cn("switch-circle")} />
+      </Root>
+      {label && <span className="switch-label">{label}</span>}
+    </label>
+  )
 );
 
-export default Switch;
+Switch.displayName = Root.displayName;
+
+export { Switch };
