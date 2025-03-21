@@ -344,7 +344,7 @@ module.exports = {
         sm: "0.2rem",
         DEFAULT: "0.4rem",
         md: "0.6rem",
-        lg:"0.8rem",
+        lg: "0.8rem",
         xl: " 1.2rem",
       },
       fontSize: {
@@ -378,6 +378,7 @@ module.exports = {
             lineHeight: "1.8rem", // 18px
           },
         ],
+        sm: ["1.4rem", { lineHeight: "2rem" }],
         md: [
           "1.5rem", // 15px
           {
@@ -445,7 +446,7 @@ module.exports = {
         },
         "collapsible-up": {
           from: { height: "var(--radix-collapsible-content-height)" },
-          to: { height: "o" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -698,7 +699,6 @@ module.exports = {
     }),
   },
   plugins: [
-    // require('tailwindcss-animate'),
     // require('./src/plugins/plugin'),
     require("./src/plugins/core"),
     // require('./src/plugins/components/breakpoints'),
@@ -726,7 +726,7 @@ module.exports = {
     // require('./src/plugins/components/tabs'),
     // require('./src/plugins/components/pagination'),
     // require('./src/plugins/components/card'),
-    // require('./src/plugins/components/table'),
+    require("./src/plugins/components/tableSort"),
     // require('./src/plugins/components/badge'),
     // require('./src/plugins/components/rating'),
     // require('./src/plugins/components/scrollable'),

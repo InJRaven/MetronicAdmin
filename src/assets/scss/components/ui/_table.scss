@@ -1,0 +1,148 @@
+.table {
+  @apply w-full caption-bottom border-collapse align-middle text-left text-gray-700 text-sm font-medium;
+  thead,
+  tfoot {
+    td,
+    th {
+      @apply text-gray-600 align-middle text-2sm font-medium;
+      background-color: var(--tw-table-head-background-color);
+      padding-inline-start: theme("custom.components.table.px.DEFAULT");
+      padding-inline-end: theme("custom.components.table.px.DEFAULT");
+      padding-top: theme("custom.components.table.py.DEFAULT.head");
+      padding-bottom: theme("custom.components.table.py.DEFAULT.head");
+    }
+  }
+
+  thead {
+    td,
+    th {
+      border-bottom: var(--tw-table-border);
+    }
+  }
+  tbody {
+    @apply align-[inherit];
+    tr {
+      td,
+      th {
+        border-bottom: var(--tw-table-border);
+        padding-inline-start: theme("custom.components.table.px.DEFAULT");
+        padding-inline-end: theme("custom.components.table.px.DEFAULT");
+        padding-top: theme("custom.components.table.py.DEFAULT.body");
+        padding-bottom: theme("custom.components.table.py.DEFAULT.body");
+      }
+      &:last-child {
+        @apply border-0;
+      }
+    }
+  }
+  tfoot {
+    td,
+    th {
+      border-bottom: var(--tw-table-border);
+    }
+  }
+}
+
+[dir="rtl"] .table {
+  @apply text-right;
+}
+
+.table-xs {
+  thead,
+  tfoot {
+    td,
+    th {
+      padding-inline-start: theme("custom.components.table.px.xs");
+      padding-inline-end: theme("custom.components.table.px.xs");
+      padding-top: theme("custom.components.table.py.xs.head");
+      padding-bottom: theme("custom.components.table.py.xs.head");
+    }
+  }
+  tbody {
+    tr {
+      td,
+      th {
+        padding-inline-start: theme("custom.components.table.px.xs");
+        padding-inline-end: theme("custom.components.table.px.xs");
+        padding-top: theme("custom.components.table.py.xs.body");
+        padding-bottom: theme("custom.components.table.py.xs.body");
+      }
+    }
+  }
+}
+
+.table-sm {
+  thead,
+  tfoot {
+    td,
+    th {
+      padding-inline-start: theme("custom.components.table.px.sm");
+      padding-inline-end: theme("custom.components.table.px.sm");
+      padding-top: theme("custom.components.table.py.sm.head");
+      padding-bottom: theme("custom.components.table.py.sm.head");
+    }
+  }
+  tbody {
+    tr {
+      td,
+      th {
+        padding-inline-start: theme("custom.components.table.px.sm");
+        padding-inline-end: theme("custom.components.table.px.sm");
+        padding-top: theme("custom.components.table.py.sm.body");
+        padding-bottom: theme("custom.components.table.py.sm.body");
+      }
+    }
+  }
+}
+.table-lg {
+  thead,
+  tfoot {
+    td,
+    th {
+      padding-inline-start: theme("custom.components.table.px.lg");
+      padding-inline-end: theme("custom.components.table.px.lg");
+      padding-top: theme("custom.components.table.py.lg.head");
+      padding-bottom: theme("custom.components.table.py.lg.head");
+    }
+  }
+  tbody {
+    tr {
+      td,
+      th {
+        padding-inline-start: theme("custom.components.table.px.lg");
+        padding-inline-end: theme("custom.components.table.px.lg");
+        padding-top: theme("custom.components.table.py.lg.body");
+        padding-bottom: theme("custom.components.table.py.lg.body");
+      }
+    }
+  }
+}
+
+.table-border {
+  border: var(--tw-table-border);
+  td,
+  th {
+    border-right: var(--tw-table-border);
+    &:last-child {
+      @apply border-r-0;
+    }
+  }
+}
+
+.table-border-s {
+  border-inline-start: var(--tw-table-border);
+}
+.table-border-e {
+  border-inline-end: var(--tw-table-border);
+}
+.table-border-t {
+  border-top: var(--tw-table-border);
+}
+.table-border-b {
+  border-bottom: var(--tw-table-border);
+}
+
+.sort{
+    @apply inline-flex items-center gap-[0.6rem] cursor-pointer leading-[1];
+}
+
