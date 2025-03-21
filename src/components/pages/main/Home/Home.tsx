@@ -7,9 +7,21 @@ import {
   Scrollable,
 } from "@/components/ui";
 import { ProgressBar } from "@/components/ui/Base";
-
+import { Checkbox } from "@/components/ui/Forms";
+import { useState } from "react";
 
 const Home = () => {
+  const [checked, setChecked] = useState<"indeterminate" | boolean>(
+    "indeterminate"
+  );
+
+  const toggleCheckbox = () => {
+    if (checked === "indeterminate") {
+      setChecked(true);
+    } else {
+      setChecked(!checked);
+    }
+  };
   return (
     <>
       <Card.Root className="h-[20rem] overflow-hidden">
@@ -56,10 +68,19 @@ const Home = () => {
               </Table.Body>
             </Table.Root>
           </Card.Table>
-          <Scrollable.Bar className="scrollbar" orientation="vertical"/>
+          <Scrollable.Bar className="scrollbar" orientation="vertical" />
         </Scrollable.Area>
       </Card.Root>
 
+      <label htmlFor="">
+        <Checkbox checked={checked} onCheckedChange={toggleCheckbox} disabled/>
+
+        {checked === "indeterminate"
+          ? "Indeterminate State"
+          : checked
+          ? "Checked State"
+          : "Unchecked State"}
+      </label>
       <ProgressBar size="Medium" colors="Primary" progress={30} max={100} />
     </>
   );
