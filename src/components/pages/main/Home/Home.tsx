@@ -1,6 +1,7 @@
-import { Container, Progress } from "@/components/ui";
+import { Container, Progress, Textarea } from "@/components/ui";
 import { Icons } from "@/components/ui/Base";
-import { Switch } from "@/components/ui/Forms";
+import { Switch } from "@radix-ui/react-switch";
+
 
 const Home = () => {
   const colors = [
@@ -18,13 +19,12 @@ const Home = () => {
   return (
     <div className="flex">
       <Container.Fixed>
-        <Switch />
-        <Icons name="Abstract 10" type="Duotone" />
+        <Textarea placeholder="test"/>
+        <Textarea size='Small' placeholder="test"/>
+        <Textarea size='Large' placeholder="test"/>
+        
       </Container.Fixed>
-      <Container.Fluid>
-        <Switch />
-        <Icons name="Abstract 10" type="Duotone" />
-      </Container.Fluid>
+      
     </div>
   );
 };

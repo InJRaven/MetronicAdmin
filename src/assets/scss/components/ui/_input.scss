@@ -1,8 +1,7 @@
-/* input.scss */
 
-// Form input base styles
 .input {
-    @apply block w-full appearance-none shadow-none outline-none border border-gray-300 text-gray-700 bg-light-active leading-[1] hover:border-gray-400;
+    @apply block w-full appearance-none shadow-none border border-gray-300 text-gray-700 bg-light-active leading-[1] hover:border-gray-400;
+    outline: none;
     font-weight: theme('custom.components.btn.DEFAULT.fontWeight');
     font-size: theme('custom.components.btn.DEFAULT.fontSize');
     border-radius: theme('custom.components.common.borderRadius.btn');
@@ -64,10 +63,11 @@
   
   // Form input with icons
   .input:not(input) {
-    @apply flex gap-[0.375rem] items-center appearance-none shadow-none outline-none text-gray-600;
-  
+    @apply flex gap-[0.375rem] items-center appearance-none shadow-none text-gray-600;
+    outline: none;
     input {
-      @apply grow bg-transparent border-0 text-inherit outline-none;
+      @apply grow bg-transparent border-0 text-inherit;
+      outline: none;
       font-size: inherit;
       font-weight: inherit;
     }

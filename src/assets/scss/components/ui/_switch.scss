@@ -14,11 +14,14 @@
     }
   }
   button[role="switch"] {
-    @apply inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[state=checked]:bg-primary data-[state=unchecked]:bg-input disabled:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-300 disabled:opacity-50 disabled:aria-[checked="true"]:bg-primary-clarity disabled:aria-[checked="true"]:border-0;
+    @apply inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[state=checked]:bg-primary data-[state=unchecked]:bg-input disabled:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-300 disabled:opacity-50 disabled:aria-[checked="true"]:bg-primary-clarity disabled:aria-[checked="true"]:border-0;
 
     height: theme("custom.components.switch.DEFAULT.height");
     width: theme("custom.components.switch.DEFAULT.width");
 
+    &:focus-visible{
+      outline: none;
+    }
     .switch-circle {
       @apply pointer-events-none block h-[1.6rem] w-[1.6rem] rounded-full bg-background shadow-lg ring-0 transition-all data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0;
     }

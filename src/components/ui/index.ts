@@ -8,6 +8,11 @@ import { Progress } from "./Progress/Progress";
 import { Table } from "./Table/Table";
 import { Separator } from "./Separator/Separator";
 import { Scrollable } from "./Scrollable/Scrollable";
+
+import { Checkbox } from "./Checkbox/Checkbox";
+import { Input } from "./Input/Input";
+import { Textarea } from "./Textarea/Textarea";
+import { Switch } from "./Switch/Switch";
 import { Tooltip } from "./Tooltip/Tooltip";
 
 export {
@@ -21,5 +26,9 @@ export {
   Table,
   Separator,
   Scrollable,
+  Checkbox,
+  Input,
+  Textarea,
+  Switch,
   Tooltip,
 };

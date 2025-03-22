@@ -7,7 +7,12 @@
 @use './scrollable';
 @use './table';
 @use './tooltip';
-@use './Forms/forms';
+
+
+@use "./checkbox";
+@use './input';
+@use './textarea';
+@use "./switch";
 // @import './button';
 // @import './data-display';
 // @import './date-picker';

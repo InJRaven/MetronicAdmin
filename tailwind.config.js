@@ -1,11 +1,11 @@
 module.exports = {
-  content: ["index.html", "./src/**/*.{ts,tsx,scss}"],
+  content: ["index.html", "./src/**/*.{html,js,ts,tsx,scss}"],
   safelist: [
     "hidden",
-    // "ki-filled",
-    // "ki-outline",
-    // "ki-duotone",
-    // "ki-solid",
+    "ki-filled",
+    "ki-outline",
+    "ki-duotone",
+    "ki-solid",
     // { pattern: /^apexcharts-.*$/ },
     // { pattern: /^leaflet-.*$/ },
   ],
@@ -415,6 +415,9 @@ module.exports = {
       },
       borderWidth: {
         3: "3px",
+      },
+      outline:{
+        none: 'none',
       },
       spacing: {
         0.75: "0.3rem", // 3px
