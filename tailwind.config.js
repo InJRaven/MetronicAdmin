@@ -2,10 +2,10 @@ module.exports = {
   content: ["index.html", "./src/**/*.{ts,tsx,scss}"],
   safelist: [
     "hidden",
-    "ki-filled",
-    "ki-outline",
-    "ki-duotone",
-    "ki-solid",
+    // "ki-filled",
+    // "ki-outline",
+    // "ki-duotone",
+    // "ki-solid",
     // { pattern: /^apexcharts-.*$/ },
     // { pattern: /^leaflet-.*$/ },
   ],
@@ -198,6 +198,11 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
         museo: ["Museo Sans Display", "sans-serif"],
         "museo-extra": ["Museo Sans Display ExtraBlack", "sans-serif"],
+        "ki-duotone": "ki-duotone",
+        "ki-filled": "ki-filled",
+        "ki-outline": "ki-outline",
+        "ki-solid": "ki-solid",
+
       },
       colors: {
         //begin: Shadcn UI Colors

@@ -1,0 +1,23 @@
+.progress {
+  @apply w-full flex h-[6px] overflow-hidden bg-gray-100;
+  border-radius: theme("custom.components.common.borderRadius.progress");
+  &.progress-sm {
+    @apply h-[4px];
+  }
+  &.progress-lg {
+    @apply h-[8px];
+  }
+}
+.progress-bar {
+  @apply flex flex-col w-full h-full justify-start overflow-hidden text-center whitespace-nowrap transition-transform duration-150 bg-gray-300;
+  border-radius: theme("custom.components.common.borderRadius.progress");
+}
+
+@each $color in ("primary", "success", "danger", "warning", "info", "dark") {
+  .progress-#{$color} {
+    background-color: var(--tw-#{$color}-light);
+    .progress-bar {
+      background-color: var(--tw-#{$color});
+    }
+  }
+}

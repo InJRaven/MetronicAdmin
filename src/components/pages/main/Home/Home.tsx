@@ -1,22 +1,26 @@
-import {
-  Card,
-  Collapse,
-  Button,
-  Separator,
-  Table,
-  Scrollable,
-} from "@/components/ui";
-import { ProgressBar } from "@/components/ui/Base";
-import { Checkbox, Switch } from "@/components/ui/Forms";
-import { useState } from "react";
+import { Progress } from "@/components/ui";
+import { Icons } from "@/components/ui/Base";
+import { Switch } from "@/components/ui/Forms";
 
 const Home = () => {
+  const colors = [
+    "Default",
+    "Primary",
+    "Success",
+    "Danger",
+    "Warning",
+    "Info",
+    "Dark",
+  ] as const;
+  const sizes = ["Small", "Default", "Large"] as const;
+
+  const values = [25, 45, 65, 85, 95];
   return (
     <>
-      
       <Switch />
-      
-      <ProgressBar size="Medium" colors="Primary" progress={30} max={100} />
+      <Icons name="Abstract 10" type="Duotone"/>
+
+     
     </>
   );
 };
