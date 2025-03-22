@@ -1,0 +1,20 @@
+.container-fixed {
+  @apply flex-grow w-full;
+  padding-inline-start: theme("custom.components.container.fixed.px.DEFAULT");
+  padding-inline-end: theme("custom.components.container.fixed.px.DEFAULT");
+}
+.container-fluid {
+  @apply flex-grow w-full;
+  padding-inline-start: theme("custom.components.container.fluid.px.DEFAULT");
+  padding-inline-end: theme("custom.components.container.fluid.px.DEFAULT");
+}
+@media (max-width: theme("screens.lg")) {
+  .container-fixed {
+    padding-inline-start: theme("custom.components.container.fixed.px.xl");
+    padding-inline-end: theme("custom.components.container.fixed.px.xl");
+  }
+  .container-fluid {
+    padding-inline-start: theme("custom.components.container.fluid.px.xl");
+    padding-inline-end: theme("custom.components.container.fluid.px.xl");
+  }
+}

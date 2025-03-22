@@ -3,6 +3,7 @@ import { Button } from "./Button/Button";
 import { Badge } from "./Badge/Badge";
 import { Card } from "./Card/Card";
 import { Collapse } from "./Collapse/Collapse";
+import { Container } from "./Container/Container";
 import { Progress } from "./Progress/Progress";
 import { Table } from "./Table/Table";
 import { Separator } from "./Separator/Separator";
@@ -15,6 +16,7 @@ export {
   Badge,
   Card,
   Collapse,
+  Container,
   Progress,
   Table,
   Separator,
