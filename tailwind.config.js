@@ -202,7 +202,6 @@ module.exports = {
         "ki-filled": "ki-filled",
         "ki-outline": "ki-outline",
         "ki-solid": "ki-solid",
-
       },
       colors: {
         //begin: Shadcn UI Colors
@@ -390,6 +389,12 @@ module.exports = {
             lineHeight: "2.2rem", // 22px
           },
         ],
+        base: [
+          "1.6rem",
+          {
+            lineHeight: "2.4rem", // 22px
+          },
+        ],
         "1.5xl": [
           "2.2rem", // 22px
           {
@@ -416,8 +421,8 @@ module.exports = {
       borderWidth: {
         3: "3px",
       },
-      outline:{
-        none: 'none',
+      outline: {
+        none: "none",
       },
       spacing: {
         0.75: "0.3rem", // 3px

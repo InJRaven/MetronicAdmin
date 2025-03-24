@@ -33,13 +33,12 @@
   }
 }
 
-
-.radio-group{
-    @apply flex items-center gap-[0.6rem];
-}
-.radio-label{
+.radio-group {
+  @apply flex items-center gap-[0.6rem];
+  .radio-label {
     @apply text-gray-800 text-2sm font-medium;
-    &.radio-label-lg{
-        @apply text-sm;
+    &.radio-label-lg {
+      @apply text-sm;
     }
+  }
 }
