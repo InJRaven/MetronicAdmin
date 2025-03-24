@@ -1,7 +1,12 @@
-import { Container, Progress, Textarea } from "@/components/ui";
+import {
+  Checkbox,
+  Container,
+  Progress,
+  Radio,
+  Textarea,
+} from "@/components/ui";
 import { Icons } from "@/components/ui/Base";
 import { Switch } from "@radix-ui/react-switch";
-
 
 const Home = () => {
   const colors = [
@@ -19,12 +24,16 @@ const Home = () => {
   return (
     <div className="flex">
       <Container.Fixed>
-        <Textarea placeholder="test"/>
-        <Textarea size='Small' placeholder="test"/>
-        <Textarea size='Large' placeholder="test"/>
-        
+        <Textarea placeholder="test" />
+        <Textarea size="Small" placeholder="test" />
+        <Textarea size="Large" placeholder="test" />
+
+        <Checkbox />
+
+
+        <Radio size="Small" />
+        <Radio size="Large" />
       </Container.Fixed>
-      
     </div>
   );
 };

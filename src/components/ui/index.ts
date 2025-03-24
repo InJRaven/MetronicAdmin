@@ -11,8 +11,10 @@ import { Scrollable } from "./Scrollable/Scrollable";
 
 import { Checkbox } from "./Checkbox/Checkbox";
 import { Input } from "./Input/Input";
+import { Radio } from "./Radio/Radio";
 import { Textarea } from "./Textarea/Textarea";
 import { Switch } from "./Switch/Switch";
+
 import { Tooltip } from "./Tooltip/Tooltip";
 
 export {
@@ -26,9 +28,12 @@ export {
   Table,
   Separator,
   Scrollable,
+
   Checkbox,
   Input,
+  Radio,
   Textarea,
   Switch,
+  
   Tooltip,
 };

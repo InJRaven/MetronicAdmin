@@ -1,12 +1,8 @@
-import { cn } from "@/lib/utils";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Root, Indicator } from "@radix-ui/react-checkbox";
+import { cn } from "@/lib/utils";
 
-import {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  forwardRef,
-} from "react";
 
 const checkboxVariants = cva("checkbox", {
   variants: {
@@ -26,17 +22,19 @@ interface CheckboxProps
 }
 
 const Checkbox = forwardRef<ElementRef<typeof Root>, CheckboxProps>(
-  ({ className, size, ...props }, ref) => (
+  ({className, size, ...props }, ref) => {
+    return(
     <Root
       ref={ref}
-
       className={cn(checkboxVariants({ size }), className)}
       {...props}
     >
-      <Indicator>
-      </Indicator>
+      <Indicator />
     </Root>
-  )
+  )}
+
 );
+
+
 
 export { Checkbox };
