@@ -42,6 +42,7 @@ const AccordionItemComponent = ({
     </Collapse.Root>
   );
 };
+AccordionItemComponent.displayName = "AccordionItem";
 
 const AccordionItem = memo(AccordionItemComponent);
 

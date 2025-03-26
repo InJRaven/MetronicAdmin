@@ -20,27 +20,35 @@ const AccordionComponent = ({
   children,
   allowMultiple,
 }: IAccordionProps) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
+
   const handleItemClick = (index: number) => {
-    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+    setOpenIndexes((prev) => {
+      const newSet = new Set(prev);
+      if (!allowMultiple) return prev.has(index) ? new Set() : new Set([index]);
+
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      prev.has(index) ? newSet.delete(index) : newSet.add(index);
+      return newSet;
+    });
   };
 
   const modifiedChildren = Children.map(children, (child, index) => {
     if (isValidElement<IAccordionItemProps>(child)) {
-      return cloneElement<IAccordionItemProps>(child, {
-        isOpen: allowMultiple ? child.props.isOpen : openIndex === index,
+      return cloneElement(child, {
+        isOpen: allowMultiple
+          ? !openIndexes.has(index) || openIndexes.size === 0
+          : openIndexes.has(index),
         onClick: () => handleItemClick(index),
       });
     }
     return child;
   });
-
   return <div className={cn("accordion", className)}>{modifiedChildren}</div>;
 };
 
-
-
+AccordionComponent.displayName = "Accordion";
 const Accordion = memo(AccordionComponent);
 
-
-export {Accordion , type IAccordionProps}
+export { Accordion, type IAccordionProps };
