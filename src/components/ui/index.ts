@@ -1,3 +1,5 @@
+import { Accordion } from "./Accordion/Accordion";
+import { AccordionItem } from "./Accordion/AccordionItem";
 import { Avatar } from "./Avatar/Avatar";
 import { Button } from "./Button/Button";
 import { Badge } from "./Badge/Badge";
@@ -15,9 +17,12 @@ import { Radio } from "./Radio/Radio";
 import { Textarea } from "./Textarea/Textarea";
 import { Switch } from "./Switch/Switch";
 
+import { Icons } from "./Icons/Icons";
 import { Tooltip } from "./Tooltip/Tooltip";
 
 export {
+  Accordion,
+  AccordionItem,
   Avatar,
   Button,
   Badge,
@@ -28,12 +33,11 @@ export {
   Table,
   Separator,
   Scrollable,
-
   Checkbox,
   Input,
   Radio,
   Textarea,
   Switch,
-  
+  Icons,
   Tooltip,
 };

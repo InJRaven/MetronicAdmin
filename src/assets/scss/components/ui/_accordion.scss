@@ -1,0 +1,27 @@
+.accordion{
+  @apply flex flex-col;
+}
+.accordion-item {
+  @apply flex flex-col [&:not(:last-child)]:border-b border-b-gray-200 ;
+}
+
+.accordion-toggle {
+  @apply flex flex-grow items-center text-start justify-between py-[1.6rem];
+  span{
+    @apply text-base text-gray-900 font-medium;
+  }
+}
+
+.accordion-content {
+  @apply overflow-hidden;
+  transition: height 300ms ease;
+}
+
+.accordion {
+  .active {
+    .accordion-content {
+      display: block;
+      transition: height 300ms ease;
+    }
+  }
+}

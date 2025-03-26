@@ -2,7 +2,7 @@
 *,
 *::after,
 *::before {
-  @apply m-0 p-0 box-border font-sans transition-colors duration-150;
+  @apply m-0 p-0 box-border font-sans ;
 }
 html {
   @apply text-[62.5%];

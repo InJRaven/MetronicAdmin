@@ -1,6 +1,4 @@
 import clsx from "clsx";
-import { memo } from "react";
-
 interface IconPropsType {
   className?: string;
   name: keyof typeof nameIcon;
@@ -581,11 +579,10 @@ const nameIcon = {
   YouTube: "ki-youtube",
 };
 
-const Icon: React.FC<IconPropsType> = ({
+const Icons: React.FC<IconPropsType> = ({
   name,
   type = "Duotone",
   className,
 }) => <i className={clsx(nameIcon[name], TypeIcon[type], className)} />;
 
-
-export default memo(Icon)
+export { Icons };
