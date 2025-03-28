@@ -20,18 +20,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/Icons/Icons";
 
-const selectTriggerVariants = cva("radix-select", {
-  variants: {
-    size: {
-      Small: "select-sm",
-      Default: "",
-      Large: "select-lg",
+const selectTriggerVariants = cva(
+  "radix-select ring-0 ring-offset-0 ring-offset-background focus:ring-offset-0",
+  {
+    variants: {
+      size: {
+        Small: "select-sm",
+        Default: "",
+        Large: "select-lg",
+      },
     },
-  },
-  defaultVariants: {
-    size: "Default",
-  },
-});
+    defaultVariants: {
+      size: "Default",
+    },
+  }
+);
 
 interface SelectTriggerProps
   extends Omit<ComponentPropsWithoutRef<typeof Trigger>, "size"> {
@@ -97,7 +100,6 @@ const SelectContent = forwardRef<
           "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
         className
       )}
-  
       position={position}
       {...props}
     >
@@ -113,11 +115,7 @@ const SelectLabel = forwardRef<
   ElementRef<typeof Label>,
   ComponentPropsWithoutRef<typeof Label>
 >(({ className, ...props }, ref) => (
-  <Label
-    ref={ref}
-    className={cn("radix-select-label", className)}
-    {...props}
-  />
+  <Label ref={ref} className={cn("radix-select-label", className)} {...props} />
 ));
 SelectLabel.displayName = Label.displayName;
 

@@ -4,7 +4,7 @@ import { Avatar } from "./Avatar/Avatar";
 import { Button } from "./Button/Button";
 import { Badge } from "./Badge/Badge";
 import { Card } from "./Card/Card";
-import { Collapse } from "./Collapse/Collapse";
+import { Collapsible } from "./Collapsible/Collapsible";
 import { Container } from "./Container/Container";
 import { Progress } from "./Progress/Progress";
 import { Table } from "./Table/Table";
@@ -30,7 +30,7 @@ export {
   Button,
   Badge,
   Card,
-  Collapse,
+  Collapsible,
   Container,
   Progress,
   Table,

@@ -1,4 +1,4 @@
-import { Collapse, Icons } from "@/components/ui";
+import { Collapsible, Icons } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 import { memo, ReactNode } from "react";
@@ -33,13 +33,13 @@ const AccordionItemComponent = ({
     );
   };
   return (
-    <Collapse.Root open={isOpen} className={cn("accordion-item", className)}>
-      <Collapse.Trigger className="accordion-toggle" onClick={onClick}>
+    <Collapsible.Root open={isOpen} className={cn("accordion-item", className)}>
+      <Collapsible.Trigger className="accordion-toggle" onClick={onClick}>
         <span>{title}</span>
         {buildIndicator()}
-      </Collapse.Trigger>
-      <Collapse.Content>{children}</Collapse.Content>
-    </Collapse.Root>
+      </Collapsible.Trigger>
+      <Collapsible.Content>{children}</Collapsible.Content>
+    </Collapsible.Root>
   );
 };
 AccordionItemComponent.displayName = "AccordionItem";

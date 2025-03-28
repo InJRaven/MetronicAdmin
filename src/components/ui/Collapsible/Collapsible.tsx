@@ -23,10 +23,10 @@ const CollapseContent = forwardRef<
 ));
 
 CollapseContent.displayName = CollapsibleContent.displayName;
-const Collapse = {
+const Collapsible = {
   Root: Root,
   Trigger: CollapsibleTrigger,
   Content: CollapseContent,
 };
 
-export { Collapse };
+export { Collapsible };

@@ -718,7 +718,7 @@ module.exports = {
     // require('./src/plugins/components/accordion'),
     // require('./src/plugins/components/input'),
     // require('./src/plugins/components/input-group'),
-    // require('./src/plugins/components/select'),
+    require('./src/plugins/components/select'),
     // require('./src/plugins/components/textarea'),
     // require('./src/plugins/components/file-input'),
     // require('./src/plugins/components/switch'),
