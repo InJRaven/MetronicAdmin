@@ -12,8 +12,11 @@ import { Separator } from "./Separator/Separator";
 import { Scrollable } from "./Scrollable/Scrollable";
 
 import { Checkbox } from "./Checkbox/Checkbox";
+import { FileInput } from "./FileInput/FileInput";
 import { Input } from "./Input/Input";
 import { Radio } from "./Radio/Radio";
+import { Range } from "./Range/Range";
+import { Select } from "./Select/Select";
 import { Textarea } from "./Textarea/Textarea";
 import { Switch } from "./Switch/Switch";
 
@@ -34,8 +37,11 @@ export {
   Separator,
   Scrollable,
   Checkbox,
+  FileInput,
   Input,
   Radio,
+  Range,
+  Select,
   Textarea,
   Switch,
   Icons,

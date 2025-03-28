@@ -421,9 +421,6 @@ module.exports = {
       borderWidth: {
         3: "3px",
       },
-      outline: {
-        none: "none",
-      },
       spacing: {
         0.75: "0.3rem", // 3px
         1.25: "0.5rem", // 5px

@@ -1,0 +1,41 @@
+.file-input {
+  @apply flex w-full appearance-none outline-none shadow-none leading-[1] bg-light-active border border-gray-300 text-gray-700 p-0 placeholder:text-gray-500 hover:border-gray-400 focus:border-primary focus:shadow-[var(--tw-input-focus-box-shadow)] focus:text-gray-700 focus:placeholder:text-gray-600 active:text-gray-700 active:placeholder:text-gray-600 active:shadow-none disabled:bg-gray-100 disabled:text-gray-400 disabled:placeholder:text-gray-300;
+
+  height: theme("custom.components.btn.DEFAULT.height");
+  border-radius: theme("custom.components.common.borderRadius.btn");
+  font-weight: theme("custom.components.btn.DEFAULT.fontWeight");
+  font-size: theme("custom.components.btn.DEFAULT.fontSize");
+  padding-inline-end: theme("custom.components.btn.DEFAULT.px");
+
+  &::file-selector-button {
+    @apply text-gray-600 h-full appearance-none bg-transparent border-0 shadow-none;
+    padding-inline-start: theme("custom.components.btn.DEFAULT.px");
+    padding-inline-end: theme("custom.components.btn.DEFAULT.px");
+    margin-inline-end: theme("custom.components.btn.DEFAULT.px");
+    border-start-start-radius: theme(
+      "custom.components.common.borderRadius.btn"
+    );
+    border-end-start-radius: theme("custom.components.common.borderRadius.btn");
+    border-inline-end: 1px solid var(--tw-gray-300);
+  }
+}
+.file-input-sm {
+  height: theme("custom.components.btn.sm.height");
+  font-weight: theme("custom.components.btn.sm.fontWeight");
+  font-size: theme("custom.components.btn.sm.fontSize");
+  padding-inline-end: theme("custom.components.btn.sm.px");
+  &::file-selector-button {
+    padding-inline-start: theme("custom.components.btn.sm.px");
+    padding-inline-end: theme("custom.components.btn.sm.px");
+  }
+}
+.file-input-lg {
+  height: theme("custom.components.btn.lg.height");
+  font-weight: theme("custom.components.btn.lg.fontWeight");
+  font-size: theme("custom.components.btn.lg.fontSize");
+  padding-inline-end: theme("custom.components.btn.lg.px");
+  &::file-selector-button {
+    padding-inline-start: theme("custom.components.btn.lg.px");
+    padding-inline-end: theme("custom.components.btn.lg.px");
+  }
+}

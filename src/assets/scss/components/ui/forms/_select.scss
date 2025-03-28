@@ -1,0 +1,70 @@
+select.select {
+  @apply flex items-center cursor-pointer justify-between w-full appearance-none shadow-none leading-[1] bg-light-active border border-gray-300 text-gray-700 hover:border-gray-400 bg-no-repeat bg-[position:right_1.08rem_center] bg-[size:1.4rem_1.1rem] focus:border-primary shadow-[var(--tw-input-focus-box-shadow)] focus:text-gray-700 focus:placeholder:text-gray-600 active:text-gray-700 active:placeholder:text-gray-600 active:shadow-none disabled:bg-gray-100 disabled:text-gray-400 disabled:placeholder:text-gray-300;
+
+  font-weight: theme("custom.components.btn.DEFAULT.fontWeight");
+  font-size: theme("custom.components.btn.DEFAULT.fontSize");
+  border-radius: theme("custom.components.common.borderRadius.btn");
+  height: theme("custom.components.btn.DEFAULT.height");
+  padding-inline-start: theme("custom.components.input.DEFAULT.px");
+  padding-inline-end: theme("custom.components.input.DEFAULT.px");
+
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2378829D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  .dark & {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23808290' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  .select-sm {
+    @apply bg-[position:inset-inline-end_0.88rem_center] bg-[size:1.4rem_1rem];
+  }
+  .select-lg {
+    @apply bg-[position:left_1.08rem_center] bg-[size:1.4rem_1.2rem];
+  }
+}
+
+//Radix Ui
+.radix-select {
+  @apply flex bg-light-light w-full items-center justify-between rounded-md border border-input text-sm ring-0 cursor-pointer focus:border-primary focus:ring-0 font-medium ring-offset-0 ring-offset-background placeholder:text-muted-foreground text-gray-700 hover:border-gray-400 focus:outline-none data-[state=open]:border-primary data-[state=open]:text-gray-900 focus:ring-offset-0 focus:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 h-[4rem] px-[1.2rem] py-[0.8rem];
+}
+.radix-select-content {
+  @apply relative z-50 overflow-hidden rounded-md border bg-popover text-popover-foreground w-[var(--radix-select-trigger-width)]  max-h-[var(--radix-select-content-available-height)];
+}
+.radix-select-scroll-button {
+  @apply flex cursor-default items-center justify-center py-[0.4rem];
+}
+
+.radix-select-item {
+  @apply relative flex w-full cursor-pointer select-none items-center py-[0.6rem] pl-[3.2rem] pr-[0.8rem] text-2sm outline-none focus:bg-accent text-gray-700 data-[highlighted]:text-gray-900 focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:font-bold first:rounded-t-md last:rounded-b-md;
+}
+.radix-select-label {
+  @apply py-[0.6rem] pl-[3.2rem] pr-[0.8rem] text-sm font-semibold;
+}
+
+.radix-check {
+  @apply absolute left-[0.8rem] flex h-[1.4rem] w-[1.4rem] items-center justify-center;
+}
+
+.radix-select-separator {
+  @apply -mx-[0.4rem] my-[0.4rem] h-px bg-muted;
+}
+
+.select-sm {
+  font-weight: theme("custom.components.btn.sm.fontWeight");
+  font-size: theme("custom.components.btn.sm.fontSize");
+  height: theme("custom.components.btn.sm.height");
+  padding-inline-start: theme("custom.components.input.sm.px");
+  padding-inline-end: theme("custom.components.input.sm.px");
+}
+
+.select-lg {
+  font-weight: theme("custom.components.btn.lg.fontWeight");
+  font-size: theme("custom.components.btn.lg.fontSize");
+  height: theme("custom.components.btn.lg.height");
+  padding-inline-start: theme("custom.components.input.lg.px");
+  padding-inline-end: theme("custom.components.input.lg.px");
+}
+
+[dir="rtl"] {
+  select.select {
+    @apply bg-[position:left_1.08rem_center];
+  }
+}
