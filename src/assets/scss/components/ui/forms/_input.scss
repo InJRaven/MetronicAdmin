@@ -63,7 +63,7 @@
   
   // Form input with icons
   .input:not(input) {
-    @apply flex gap-[0.375rem] items-center appearance-none shadow-none text-gray-600;
+    @apply flex gap-[0.6rem] items-center appearance-none shadow-none text-gray-600;
     outline: none;
     input {
       @apply grow bg-transparent border-0 text-inherit;

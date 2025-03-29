@@ -3,18 +3,21 @@ import { Root, Thumb } from "@radix-ui/react-switch";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
-const switchVariants = cva("switch", {
-  variants: {
-    size: {
-      Small: "switch-sm",
-      Default: "",
-      Large: "switch-lg",
+const switchVariants = cva(
+  "radix-switch focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+  {
+    variants: {
+      size: {
+        Small: "switch-sm",
+        Default: "",
+        Large: "switch-lg",
+      },
     },
-  },
-  defaultVariants: {
-    size: "Default",
-  },
-});
+    defaultVariants: {
+      size: "Default",
+    },
+  }
+);
 
 interface SwitchProps
   extends Omit<ComponentPropsWithoutRef<typeof Root>, "size"> {
@@ -27,9 +30,9 @@ const Switch = forwardRef<ElementRef<typeof Root>, SwitchProps>(
   ({ className, size, htmlFor, label, ...props }, ref) => (
     <label htmlFor={htmlFor} className={cn(switchVariants({ size }))}>
       <Root className={cn(className)} {...props} ref={ref}>
-        <Thumb className={cn("switch-circle")} />
+        <Thumb className={cn("radix-circle ring-0")} />
       </Root>
-      {label && <span className="switch-label">{label}</span>}
+      {label && <span className="radix-switch-label">{label}</span>}
     </label>
   )
 );
