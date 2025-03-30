@@ -9,21 +9,28 @@ import {
   Input,
   Switch,
   Textarea,
+  Avatar,
+  Button,
 } from "@/components/ui";
 
 const Home = () => {
+  const colors = [
+    "Primary",
+    "Secondary",
+    "Success",
+    "Danger",
+    "Warning",
+    "Info",
+    "Dark",
+    "Light",
+  ] as const;
+  const sizes = ["Extra Small", "Small", "Default", "Large"] as const;
+
+  const variants = ["Default", "Outline", "Clear", "Subtle"] as const;
   return (
     <div className="flex">
       <Container.Fixed>
-        <div className="input input-sm">
-          <input type="text" name="" id="" />
-        </div>
-
-        <div className="flex">
-          <Switch label="test" size={"Large"} />
-        </div>
-        <Textarea size={"Large"} readOnly placeholder="test" />
-        <Input size="small" />
+        
       </Container.Fixed>
     </div>
   );

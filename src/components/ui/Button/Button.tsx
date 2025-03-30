@@ -22,6 +22,7 @@ const buttonVariants = cva("btn", {
       Large: "btn-lg",
     },
     color: {
+      Default: "",
       Primary: "btn-primary",
       Secondary: "btn-secondary",
       Success: "btn-success",
@@ -36,7 +37,7 @@ const buttonVariants = cva("btn", {
     isIcon: false,
     variant: "Default",
     size: "Default",
-    color: "Primary",
+    color: "Default",
   },
 });
 
