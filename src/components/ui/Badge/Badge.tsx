@@ -43,12 +43,12 @@ interface BadgeProps
   size?: VariantProps<typeof badgeVariants>["size"];
   color?: VariantProps<typeof badgeVariants>["color"];
   isDot?: boolean;
-  content?: string | ReactNode;
+  children?: string | ReactNode;
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
   (
-    { type, variant, size, color, isDot, className, content, ...props },
+    { type, variant, size, color, className, children, ...props },
     ref
   ) => {
     return (
@@ -57,8 +57,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
         className={cn(badgeVariants({ type, variant, size, color }), className)}
         {...props}
       >
-        {isDot && <span className="badge badge-dot"></span>}
-        {content}
+        {children}
       </span>
     );
   }
