@@ -1,0 +1,23 @@
+
+
+section.page-heading {
+  @apply w-full flex items-center justify-between;
+}
+
+.title-page {
+  @apply text-b-20-20 text-gray-900;
+}
+
+.menu-icon {
+  @apply flex items-center shrink-0;
+}
+
+.menu-title {
+  @apply flex grow items-center transition-colors duration-200;
+}
+#halfGradient {
+  @apply text-warning;
+}
+#strokeGradient {
+  @apply text-gray-400;
+}

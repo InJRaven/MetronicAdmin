@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Museo Sans Display ExtraBlack';
+    src: url('MuseoSansDisplay-ExtraBlack.woff2') format('woff2'),
+        url('MuseoSansDisplay-ExtraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Museo Sans Display';
+    src: url('MuseoSansDisplay-Black.woff2') format('woff2'),
+        url('MuseoSansDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

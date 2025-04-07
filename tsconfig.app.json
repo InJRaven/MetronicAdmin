@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets": ["./src/assets/"],
+      "@assets/*": ["./src/assets/*"],
+
+      "@pages": ["./src/components/pages"],
+      "@pages/*": ["./src/components/pages/*"],
+
+      "@ui": ["./src/components/ui/"],
+      "@ui/*": ["./src/components/ui/*"],
+
+      "@context": ["./src/context/"],
+      "@context/*": ["./src/context/*"],
+
+      "@hooks": ["./src/hooks/"],
+      "@hooks/*": ["./src/hooks/*"]
+    }
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,36 @@
+.PopoverContent {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.PopoverContent[data-state="open"] {
+  animation-name: scaleIn;
+}
+
+.PopoverContent[data-state="closed"] {
+  animation-name: scaleOut;
+}
+
+/* Animation khi popover vào */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation khi popover ra */
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
