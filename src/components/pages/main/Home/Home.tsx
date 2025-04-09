@@ -51,23 +51,24 @@ const Home = () => {
               dragProps,
             }) => (
               <>
-                <div
-                  className="btn btn-icon size-[2rem] btn-icon-xs btn-light shadow-default absolute z-1 -top-0.5 -right-0.5 rounded-full"
-                  onClick={() => onImageRemove(0)}
-                >
-                  <KeenIcons icon={"Cross"} style={"Outline"} />
-                </div>
+                {fileList.length > 0 && (
+                  <div
+                    className="btn btn-icon size-[2rem] btn-icon-xs btn-light shadow-default absolute z-1 -top-0.5 -right-0.5 rounded-full"
+                    onClick={() => onImageRemove(0)}
+                  >
+                    <KeenIcons icon={"Cross"} style={"Outline"} />
+                  </div>
+                )}
                 <div
                   className={clsx(
                     "image-input-placeholder rounded-full border-2",
                     fileList.length > 0 ? "border-success" : " border-gray-300"
                   )}
-                  style={{
-                    backgroundImage:
-                      fileList.length > 0
-                        ? `url(${fileList[0].dataURL})`
-                        : "url('https://keenthemes.com/static/metronic/tailwind/docs/dist/assets/media/avatars/blank.png')",
-                  }}
+                  style={
+                    fileList.length > 0
+                      ? { backgroundImage: `url(${fileList[0].dataURL})` }
+                      : {}
+                  }
                 >
                   <div className="image-input-preview rounded-full"></div>
                   <div

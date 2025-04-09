@@ -40,6 +40,7 @@ export default plugin(({ addComponents }) => {
         height: "100%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundImage: `url('https://keenthemes.com/static/metronic/tailwind/docs/dist/assets/media/avatars/blank.png')`,
       },
     },
   });
