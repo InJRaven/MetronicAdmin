@@ -713,7 +713,7 @@ module.exports = {
     require("./src/plugins/components/radio"),
     require("./src/plugins/components/range"),
     require("./src/plugins/components/container"),
-    // require('./src/plugins/components/image-input'),
+    require('./src/plugins/components/image-input'),
     // require('./src/plugins/components/modal'),
     // require('./src/plugins/components/drawer'),
     require("./src/plugins/components/toast"),

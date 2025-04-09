@@ -1,15 +1,25 @@
-import { ComponentProps } from "react";
+import { ComponentProps, FC } from "react";
 import { Toaster as Sonner } from "sonner";
-import { useTheme } from "@/context/ThemeContext";
+import { useTheme } from "@hooks";
+
 import { KeenIcons } from "../KeenIcons/KeenIcons";
 
-type ToasterProps = ComponentProps<typeof Sonner>;
+interface ToasterProps extends Omit<ComponentProps<typeof Sonner>, "position"> {
+  position?:
+    | "top-left"
+    | "top-center"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-center"
+    | "bottom-right";
+}
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toaster: FC<ToasterProps> = ({ position = "bottom-right", ...props }) => {
   const { theme = "system" } = useTheme();
   return (
     <Sonner
       theme={theme as ToasterProps["theme"]}
+      position={position}
       className="toaster group"
       icons={{
         success: <KeenIcons icon={"Shield Tick"} style={"Filled"} />,

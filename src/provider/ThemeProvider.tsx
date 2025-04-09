@@ -52,13 +52,5 @@ const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-// Custom hook to use the theme context
-const useTheme = (): ThemeContextType => {
-  const context = React.useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
-};
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider, ThemeContext, type ThemeContextType };

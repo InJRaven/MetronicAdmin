@@ -13,6 +13,12 @@ import { Scrollable } from "./Scrollable/Scrollable";
 
 import { Checkbox } from "./Checkbox/Checkbox";
 import { FileInput } from "./FileInput/FileInput";
+import {
+  ImageInput,
+  type IImageInputProps,
+  type TImageInputFiles,
+  type IImageInputFile,
+} from "./ImageInput/ImageInput";
 import { Input } from "./Input/Input";
 import { Radio } from "./Radio/Radio";
 import { Range } from "./Range/Range";
@@ -39,6 +45,10 @@ export {
   Scrollable,
   Checkbox,
   FileInput,
+  ImageInput,
+  type IImageInputProps,
+  type TImageInputFiles,
+  type IImageInputFile,
   Input,
   Radio,
   Range,

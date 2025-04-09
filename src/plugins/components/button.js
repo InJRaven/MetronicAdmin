@@ -7,6 +7,7 @@ export default plugin(({ addComponents, theme }) => {
       alignItems: "center",
       cursor: "pointer",
       lineHeight: 1,
+      border: "1px solid transparent",
       height: theme("custom.components.btn.DEFAULT.height"),
       borderRadius: theme("custom.components.common.borderRadius.btn"),
       paddingInlineStart: theme("custom.components.btn.DEFAULT.px"),
