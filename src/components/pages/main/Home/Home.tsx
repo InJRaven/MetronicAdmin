@@ -8,9 +8,12 @@ import {
   type IImageInputFile,
 } from "@/components/ui";
 import clsx from "clsx";
+
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+
+// import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
+
 const Home = () => {
   // const colors = [
   //   "Default",
@@ -26,7 +29,6 @@ const Home = () => {
   // const variants = ["Default", "Outline", "Clear", "Subtle"] as const;
 
   const [images, setImages] = useState<TImageInputFiles>([]);
-
   // Hàm xử lý thay đổi giá trị images
   const handleImageChange = (
     newImages: TImageInputFiles,
@@ -34,10 +36,15 @@ const Home = () => {
   ) => {
     setImages(newImages); // Cập nhật danh sách file
   };
+
+
   return (
     <div className="flex">
       <Container.Fixed>
-        <div className="image-input size-[6.4rem]">
+        <button className="btn btn-primary" onClick={() => toast.info("Hello")}>
+          Show Notification
+        </button>
+        <div className="image-input size-[6.4rem] space-y-4">
           <ImageInput
             value={images}
             onChange={handleImageChange}
@@ -100,6 +107,8 @@ const Home = () => {
             )}
           </ImageInput>
         </div>
+
+
       </Container.Fixed>
     </div>
   );

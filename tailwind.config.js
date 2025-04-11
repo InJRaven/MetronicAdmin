@@ -382,6 +382,9 @@ module.exports = {
             lineHeight: "2.4rem", // 22px
           },
         ],
+        lg: ["1.8rem", { lineHeight: "2.8rem" }],
+        xl: ["2rem", { lineHeight: "2.8rem" }],
+
         "1.5xl": [
           "2.2rem", // 22px
           {
@@ -677,19 +680,17 @@ module.exports = {
         },
       },
       layouts: {
-        demo1: {
-          sidebar: {
-            width: {
-              desktop: "280px",
-              desktopCollapse: "80px",
-              mobile: "280px",
-            },
+        sidebar: {
+          width: {
+            desktop: "280px",
+            desktopCollapse: "80px",
+            mobile: "280px",
           },
-          header: {
-            height: {
-              desktop: "70px",
-              mobile: "60px",
-            },
+        },
+        header: {
+          height: {
+            desktop: "70px",
+            mobile: "60px",
           },
         },
       },
@@ -713,13 +714,14 @@ module.exports = {
     require("./src/plugins/components/radio"),
     require("./src/plugins/components/range"),
     require("./src/plugins/components/container"),
-    require('./src/plugins/components/image-input'),
+    require("./src/plugins/components/image-input"),
     // require('./src/plugins/components/modal'),
     // require('./src/plugins/components/drawer'),
     require("./src/plugins/components/toast"),
     require("./src/plugins/components/tooltip"),
     // require('./src/plugins/components/popover'),
     require("./src/plugins/components/button"),
+    require("./src/plugins/components/calendar"),
     // require('./src/plugins/components/btn-group'),
     // require('./src/plugins/components/tabs'),
     // require('./src/plugins/components/pagination'),

@@ -2,6 +2,7 @@ import { Accordion } from "./Accordion/Accordion";
 import { AccordionItem } from "./Accordion/AccordionItem";
 import { Avatar } from "./Avatar/Avatar";
 import { Button } from "./Button/Button";
+import { Calendar } from "./Calendar/Calendar";
 import { Badge } from "./Badge/Badge";
 import { Card } from "./Card/Card";
 import { Collapsible } from "./Collapsible/Collapsible";
@@ -35,6 +36,7 @@ export {
   AccordionItem,
   Avatar,
   Button,
+  Calendar,
   Badge,
   Card,
   Collapsible,

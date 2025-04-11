@@ -15,6 +15,7 @@ export default plugin(({ addComponents, theme }) => {
       gap: theme("custom.components.btn.DEFAULT.gap"),
       fontWeight: theme("custom.components.btn.DEFAULT.fontWeight"),
       fontSize: theme("custom.components.btn.DEFAULT.fontSize"),
+      
       transition: "all .2s ease",
     },
     ".btn-icon": {

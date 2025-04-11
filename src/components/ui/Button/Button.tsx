@@ -22,7 +22,7 @@ const buttonVariants = cva("btn", {
       Large: "btn-lg",
     },
     color: {
-      Default: "",
+      Default: "", 
       Primary: "btn-primary",
       Secondary: "btn-secondary",
       Success: "btn-success",

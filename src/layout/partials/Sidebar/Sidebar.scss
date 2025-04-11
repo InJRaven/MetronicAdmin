@@ -1,24 +1,73 @@
 .sidebar {
   @apply col-start-1 row-start-1 col-span-1 row-span-1 flex flex-col border-r border-gray-200 transition-all duration-200;
-  .sidebar__header {
-    @apply relative flex items-center self-stretch px-[2.5rem] border-b border-gray-200 h-[7rem] transition-colors duration-200;
-  }
-  .btn-collpase {
-    @apply rounded-[0.8rem] absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4 dark:!bg-coal-500 !text-gray-500 hover:!text-gray-900;
-  }
-  .sidebar__menu {
-    @apply flex-col grow gap-[0.5rem];
-    &--item {
-      @apply flex flex-col;
-    }
-    &--link {
-      @apply cursor-pointer flex items-center border border-transparent transition duration-200 rounded-md hover:bg-secondary-active h-[4rem] dark:hover:bg-coal-300 dark:hover:border-gray-200 ps-[10px] pe-[10px] py-[6px];
+  width: theme("custom.layouts.sidebar.width.desktop");
 
-      &.active {
-        @apply bg-secondary-active dark:bg-coal-300 dark:border-gray-200;
-        .menu-title {
-          @apply text-primary;
+  &__header {
+    @apply relative flex items-center self-stretch px-[2.5rem] border-b border-gray-200 transition-colors duration-200;
+    height: theme("custom.layouts.header.height.desktop");
+    .link-logo {
+      @apply flex items-center gap-[1rem];
+      i {
+        @apply font-bold text-2.5xl text-gray-900;
+      }
+    }
+    .name-brand {
+      @apply font-museo text-gray-900 text-xl uppercase transition-all duration-200 ease-in-out opacity-100;
+    }
+    .btn-collpase {
+      @apply rounded-[0.8rem] absolute start-full top-2/4 rtl:translate-x-2/4 -translate-x-2/4 -translate-y-2/4 text-gray-500 hover:text-gray-900 transition-colors duration-200;
+    }
+  }
+  &__content {
+    @apply flex flex-grow shrink-0 py-[2rem] pe-[0.8rem];
+  }
+  &__navigation {
+    @apply flex-grow shrink-0 flex ps-[1.8rem] pe-[1.2rem];
+    .navigation__menu {
+      @apply flex flex-col flex-grow gap-[0.5rem];
+
+      &--item {
+        @apply flex flex-col;
+        &.menu-heading {
+          @apply uppercase text-2sm text-gray-500 justify-center ps-[1.2rem] pe-[1rem] py-[0.6rem];
         }
+      }
+
+      &--link {
+        @apply cursor-pointer flex flex-grow gap-[1rem] items-center border border-transparent transition-colors duration-200 rounded-md hover:bg-secondary-active dark:hover:bg-coal-300 dark:hover:border-gray-200 ps-[1rem] pe-[1rem] py-[0.6rem];
+        height: theme("custom.components.btn.DEFAULT.height");
+        // items-start text-gray-500 dark:text-gray-400 w-[20px]
+        .menu-icon {
+          @apply flex items-start shrink-0 text-gray-500 dark:text-gray-400 w-[2rem] text-xl;
+        }
+        .menu-title {
+          @apply flex flex-grow items-center text-base font-medium text-gray-800 transition-all overflow-hidden duration-200 opacity-100 max-w-[20rem];
+        }
+
+        &.active {
+          @apply bg-secondary-active dark:bg-coal-300 dark:border-gray-200;
+        }
+      }
+    }
+  }
+}
+
+.collapse {
+  visibility: unset !important;
+  width: theme("custom.layouts.sidebar.width.desktopCollapse");
+  .sidebar__header {
+    .name-brand {
+      @apply opacity-0;
+    }
+  }
+  .sidebar__navigation {
+    .navigation__menu--item.menu-heading {
+      @apply ps-[1.5rem];
+    }
+    .navigation__menu--link {
+      @apply w-[4.2rem];
+      .menu-title {
+        @apply opacity-0 max-w-0;
       }
     }
   }
