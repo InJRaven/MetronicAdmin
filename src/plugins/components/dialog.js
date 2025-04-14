@@ -6,12 +6,12 @@ export default plugin(({ addComponents, theme }) => {
       inset: 0,
       zIndex: 50,
       backgroundColor: "rgb(0 0 0 / 0.5)",
-      "&[data-state=open]": {
-        animation: "animate-in,fade-in-0",
-      },
-      "&[data-state=close]": {
-        animation: "animate-out,fade-out-0",
-      },
+      // "&[data-state=open]": {
+      //   animation: "animate-in,fade-in-0",
+      // },
+      // "&[data-state=close]": {
+      //   animation: "animate-out,fade-out-0",
+      // },
     },
     ".dialog-content": {
       position: "fixed",
