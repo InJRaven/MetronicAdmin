@@ -2,11 +2,12 @@ import { Accordion } from "./Accordion/Accordion";
 import { AccordionItem } from "./Accordion/AccordionItem";
 import { Avatar } from "./Avatar/Avatar";
 import { Button } from "./Button/Button";
-import { Calendar } from "./Calendar/Calendar";
 import { Badge } from "./Badge/Badge";
+import { Calendar } from "./Calendar/Calendar";
 import { Card } from "./Card/Card";
 import { Collapsible } from "./Collapsible/Collapsible";
 import { Container } from "./Container/Container";
+import { Dialog } from "./Dialog/Dialog";
 import { Progress } from "./Progress/Progress";
 import { Table } from "./Table/Table";
 import { Separator } from "./Separator/Separator";
@@ -36,11 +37,12 @@ export {
   AccordionItem,
   Avatar,
   Button,
-  Calendar,
   Badge,
+  Calendar,
   Card,
   Collapsible,
   Container,
+  Dialog,
   Progress,
   Table,
   Separator,

@@ -448,6 +448,30 @@ module.exports = {
           from: { height: "var(--radix-collapsible-content-height)" },
           to: { height: "0" },
         },
+        "fade-in-0": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "fade-out-0": {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
+        "slide-in-from-left": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "slide-out-to-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        "slide-in-from-right": {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "slide-out-to-right": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -726,6 +750,7 @@ module.exports = {
     // require('./src/plugins/components/tabs'),
     // require('./src/plugins/components/pagination'),
     require("./src/plugins/components/card"),
+    require("./src/plugins/components/dialog"),
     require("./src/plugins/components/table"),
     require("./src/plugins/components/badge"),
     // require('./src/plugins/components/rating'),

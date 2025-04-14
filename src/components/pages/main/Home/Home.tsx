@@ -6,6 +6,7 @@ import {
   type IImageInputProps,
   type TImageInputFiles,
   type IImageInputFile,
+  Dialog,
 } from "@/components/ui";
 import clsx from "clsx";
 
@@ -15,19 +16,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const Home = () => {
-  // const colors = [
-  //   "Default",
-  //   "Primary",
-  //   "Success",
-  //   "Danger",
-  //   "Warning",
-  //   "Info",
-  //   "Dark",
-  // ] as const;
-  // const sizes = ["Extra Small", "Small", "Default", "Large"] as const;
-
-  // const variants = ["Default", "Outline", "Clear", "Subtle"] as const;
-
   const [images, setImages] = useState<TImageInputFiles>([]);
   // Hàm xử lý thay đổi giá trị images
   const handleImageChange = (
@@ -36,7 +24,6 @@ const Home = () => {
   ) => {
     setImages(newImages); // Cập nhật danh sách file
   };
-
 
   return (
     <div className="flex">
@@ -108,7 +95,20 @@ const Home = () => {
           </ImageInput>
         </div>
 
+            <div className="data-[state=open]:animate-in" />
+        <Dialog.Root>
+          <Dialog.Trigger className="btn">Edit Profile</Dialog.Trigger>
 
+          <Dialog.Content side={"left"} className="flex">
+            <Dialog.Header>
+              Header
+            </Dialog.Header>
+            <Dialog.Title>Edit profile</Dialog.Title>
+            <Dialog.Description>
+              Make changes to your profile here. Click save when you're done.
+            </Dialog.Description>
+          </Dialog.Content>
+        </Dialog.Root>
       </Container.Fixed>
     </div>
   );
