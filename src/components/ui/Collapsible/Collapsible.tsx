@@ -13,7 +13,7 @@ const CollapseContent = forwardRef<
   <CollapsibleContent
     ref={ref}
     className={cn(
-      "collapse-content",
+      "overflow-hidden transition-transform data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down",
       className
     )}
     {...props}

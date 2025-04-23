@@ -42,14 +42,14 @@ export default plugin(({ addComponents, theme }) => {
 
     ".scrollable, .scrollable-y, .scrollable-x, .scrollable-auto, .scrollable-y-auto, .scrollable-x-auto, .scrollable-hover:hover, .scrollable-y-hover:hover, .scrollable-x-hover:hover":
       {
-        scrollbarColor:
+        "scrollbar-color":
           "var(--tw-scrollbar-thumb-color, var(--tw-gray-200)) transparent",
         "&::-webkit-scrollbar-thumb": {
-          backgroundColor:
+          "background-color":
             "var(--tw-scrollbar-thumb-color, var(--tw-gray-200))",
         },
         "&::-webkit-scrollbar-corner": {
-          backgroundColor: "transparent",
+          "background-color": "transparent",
         },
       },
     [`@media (max-width: ${theme("screens.lg")})`]: {

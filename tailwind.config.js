@@ -703,7 +703,7 @@ module.exports = {
     require("./src/plugins/core"),
     // require('./src/plugins/components/breakpoints'),
     // require('./src/plugins/components/typography'),
-    // require('./src/plugins/components/menu'),
+    require('./src/plugins/components/menu'),
     require("./src/plugins/components/avatar"),
     require("./src/plugins/components/accordion"),
     require("./src/plugins/components/input"),

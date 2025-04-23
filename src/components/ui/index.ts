@@ -1,65 +1,28 @@
-import { Accordion } from "./Accordion/Accordion";
-import { AccordionItem } from "./Accordion/AccordionItem";
-import { Avatar } from "./Avatar/Avatar";
-import { Button } from "./Button/Button";
-import { Badge } from "./Badge/Badge";
-import { Calendar } from "./Calendar/Calendar";
-import { Card } from "./Card/Card";
-import { Collapsible } from "./Collapsible/Collapsible";
-import { Container } from "./Container/Container";
-import { Dialog } from "./Dialog/Dialog";
-import { Progress } from "./Progress/Progress";
-import { Table } from "./Table/Table";
-import { Separator } from "./Separator/Separator";
-import { Scrollable } from "./Scrollable/Scrollable";
+export * from "./Accordion/Accordion";
+export * from "./Accordion/AccordionItem";
+export * from "./Avatar/Avatar";
+export * from "./Button/Button";
+export * from "./Badge/Badge";
+export * from "./Calendar/Calendar";
+export * from "./Card/Card";
+export * from "./Collapsible/Collapsible";
+export * from "./Container/Container";
+export * from "./Dialog/Dialog";
+export * from "./Progress/Progress";
+export * from "./Table/Table";
+export * from "./Separator/Separator";
+export * from "./Scrollable/Scrollable";
 
-import { Checkbox } from "./Checkbox/Checkbox";
-import { FileInput } from "./FileInput/FileInput";
-import {
-  ImageInput,
-  type IImageInputProps,
-  type TImageInputFiles,
-  type IImageInputFile,
-} from "./ImageInput/ImageInput";
-import { Input } from "./Input/Input";
-import { Radio } from "./Radio/Radio";
-import { Range } from "./Range/Range";
-import { Select } from "./Select/Select";
-import { Textarea } from "./Textarea/Textarea";
-import { Switch } from "./Switch/Switch";
+export * from "./Checkbox/Checkbox";
+export * from "./FileInput/FileInput";
+export * from "./ImageInput/ImageInput";
+export * from "./Input/Input";
+export * from "./Radio/Radio";
+export * from "./Range/Range";
+export * from "./Select/Select";
+export * from "./Textarea/Textarea";
+export * from "./Switch/Switch";
 
-import { KeenIcons } from "./KeenIcons/KeenIcons";
-import { Toaster } from "./Toaster/Toaster";
-import { Tooltip } from "./Tooltip/Tooltip";
-
-export {
-  Accordion,
-  AccordionItem,
-  Avatar,
-  Button,
-  Badge,
-  Calendar,
-  Card,
-  Collapsible,
-  Container,
-  Dialog,
-  Progress,
-  Table,
-  Separator,
-  Scrollable,
-  Checkbox,
-  FileInput,
-  ImageInput,
-  type IImageInputProps,
-  type TImageInputFiles,
-  type IImageInputFile,
-  Input,
-  Radio,
-  Range,
-  Select,
-  Textarea,
-  Switch,
-  KeenIcons,
-  Toaster,
-  Tooltip,
-};
+export * from "./KeenIcons/KeenIcons";
+export * from "./Toaster/Toaster";
+export * from "./Tooltip/Tooltip";

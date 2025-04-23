@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./Sidebar.scss";
 import { Button, KeenIcons } from "@/components/ui";
 import clsx from "clsx";
+import { SideBarContent } from "./";
 interface SideBarType {
   className?: string;
 }
@@ -13,23 +14,47 @@ const SideBar: React.FC<SideBarType> = () => {
 
   const menus = [
     {
+      heading: "General",
+    },
+    {
+      id: "1",
       title: "Singer",
       path: "/singers",
       icon: "fa-light fa-user",
+      children: [],
     },
     {
+      id: "2",
       title: "Musics",
       path: "/musics",
       icon: "fa-light fa-music",
+      children: [],
     },
     {
+      id: "3",
       title: "Albums",
       path: "/albums",
       icon: "fa-light fa-album-circle-user",
+      children: [
+        {
+          id: "4",
+          title: "Albums",
+          path: "/albums",
+          icon: "fa-light fa-album-circle-user",
+          children: [
+            {
+              id: "4",
+              title: "Albums",
+              path: "/albums",
+              icon: "fa-light fa-album-circle-user",
+            },
+          ],
+        },
+      ],
     },
+
   ];
   const handleCollapse = () => setIsCollapse((prev) => !prev);
-  console.log(isCollapse);
   return (
     <aside className={clsx("sidebar", isCollapse && "collapse")}>
       <div className="sidebar__header">
@@ -54,9 +79,9 @@ const SideBar: React.FC<SideBarType> = () => {
         </Button>
       </div>
       <div className="sidebar__content">
-        <nav className="sidebar__navigation">
-          <ul className="navigation__menu">
-            <li className="navigation__menu--item group">
+        <div className="sidebar__navigation">
+          <div className="navigation__menu">
+            <div className="navigation__menu--item group">
               <NavLink to="/" className="navigation__menu--link">
                 <span className="menu-icon">
                   <i className="ki-outline ki-element-11"></i>
@@ -65,24 +90,30 @@ const SideBar: React.FC<SideBarType> = () => {
                   Dashboard
                 </span>
               </NavLink>
-            </li>
-            <li className={`navigation__menu--item menu-heading`}>
-              {isCollapse ? "..." : "Manager"}
-            </li>
+            </div>
 
             {/* Manager Item: Start */}
-            {menus.map((item) => (
-              <li key={item.title} className="navigation__menu--item group">
-                <NavLink to={item.path} className="navigation__menu--link">
-                  <span className="menu-icon">
-                    <i className={item.icon} />
-                  </span>
-                  <span className="menu-title group-hover:text-primary">
-                    {item.title}
-                  </span>
-                </NavLink>
-              </li>
-            ))}
+            {menus.map((item) =>
+              item.heading ? (
+                <li key={item.heading} className={`navigation__menu--item menu-heading`}>
+                  {isCollapse ? "..." : "Manager"}
+                </li>
+              ) : (
+                <li key={item.id} className="navigation__menu--item group">
+                  <NavLink
+                    to={item.path || ""}
+                    className="navigation__menu--link"
+                  >
+                    <span className="menu-icon">
+                      <i className={item.icon} />
+                    </span>
+                    <span className="menu-title group-hover:text-primary">
+                      {item.title}
+                    </span>
+                  </NavLink>
+                </li>
+              )
+            )}
             {/* Manager Item: End */}
 
             <li className="navigation__menu--item group">
@@ -95,9 +126,10 @@ const SideBar: React.FC<SideBarType> = () => {
                 </span>
               </NavLink>
             </li>
-          </ul>
-        </nav>
+          </div>
+        </div>
       </div>
+      <SideBarContent />
     </aside>
   );
 };

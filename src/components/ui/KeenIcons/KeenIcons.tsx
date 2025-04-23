@@ -585,7 +585,7 @@ const iconVariants = cva("", {
 
 interface TKeenIconsProps {
   className?: string;
-  icon?: VariantProps<typeof iconVariants>["icon"];
+  icon?:string | VariantProps<typeof iconVariants>["icon"];
   style?: VariantProps<typeof iconVariants>["style"];
 }
 

@@ -72,3 +72,7 @@
     }
   }
 }
+
+.sidebar-content {
+  @apply flex flex-grow shrink-0 py-[2rem] pe-[0.8rem];
+}

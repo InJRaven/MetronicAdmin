@@ -7,6 +7,9 @@ import {
   type TImageInputFiles,
   type IImageInputFile,
   Dialog,
+  Collapsible,
+  Accordion,
+  AccordionItem,
 } from "@/components/ui";
 import clsx from "clsx";
 
@@ -16,6 +19,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const Home = () => {
+  // ga('create', `G-${PUBLIC_GA}`, 'auto');
   const [images, setImages] = useState<TImageInputFiles>([]);
   // Hàm xử lý thay đổi giá trị images
   const handleImageChange = (
@@ -25,6 +29,10 @@ const Home = () => {
     setImages(newImages); // Cập nhật danh sách file
   };
 
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <div className="flex">
       <Container.Fixed>
@@ -95,14 +103,23 @@ const Home = () => {
           </ImageInput>
         </div>
 
-            <div className="data-[state=open]:animate-in" />
+            <button className="btn btn-primary" onClick={handleClick}>Collapsiple</button>
+        <Collapsible.Root open={isOpen}>
+          <Collapsible.Content>
+            <div className="text-gray-700 text-md pb-4">
+              Metronic embraces flexible licensing options that empower you to
+              choose the perfect fit for your project's needs and budget.
+              Understanding the factors influencing each plan's pricing helps
+              you make an informed decision.
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
+
         <Dialog.Root>
           <Dialog.Trigger className="btn">Edit Profile</Dialog.Trigger>
 
-          <Dialog.Content side={"left"} className="flex">
-            <Dialog.Header>
-              Header
-            </Dialog.Header>
+          <Dialog.Content side={"left"}>
+            <Dialog.Header>Header</Dialog.Header>
             <Dialog.Title>Edit profile</Dialog.Title>
             <Dialog.Description>
               Make changes to your profile here. Click save when you're done.

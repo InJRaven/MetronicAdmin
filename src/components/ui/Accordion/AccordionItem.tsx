@@ -5,6 +5,7 @@ import { memo, ReactNode } from "react";
 
 interface IAccordionItemProps {
   title?: string;
+  asChild?: boolean;
   indicator?: ReactNode;
   children: ReactNode;
   isOpen?: boolean;
@@ -32,6 +33,8 @@ const AccordionItemComponent = ({
       )
     );
   };
+
+
   return (
     <Collapsible.Root open={isOpen} className={cn("accordion-item", className)}>
       <Collapsible.Trigger className="accordion-toggle" onClick={onClick}>

@@ -37,10 +37,12 @@ const dialogCotentVariants = cva(
   {
     variants: {
       side: {
-        top: "dialog-side-top",
-        bottom: "dialog-side-bottom",
-        left: "dialog-side-left sm:max-w-sm",
-        right: "dialog-side-right sm:max-w-sm",
+        top: "dialog-side-top data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
+        bottom:
+          "dialog-side-bottom data-[state=closed :slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
+        left: "dialog-side-left data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+        right:
+          "dialog-side-right data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
       },
     },
     defaultVariants: {

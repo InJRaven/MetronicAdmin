@@ -5,9 +5,10 @@ import App from "./views/App.tsx";
 import "@/assets/scss/index.scss";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <ProvidersWrapper>
-      <App />
-    </ProvidersWrapper>
-  </StrictMode>
+  // <StrictMode>
+
+  // </StrictMode>
+  <ProvidersWrapper>
+    <App />
+  </ProvidersWrapper>
 );
