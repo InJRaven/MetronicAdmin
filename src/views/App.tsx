@@ -4,6 +4,7 @@ import { authRoutesConfig, mainRoutesConfig } from "@/routes/RoutesConfig";
 import ScrollToTop from "@/utils/ScrollToTop";
 import { useTheme } from "@hooks";
 import { Toaster } from "@ui";
+import { PathnameProvider } from "@/provider";
 
 export const ThemeToggle: FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -21,12 +22,12 @@ export const ThemeToggle: FC = () => {
 const App: React.FC = () => {
   const routes = useRoutes([...mainRoutesConfig, ...authRoutesConfig]);
   return (
-    <>
+    <PathnameProvider>
       <ThemeToggle />
       <ScrollToTop />
       <Suspense fallback={<div>Loading...</div>}>{routes}</Suspense>
       <Toaster />
-    </>
+    </PathnameProvider>
   );
 };
 

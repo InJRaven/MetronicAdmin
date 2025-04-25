@@ -1,6 +1,6 @@
-import { useTheme } from "./useTheme";
-import { useMediaQuery } from "./useMediaQuery";
-import { useResponsive } from "./useResponsive";
-import { useViewport } from "./useViewPort";
-
-export { useTheme, useMediaQuery, useResponsive, useViewport };
+export * from "./useTheme";
+export * from "./useMediaQuery";
+export * from "./useResponsive";
+export * from "./useViewPort";
+export * from "./usePathname";
+export * from "./useMatchPath"

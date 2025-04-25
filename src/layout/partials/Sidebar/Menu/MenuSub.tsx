@@ -9,8 +9,7 @@ const MenuSubComponent = ({
   open,
   children,
 }: IMenuSubProps) => {
-  const finalParentId = parentId !== undefined ? parentId : "root";
-  console.log(open);
+  const finalParentId = parentId !== undefined ? parentId : "";
   const modifiedChildren = Children.map(children, (child, index) => {
     if (isValidElement(child)) {
       if (child.type === MenuItem) {
@@ -18,6 +17,7 @@ const MenuSubComponent = ({
           parentId: finalParentId,
           id: `${finalParentId}-${index}`,
         };
+ 
         return cloneElement(child, modifiedProps);
       } else {
         return cloneElement(child);
@@ -25,6 +25,7 @@ const MenuSubComponent = ({
     }
     return child;
   });
+
 
   return (
     <Collapsible.Root

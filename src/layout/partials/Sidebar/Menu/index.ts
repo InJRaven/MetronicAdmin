@@ -6,4 +6,5 @@ export * from "./MenuHeading";
 export * from "./MenuLink";
 export * from "./MenuIcon";
 export * from "./MenuTitle";
-export * from './MenuSub'
+export * from "./MenuSub";
+export * from "./MenuBullet";

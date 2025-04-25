@@ -2,6 +2,7 @@ import { KeenIcons } from "@/components/ui";
 import {
   IMenuItemConfig,
   Menu,
+  MenuBullet,
   MenuHeading,
   MenuIcon,
   MenuItem,
@@ -13,7 +14,6 @@ import { MenuSub } from "@/layout/partials/Sidebar/Menu/MenuSub";
 import clsx from "clsx";
 
 const levelGap = [
-  "gap-[1rem]",
   "gap-[1.4rem]",
   "gap-[0.5rem]",
   "gap-[0.5rem]",
@@ -22,7 +22,7 @@ const levelGap = [
 ];
 
 const levelPaddingLeft = [
-  "ps-[14px]",
+  "ps-[1rem]",
   "ps-[2.2rem]",
   "ps-[2.2rem]",
   "ps-[2.2rem]",
@@ -32,13 +32,20 @@ const levelPaddingLeft = [
 
 const levelBorderLeft = [
   "before:start-[3.2rem]",
-  "before:start-[4rem]",
-  "before:start-[3.2rem]",
-  "before:start-[3.2rem]",
+  "before:start-[4.5rem]",
+  "before:start-[4.5rem]",
+  "before:start-[4.5rem]",
+  "before:start-[4.5rem]",
 ];
 
 const SideBarMenu = () => {
   const menuApi = [
+    {
+      id: "0x221",
+      title: "Dashboard",
+      path: "/",
+      icon: "ki-outline ki-element-11",
+    },
     {
       heading: "General",
     },
@@ -137,10 +144,10 @@ const SideBarMenu = () => {
   };
   const buildMenuItemChildren = (
     items: TMenuConfig,
-    index: number,
+    _index: number,
     level: number = 0
   ) => {
-    console.log(level);
+    
     return items.map((item, index) => {
       return buildMenuItemChild(item, index, level);
     });
@@ -148,14 +155,14 @@ const SideBarMenu = () => {
   const buildMenuItemChild = (
     item: IMenuItemConfig,
     index: number,
-    level: number = 1
+    level: number = 0
   ) => {
     if (item.children && item.children.length > 0) {
-      console.log(level);
+      
       return (
-        <MenuItem key={index}>
-          <MenuLink className={clsx(levelGap[level])}>
-            <span className="menu-bullet flex w-[6px] shrink-0"></span>
+        <MenuItem key={index} className="group">
+          <MenuLink className={clsx(levelPaddingLeft[level], levelGap[level])}>
+            <MenuBullet className="before:-translate-y-1/2" />
 
             <MenuTitle>{item.title}</MenuTitle>
             {buildMenuArrowButton()}
@@ -174,7 +181,7 @@ const SideBarMenu = () => {
             path={item.path}
             className={clsx(levelPaddingLeft[level], levelGap[level])}
           >
-            <span className="menu-bullet flex w-[6px] shrink-0"></span>
+            <MenuBullet className="before:-translate-y-1/2" />
             <MenuTitle>{item.title}</MenuTitle>
           </MenuLink>
         </MenuItem>
@@ -189,7 +196,7 @@ const SideBarMenu = () => {
     );
   };
 
-  return <Menu>{buildMenu(menuApi)}</Menu>;
+  return <Menu highlight={true}>{buildMenu(menuApi)}</Menu>;
 };
 
 export { SideBarMenu };

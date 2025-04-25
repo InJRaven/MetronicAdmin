@@ -13,6 +13,7 @@ import {
 
 const initalProps: IMenuContextProps = {
   disabled: false,
+  highlight: false,
   multipleExpand: false,
   setOpenAccordion: (parentId: string, id: string) => {
     console.log(`Accordion at level ${parentId}, with ID ${id} is now open`);
@@ -30,6 +31,7 @@ const useMenu = () => useContext(MenuContext);
 const MenuComponent = ({
   className,
   children,
+  highlight = false,
   disabled = false,
   multipleExpand = false,
 }: IMenuProps) => {
@@ -41,13 +43,11 @@ const MenuComponent = ({
   const setOpenAccordion = (parentId: string, id: string) => {
     setOpenMenu((prevState) => ({
       ...prevState,
-      [parentId]: prevState[parentId] === id ? null : id, // Toggle the current item and collapse others at the same level
+      [parentId]: prevState[parentId] === id ? null : id, 
     }));
   };
 
   const isOpenAccordion = (parentId: string, id: string) => {
-
-
     return openMenu[parentId] === id;
   };
 
@@ -66,14 +66,14 @@ const MenuComponent = ({
 
     return child;
   });
-
   return (
     <MenuContext.Provider
       value={{
         disabled,
+        highlight,
         multipleExpand,
         setOpenAccordion,
-        isOpenAccordion
+        isOpenAccordion,
       }}
     >
       <div className={clsx("menu", className)}>{modifiedChildren}</div>

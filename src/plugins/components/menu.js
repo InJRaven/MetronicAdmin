@@ -8,6 +8,10 @@ export default plugin(({ addComponents, theme }) => {
       flexGrow: 1,
       gap: "0.5rem",
     },
+    ".menu-item": {
+      display: "flex",
+      flexDirection: "column",
+    },
     ".menu-link": {
       cursor: "pointer",
       display: "flex",
@@ -53,19 +57,35 @@ export default plugin(({ addComponents, theme }) => {
         lineHeight: theme("fontSize.2xs.1.lineHeight"),
       },
     },
-    ".menu-item": {
+    ".menu-bullet": {
       display: "flex",
-      flexDirection: "column",
+      flexShrink: 0,
+      position: "relative",
+      width: "6px",
+      insetInlineStart: "-3px",
+
+      "&::before": {
+        content: "''",
+        position: "absolute",
+        width: "6px",
+        height: "6px",
+        top: 0,
+        borderRadius: "9999px",
+        backgroundColor: "transparent",
+      },
     },
     ".menu-accordion": {
       display: "flex",
       alignItems: "stretch",
       flexDirection: "column",
-      ".menu-item > .menu-link >.menu-title, .menu-item > .menu-label>.menu-title":
-        {
+      ".menu-item > .menu-link, .menu-item > .menu-label ": {
+        paddingBottom: "0.8rem",
+        paddingTop: "0.8rem",
+        "& > .menu-title": {
           fontSize: theme("fontSize.2sm"),
-          fontWeight: theme("fontSize.2sm.1.lineHeight"),
+          lineHeight: theme("fontSize.2sm.1.lineHeight"),
         },
+      },
     },
   });
 
@@ -90,14 +110,30 @@ export default plugin(({ addComponents, theme }) => {
             color: "var(--tw-primary)",
           },
         },
-
-        "&.active, &.focus": {
-          "> .menu-link, > .menu-label": {
+        ".menu-link": {
+          "&.active": {
+            borderColor: "var(--tw-gray-100)",
+            borderRadius: "0.6rem",
+            backgroundColor: "var(--tw-secondary-active)",
+            ".dark &": {
+              backgroundColor: "var(--tw-coal-300)",
+            },
             ".menu-title": {
               color: "var(--tw-gray-900)",
             },
             ".menu-icon i": {
               color: "var(--tw-primary)",
+            },
+          },
+        },
+
+        ".menu-accordion .menu-item .menu-link": {
+          "&.active": {
+            ".menu-title": {
+              color: "var(--tw-primary)",
+            },
+            ".menu-bullet::before": {
+              backgroundColor: "var(--tw-primary)",
             },
           },
         },

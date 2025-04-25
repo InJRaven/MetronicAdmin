@@ -15,10 +15,11 @@ import {
   IMenuSubProps,
   MenuHeading,
   MenuLink,
+  MenuSub,
   useMenu,
 } from "./";
-import { MenuSub } from "./";
-
+import { useMatchPath, usePathname } from "@/hooks";
+import { getMenuLinkPath, hasMenuActiveChild } from "./utils";
 
 const MenuItemComponent = ({
   id,
@@ -29,13 +30,28 @@ const MenuItemComponent = ({
   open = false,
   className,
 }: IMenuItemProps) => {
-  const { setOpenAccordion, isOpenAccordion, multipleExpand } = useMenu();
-  const finalParentId = parentId !== undefined ? parentId : "";
-  const finalId = id !== undefined ? id : "";
+  const { highlight, setOpenAccordion, isOpenAccordion, multipleExpand } =
+    useMenu();
+
+  const { pathname, prevPathname } = usePathname();
+
+  const path = getMenuLinkPath(children);
+
+  const { match } = useMatchPath(path);
 
   const [show, setShow] = useState(open);
-  const accordionShow = isOpenAccordion?.(finalParentId, finalId) ?? false;
 
+  const active: boolean = highlight ? path.length > 0 && match : false;
+  
+  const isTopLevel = parentId === undefined || parentId === "root";
+
+  const finalParentId = parentId !== undefined ? parentId : "";
+
+  const finalId = id !== undefined ? id : "";
+
+  const accordionShow = isOpenAccordion(finalParentId, finalId);
+
+ 
   const hasSub = Children.toArray(children).some(
     (child) => isValidElement(child) && child.type === MenuSub
   );
@@ -53,14 +69,13 @@ const MenuItemComponent = ({
     if (hasSub) {
       setShow(false);
     }
-
     if (hasSub && multipleExpand === false) {
       setOpenAccordion?.(finalParentId, "");
     }
   };
+
   const handleToggle = (e: MouseEvent<HTMLElement>) => {
-    console.log("handleToggle");
-    if (show) {
+    if (accordionShow) {
       handleHide();
     } else {
       handleShow();
@@ -72,8 +87,6 @@ const MenuItemComponent = ({
   };
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
-    console.log("handleClick");
-
     handleHide();
 
     if (onClick) {
@@ -82,9 +95,25 @@ const MenuItemComponent = ({
   };
 
   useEffect(() => {
-    console.log("Show state changed:", accordionShow);
-    setShow(accordionShow);
-  }, [accordionShow]);
+    if (multipleExpand === false) {
+      setShow(accordionShow);
+    } else {
+      setShow(open);
+    }
+    return () => {
+      console.log("Cleanup: Resetting show state");
+      setShow(false); // Reset state khi component unmount
+    };
+  }, [accordionShow, open, multipleExpand]);
+
+  useEffect(() => {
+    if (hasMenuActiveChild(pathname, children)) {
+      handleShow();
+    }
+    return () => {
+      console.log("Cleanup: Resetting submenu state on unmount");
+    };
+  }, [pathname, children]);
 
   const renderHeadingComponent = (child: ReactElement) => {
     return cloneElement(child);
@@ -123,7 +152,10 @@ const MenuItemComponent = ({
     return modifiedChildren;
   };
   return (
-    <div tabIndex={tabIndex} className={clsx("menu-item", className)}>
+    <div
+      tabIndex={tabIndex}
+      className={clsx("menu-item", active && "active", (isTopLevel && active)  && 'highlight', className)}
+    >
       {renderContent()}
     </div>
   );

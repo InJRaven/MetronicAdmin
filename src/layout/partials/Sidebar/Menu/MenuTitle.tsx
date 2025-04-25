@@ -5,7 +5,7 @@ import { IMenuTitleProps } from "./";
 
 const MenuTitleComponent = ({ className, children }: IMenuTitleProps) => {
   return (
-    <span className={clsx("menu-title", className && className)}>{children}</span>
+    <span className={clsx("menu-title transition-colors duration-200", className && className)}>{children}</span>
   );
 };
 

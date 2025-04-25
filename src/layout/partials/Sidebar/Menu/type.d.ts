@@ -2,18 +2,23 @@ import { ReactNode } from "react";
 export type TMenuShow = boolean;
 export type TMenuTabIndex = number;
 
-export type TMenuClickEvent = (e: MouseEvent<HTMLElement>, props: unknown) => void;
+export type TMenuClickEvent = (
+  e: MouseEvent<HTMLElement>,
+  props: unknown
+) => void;
 export type TMenuItemToggle = Record<string, TMenuToggle> | TMenuToggle;
 export interface IMenuProps {
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;
+  highlight?: boolean;
   multipleExpand?: boolean;
 }
 export interface IMenuContextProps {
   className?: string;
   children?: ReactNode;
   disabled?: boolean;
+  highlight?: boolean;
   multipleExpand?: boolean;
   isOpenAccordion?: (parentId: string, id: string) => boolean;
   setOpenAccordion?: (parentId: string, id: string) => void;
@@ -70,7 +75,12 @@ export interface IMenuSubProps {
   parentId?: string;
   tabIndex?: TMenuTabIndex;
   className?: string;
-  open?: boolean
+  open?: boolean;
   children?: ReactNode;
 }
 export type TMenuConfig = IMenuItemConfig[];
+
+export interface IMenuBulletProps {
+  className?: string;
+  children?: ReactNode;
+}
