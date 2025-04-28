@@ -34,94 +34,86 @@ const MenuItemComponent = ({
     useMenu();
 
   const { pathname, prevPathname } = usePathname();
-
   const path = getMenuLinkPath(children);
-
   const { match } = useMatchPath(path);
 
   const [show, setShow] = useState(open);
 
-  const active: boolean = highlight ? path.length > 0 && match : false;
-  
+  const active = highlight && path.length > 0 && match;
+
+  const [here, setHere] = useState(open);
+
   const isTopLevel = parentId === undefined || parentId === "root";
 
-  const finalParentId = parentId !== undefined ? parentId : "";
+  const finalParentId = parentId ?? "";
+  const finalId = id ?? "";
 
-  const finalId = id !== undefined ? id : "";
+  const accordionShow = isOpenAccordion?.(finalParentId, finalId) ?? false;
 
-  const accordionShow = isOpenAccordion(finalParentId, finalId);
-
- 
   const hasSub = Children.toArray(children).some(
     (child) => isValidElement(child) && child.type === MenuSub
   );
 
+  // Handlers
   const handleShow = () => {
-    if (hasSub) {
-      setShow(true);
-    }
-    if (hasSub && multipleExpand === false) {
-      setOpenAccordion?.(finalParentId, finalId);
-    }
+    setShow(true);
+    if (!multipleExpand) setOpenAccordion?.(finalParentId, finalId);
   };
 
   const handleHide = () => {
-    if (hasSub) {
-      setShow(false);
-    }
-    if (hasSub && multipleExpand === false) {
-      setOpenAccordion?.(finalParentId, "");
-    }
+    setShow(false);
+    if (!multipleExpand) setOpenAccordion?.(finalParentId, "");
   };
 
   const handleToggle = (e: MouseEvent<HTMLElement>) => {
-    if (accordionShow) {
+    e.stopPropagation();
+    if (show) {
       handleHide();
     } else {
       handleShow();
     }
-
-    if (onClick) {
-      onClick(e, {});
-    }
+    onClick?.(e, {});
   };
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     handleHide();
-
-    if (onClick) {
-      onClick(e, {});
-    }
+    onClick?.(e, {});
   };
 
+  // Effects
   useEffect(() => {
-    if (multipleExpand === false) {
-      setShow(accordionShow);
-    } else {
-      setShow(open);
+    if (!multipleExpand && accordionShow !== undefined) {
+      setShow(accordionShow); // Chỉ cập nhật khi `accordionShow` thay đổi
     }
-    return () => {
-      console.log("Cleanup: Resetting show state");
-      setShow(false); // Reset state khi component unmount
-    };
-  }, [accordionShow, open, multipleExpand]);
+  }, [accordionShow, multipleExpand]);
 
-  useEffect(() => {
-    if (hasMenuActiveChild(pathname, children)) {
-      handleShow();
-    }
-    return () => {
-      console.log("Cleanup: Resetting submenu state on unmount");
-    };
-  }, [pathname, children]);
+  // useEffect(() => {
+  //   if (highlight) {
+  //     if (hasMenuActiveChild(pathname, children)) {
+  //       setShow(true);
+  //       if (isTopLevel) setHere(true);
+  //     } else {
+  //       setShow(false);
+  //       setHere(false);
+  //     }
+  //   }
 
-  const renderHeadingComponent = (child: ReactElement) => {
-    return cloneElement(child);
-  };
+  //   if (prevPathname !== pathname && hasSub) {
+  //     if (!hasMenuActiveChild(pathname, children)) {
+  //       handleHide();
+  //     }
+  //   }
+  // }, [pathname, children, prevPathname]);
+
+  // Render helpers
+  const renderHeadingComponent = (child: ReactElement) => cloneElement(child);
+
   const renderLinkComponent = (child: ReactElement) => {
     const modifiedProps: IMenuLinkProps = {
       hasItemSub: hasSub,
       tabIndex,
+      open: show,
       handleToggle,
       handleClick,
     };
@@ -132,34 +124,38 @@ const MenuItemComponent = ({
     const modifiedProps: IMenuSubProps = {
       parentId: `${parentId}-${finalId}`,
       tabIndex,
-      open: accordionShow,
+      open: show,
     };
     return cloneElement(child, modifiedProps);
   };
-  const renderContent = () => {
-    const modifiedChildren = Children.map(children, (child) => {
-      if (isValidElement(child)) {
-        if (child.type === MenuLink) {
+
+  const renderContent = () =>
+    Children.map(children, (child) => {
+      if (!isValidElement(child)) return child;
+
+      switch (child.type) {
+        case MenuLink:
           return renderLinkComponent(child);
-        } else if (child.type === MenuHeading) {
+        case MenuHeading:
           return renderHeadingComponent(child);
-        } else if (child.type === MenuSub) {
+        case MenuSub:
           return renderSubMenu(child);
-        }
+        default:
+          return child;
       }
-      return child;
     });
-    return modifiedChildren;
-  };
+
   return (
     <div
       tabIndex={tabIndex}
-      className={clsx("menu-item", active && "active", (isTopLevel && active)  && 'highlight', className)}
+      className={clsx("menu-item", here && "here", className)}
     >
       {renderContent()}
     </div>
   );
 };
+
+MenuItemComponent.displayName = "MenuItem";
 const MenuItem = memo(MenuItemComponent);
 
 export { MenuItem };

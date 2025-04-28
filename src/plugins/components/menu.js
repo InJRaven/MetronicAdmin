@@ -63,7 +63,7 @@ export default plugin(({ addComponents, theme }) => {
       position: "relative",
       width: "6px",
       insetInlineStart: "-3px",
-
+      zIndex: "20",
       "&::before": {
         content: "''",
         position: "absolute",
@@ -103,6 +103,14 @@ export default plugin(({ addComponents, theme }) => {
           color: "var(--tw-gray-500)",
         },
         ".menu-link:hover, .menu-label:hover": {
+          ".menu-title": {
+            color: "var(--tw-gray-900)",
+          },
+          ".menu-icon i": {
+            color: "var(--tw-primary)",
+          },
+        },
+        "&.here > .menu-link": {
           ".menu-title": {
             color: "var(--tw-gray-900)",
           },

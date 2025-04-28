@@ -8,3 +8,4 @@ export * from "./MenuIcon";
 export * from "./MenuTitle";
 export * from "./MenuSub";
 export * from "./MenuBullet";
+export * from "./MenuArrow";

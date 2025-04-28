@@ -1,16 +1,28 @@
 import clsx from "clsx";
-import { IMenuLinkProps } from "./";
+import { IMenuArrowProps, IMenuLinkProps, MenuArrow } from "./";
 import { NavLink } from "react-router-dom";
-const MenuLink = ({
+import { Children, cloneElement, isValidElement, memo } from "react";
+const MenuLinkComponent = ({
   path,
   newTab,
   hasItemSub = false,
   externalLink,
   className,
+  open,
   handleClick,
   handleToggle,
   children,
 }: IMenuLinkProps) => {
+  const modifiedChildren = Children.map(children, (child) => {
+    if (isValidElement(child) && child.type === MenuArrow) {
+      const modifiedProps: IMenuArrowProps = {
+        open: open,
+      };
+      return cloneElement(child, modifiedProps);
+    }
+    return child;
+  });
+
   if (!hasItemSub && path) {
     if (externalLink) {
       const target = newTab ? "_blank" : "_self";
@@ -18,7 +30,7 @@ const MenuLink = ({
         <a
           href={path}
           target={target}
-          rel="noopener"
+          rel="noopener noreferrer"
           onClick={handleClick}
           className={clsx("menu-link", className && className)}
         />
@@ -30,7 +42,7 @@ const MenuLink = ({
           onClick={handleClick}
           className={clsx("menu-link", className && className)}
         >
-          {children}
+          {modifiedChildren}
         </NavLink>
       );
     }
@@ -41,7 +53,7 @@ const MenuLink = ({
           className={clsx("menu-link", className && className)}
           onClick={handleToggle}
         >
-          {children}
+          {modifiedChildren}
         </div>
       );
     } else {
@@ -50,11 +62,14 @@ const MenuLink = ({
           className={clsx("menu-link", className && className)}
           onClick={handleClick}
         >
-          {children}
+          {modifiedChildren}
         </div>
       );
     }
   }
 };
 
+MenuLinkComponent.displayName = "MenuLink";
+
+const MenuLink = memo(MenuLinkComponent);
 export { MenuLink };

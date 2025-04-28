@@ -43,7 +43,7 @@ const MenuComponent = ({
   const setOpenAccordion = (parentId: string, id: string) => {
     setOpenMenu((prevState) => ({
       ...prevState,
-      [parentId]: prevState[parentId] === id ? null : id, 
+      [parentId]: prevState[parentId] === id ? null : id,
     }));
   };
 
@@ -81,6 +81,7 @@ const MenuComponent = ({
   );
 };
 
+MenuComponent.displayName = "Menu";
 const Menu = memo(MenuComponent);
 
 // eslint-disable-next-line react-refresh/only-export-components

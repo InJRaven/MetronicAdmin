@@ -1,7 +1,7 @@
-import { KeenIcons } from "@/components/ui";
 import {
   IMenuItemConfig,
   Menu,
+  MenuArrow,
   MenuBullet,
   MenuHeading,
   MenuIcon,
@@ -86,6 +86,24 @@ const SideBarMenu = () => {
             },
           ],
         },
+        {
+          id: "6",
+          title: "Albums",
+          icon: "fa-light fa-album-circle-user",
+          children: [
+            {
+              id: "7",
+              title: "Setting",
+              children: [
+                {
+                  title: "setting",
+                  path: "/setting",
+                  icon: "",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -115,7 +133,7 @@ const SideBarMenu = () => {
               <i className={item.icon} />
             </MenuIcon>
             <MenuTitle>{item.title}</MenuTitle>
-            {buildMenuArrowButton()}
+            <MenuArrow />
           </MenuLink>
           <MenuSub className={clsx(levelPaddingLeft[0])}>
             {buildMenuItemChildren(item.children, index)}
@@ -147,7 +165,6 @@ const SideBarMenu = () => {
     _index: number,
     level: number = 0
   ) => {
-    
     return items.map((item, index) => {
       return buildMenuItemChild(item, index, level);
     });
@@ -158,14 +175,13 @@ const SideBarMenu = () => {
     level: number = 0
   ) => {
     if (item.children && item.children.length > 0) {
-      
       return (
-        <MenuItem key={index} className="group">
+        <MenuItem key={index}>
           <MenuLink className={clsx(levelPaddingLeft[level], levelGap[level])}>
             <MenuBullet className="before:-translate-y-1/2" />
 
             <MenuTitle>{item.title}</MenuTitle>
-            {buildMenuArrowButton()}
+            <MenuArrow />
           </MenuLink>
           <MenuSub
             className={clsx(levelBorderLeft[level], levelPaddingLeft[level])}
@@ -187,13 +203,6 @@ const SideBarMenu = () => {
         </MenuItem>
       );
     }
-  };
-  const buildMenuArrowButton = () => {
-    return (
-      <div className="menu-arrow justify-end">
-        <KeenIcons icon={"Plus"} />
-      </div>
-    );
   };
 
   return <Menu highlight={true}>{buildMenu(menuApi)}</Menu>;

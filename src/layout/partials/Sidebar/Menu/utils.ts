@@ -3,7 +3,7 @@ import { MenuLink } from './';
 import { matchPath } from 'react-router';
 
 export const getMenuLinkPath = (children: ReactNode): string => {
-  let path = '';
+  let path = '' ;
 
   Children.forEach(children, (child) => {
     if (isValidElement(child) && child.type === MenuLink && child.props.path) {
@@ -19,7 +19,8 @@ export const hasMenuActiveChild = (path: string, children: ReactNode): boolean =
 
   for (const child of childrenArray) {
     if (isValidElement(child)) {
-      if (child.type === MenuLink && child.props.path) {
+      if (child.type === MenuLink && child.props.path ) {
+        console.log(child.props.path)
         if (path === '/') {
           if (child.props.path === path) {
             return true;

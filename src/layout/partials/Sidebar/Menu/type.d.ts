@@ -57,6 +57,7 @@ export interface IMenuLinkProps {
   hasItemSub?: boolean;
   className?: string;
   tabIndex?: TMenuTabIndex;
+  open?: boolean;
   handleClick?: TMenuEventHandler;
   handleToggle?: TMenuEventHandler;
   children?: ReactNode;
@@ -83,4 +84,9 @@ export type TMenuConfig = IMenuItemConfig[];
 export interface IMenuBulletProps {
   className?: string;
   children?: ReactNode;
+}
+
+export interface IMenuArrowProps {
+  className?: string;
+  open?: boolean;
 }
