@@ -30,7 +30,7 @@ const MenuSubComponent = ({
     <Collapsible.Root
       open={open}
       className={clsx(
-        "menu-accordion relative before:absolute before:start-[20px] before:top-0 before:bottom-0 before:border-s before:border-gray-300 before:z-10",
+        "menu-accordion before:z-10",
         className && className
       )}
     >

@@ -75,9 +75,19 @@ export default plugin(({ addComponents, theme }) => {
       },
     },
     ".menu-accordion": {
+      position: "relative",
+      overflow: "hidden",
       display: "flex",
       alignItems: "stretch",
       flexDirection: "column",
+      "&::before": {
+        position: "absolute",
+        insetInlineStart: "20px",
+        top: 0,
+        bottom: 0,
+        borderInlineStartWidth: "1px",
+        borderColor: "var(--tw-gray-300)",
+      },
       ".menu-item > .menu-link, .menu-item > .menu-label ": {
         paddingBottom: "0.8rem",
         paddingTop: "0.8rem",

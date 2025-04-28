@@ -84,27 +84,27 @@ const MenuItemComponent = ({
   // Effects
   useEffect(() => {
     if (!multipleExpand && accordionShow !== undefined) {
-      setShow(accordionShow); // Chỉ cập nhật khi `accordionShow` thay đổi
+      setShow(accordionShow);
     }
   }, [accordionShow, multipleExpand]);
 
-  // useEffect(() => {
-  //   if (highlight) {
-  //     if (hasMenuActiveChild(pathname, children)) {
-  //       setShow(true);
-  //       if (isTopLevel) setHere(true);
-  //     } else {
-  //       setShow(false);
-  //       setHere(false);
-  //     }
-  //   }
+  useEffect(() => {
+    if (highlight) {
+      if (hasMenuActiveChild(pathname, children)) {
+        setShow(true);
+        if (isTopLevel) setHere(true);
+      } else {
+        setShow(false);
+        setHere(false);
+      }
+    }
 
-  //   if (prevPathname !== pathname && hasSub) {
-  //     if (!hasMenuActiveChild(pathname, children)) {
-  //       handleHide();
-  //     }
-  //   }
-  // }, [pathname, children, prevPathname]);
+    if (prevPathname !== pathname && hasSub) {
+      if (!hasMenuActiveChild(pathname, children)) {
+        handleHide();
+      }
+    }
+  }, [pathname, children, prevPathname]);
 
   // Render helpers
   const renderHeadingComponent = (child: ReactElement) => cloneElement(child);
