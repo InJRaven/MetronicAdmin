@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode, RefAttributes } from "react";
 export type TMenuShow = boolean;
 export type TMenuTabIndex = number;
 
@@ -6,7 +6,19 @@ export type TMenuClickEvent = (
   e: MouseEvent<HTMLElement>,
   props: unknown
 ) => void;
+
+export type TMenuShow = boolean;
+
+export type TMenuTrigger = "click" | "hover";
+
+export type TMenuItemTrigger = Record<string, TMenuToggle> | TMenuTrigger;
+
+export type TMenuToggle = "accordion" | "dropdown";
+
 export type TMenuItemToggle = Record<string, TMenuToggle> | TMenuToggle;
+
+export type TMenuDropdown = Partial<Omit<PopperProps, "children">>;
+
 export interface IMenuProps {
   children: React.ReactNode;
   className?: string;
@@ -25,15 +37,30 @@ export interface IMenuContextProps {
 }
 
 export interface IMenuItemProps {
-  className?: string;
+  path?: string;
   id?: string;
-  parentId?: string;
   open?: boolean;
-  handleClick?: () => void;
-  tabIndex?: TMenuTabIndex;
-  onClick?: TMenuClickEvent;
+  parentId?: string;
+  toggle?: TMenuItemToggle;
+  trigger?: TMenuItemTrigger;
   disabled?: boolean;
+  dropdownProps?: TMenuDropdown;
+  dropdownZIndex?: number;
+  className?: string;
+  closeParentMenu?: CallableFunction;
+  onClick?: TMenuClickEvent;
+  onShow?: CallableFunction;
+  onHide?: CallableFunction;
+  handleParentHide?: CallableFunction;
+  handleClick?: TMenuEventHandler;
+  tabIndex?: TMenuTabIndex;
+  itemRef?: unknown;
+  containerProps?: HTMLAttributes<HTMLElement> &
+    RefAttributes<HTMLElement | null>;
+  containerRef?: RefObject<HTMLDivElement>;
   children: ReactNode;
+
+  
 }
 
 export interface IMenuItemConfig {
@@ -45,6 +72,12 @@ export interface IMenuItemConfig {
   path?: string;
   children?: IMenuItemConfig[];
   childrenIndex?: number;
+}
+
+export interface IMenuItemRef {
+  show: () => void;
+  hide: () => void;
+  isOpen: () => boolean;
 }
 export interface IMenuHeadingProps {
   className?: string;
@@ -73,9 +106,11 @@ export interface IMenuTitleProps {
   children?: ReactNode;
 }
 export interface IMenuSubProps {
+  ref?: unknown;
   parentId?: string;
   tabIndex?: TMenuTabIndex;
   className?: string;
+  disableAnimation?: boolean;
   open?: boolean;
   children?: ReactNode;
 }
