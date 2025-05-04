@@ -11,6 +11,9 @@ html {
 :focus {
   outline: none;
 }
+body {
+  @apply transition-colors duration-200;
+}
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

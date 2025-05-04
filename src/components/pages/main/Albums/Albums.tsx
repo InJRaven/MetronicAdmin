@@ -1,10 +1,5 @@
-
-
-
 const Albums = () => {
-  return (
-    <h1>Albums Page</h1>
-  );
+  return <h1>Albums Page</h1>;
 };
 
-export default Albums;
+export { Albums };

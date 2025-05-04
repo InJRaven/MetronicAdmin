@@ -18,7 +18,7 @@ import { useState } from "react";
 // import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
 
-const Home = () => {
+const Dashboard = () => {
   // ga('create', `G-${PUBLIC_GA}`, 'auto');
   const [images, setImages] = useState<TImageInputFiles>([]);
   // Hàm xử lý thay đổi giá trị images
@@ -130,4 +130,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export {Dashboard};

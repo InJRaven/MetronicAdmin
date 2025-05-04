@@ -1,3 +1,4 @@
+import { useMenus } from "@/hooks/useMenus";
 import {
   IMenuItemConfig,
   Menu,
@@ -9,11 +10,12 @@ import {
   MenuLink,
   MenuTitle,
   TMenuConfig,
-} from "./Menu";
-import { MenuSub } from "@/layout/partials/Sidebar/Menu/MenuSub";
+} from "@ui";
+import { MenuSub } from "@ui";
 import clsx from "clsx";
 
 const levelGap = [
+  "gap-[1rem]",
   "gap-[1.4rem]",
   "gap-[0.5rem]",
   "gap-[0.5rem]",
@@ -31,11 +33,11 @@ const levelPaddingLeft = [
 ];
 
 const levelBorderLeft = [
+  "before:start-[2rem]",
   "before:start-[3.2rem]",
-  "before:start-[4.5rem]",
-  "before:start-[4.5rem]",
-  "before:start-[4.5rem]",
-  "before:start-[4.5rem]",
+  "before:start-[3.2rem]",
+  "before:start-[3.2rem]",
+  "before:start-[3.2rem]",
 ];
 
 const SideBarMenu = () => {
@@ -45,6 +47,12 @@ const SideBarMenu = () => {
       title: "Dashboard",
       path: "/",
       icon: "ki-outline ki-element-11",
+    },
+    {
+      id: "0x222",
+      title: "Menu Page",
+      path: "/menu",
+      icon: "ki-outline ki-setting-3",
     },
     {
       heading: "General",
@@ -97,7 +105,7 @@ const SideBarMenu = () => {
               children: [
                 {
                   title: "setting",
-                  path: "/setting",
+                  path: "/settings",
                   icon: "",
                 },
               ],
@@ -114,6 +122,7 @@ const SideBarMenu = () => {
       children: [],
     },
   ];
+
   const buildMenu = (menu: TMenuConfig) => {
     return menu.map((item, index) => {
       if (item.heading) {
@@ -127,23 +136,27 @@ const SideBarMenu = () => {
   const buildMenuRoot = (item: IMenuItemConfig, index: number) => {
     if (item.children && item.children.length > 0) {
       return (
-        <MenuItem key={index}>
-          <MenuLink>
+        <MenuItem
+          key={index}
+          {...(item.toggle && { toggle: item.toggle })}
+          {...(item.trigger && { trigger: item.trigger })}
+        >
+          <MenuLink className={clsx(levelGap[0])}>
             <MenuIcon>
               <i className={item.icon} />
             </MenuIcon>
             <MenuTitle>{item.title}</MenuTitle>
             <MenuArrow />
           </MenuLink>
-          <MenuSub className={clsx(levelPaddingLeft[0])}>
-            {buildMenuItemChildren(item.children, index)}
+          <MenuSub className={clsx(levelPaddingLeft[0], levelBorderLeft[0])}>
+            {buildMenuItemChildren(item.children, index, 1)}
           </MenuSub>
         </MenuItem>
       );
     } else {
       return (
         <MenuItem key={index}>
-          <MenuLink path={item.path}>
+          <MenuLink path={item.path} className={clsx(levelGap[0])}>
             <MenuIcon>
               <i className={item.icon} />
             </MenuIcon>
@@ -174,10 +187,14 @@ const SideBarMenu = () => {
     index: number,
     level: number = 0
   ) => {
-    if (item.children && item.children.length > 0) {
+    if (item.children) {
       return (
-        <MenuItem key={index}>
-          <MenuLink className={clsx(levelPaddingLeft[level], levelGap[level])}>
+        <MenuItem
+          key={index}
+          {...(item.toggle && { toggle: item.toggle })}
+          {...(item.trigger && { trigger: item.trigger })}
+        >
+          <MenuLink className={clsx(levelGap[level])}>
             <MenuBullet className="before:-translate-y-1/2" />
 
             <MenuTitle>{item.title}</MenuTitle>
@@ -193,10 +210,7 @@ const SideBarMenu = () => {
     } else {
       return (
         <MenuItem key={index}>
-          <MenuLink
-            path={item.path}
-            className={clsx(levelPaddingLeft[level], levelGap[level])}
-          >
+          <MenuLink path={item.path} className={clsx(levelGap[level])}>
             <MenuBullet className="before:-translate-y-1/2" />
             <MenuTitle>{item.title}</MenuTitle>
           </MenuLink>
@@ -205,7 +219,10 @@ const SideBarMenu = () => {
     }
   };
 
-  return <Menu highlight={true}>{buildMenu(menuApi)}</Menu>;
+  const { getMenuConfig } = useMenus();
+  const menuConfig = getMenuConfig("primary");
+
+  return <Menu highlight={true}>{menuConfig && buildMenu(menuConfig)}</Menu>;
 };
 
 export { SideBarMenu };

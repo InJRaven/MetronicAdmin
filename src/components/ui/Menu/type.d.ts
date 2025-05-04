@@ -20,20 +20,22 @@ export type TMenuItemToggle = Record<string, TMenuToggle> | TMenuToggle;
 export type TMenuDropdown = Partial<Omit<PopperProps, "children">>;
 
 export interface IMenuProps {
-  children: React.ReactNode;
   className?: string;
+  children?: ReactNode;
   disabled?: boolean;
   highlight?: boolean;
+  dropdownTimeout?: number;
   multipleExpand?: boolean;
 }
 export interface IMenuContextProps {
   className?: string;
   children?: ReactNode;
-  disabled?: boolean;
   highlight?: boolean;
+  disabled?: boolean;
+  dropdownTimeout?: number;
   multipleExpand?: boolean;
-  isOpenAccordion?: (parentId: string, id: string) => boolean;
-  setOpenAccordion?: (parentId: string, id: string) => void;
+  setOpenAccordion: (parentId: string, id: string) => void;
+  isOpenAccordion: (parentId: string, id: string) => boolean;
 }
 
 export interface IMenuItemProps {
@@ -59,17 +61,19 @@ export interface IMenuItemProps {
     RefAttributes<HTMLElement | null>;
   containerRef?: RefObject<HTMLDivElement>;
   children: ReactNode;
-
-  
 }
 
 export interface IMenuItemConfig {
-  id?: string;
   title?: string;
   disabled?: boolean;
   heading?: string;
   icon?: string;
   path?: string;
+  rootPath?: string;
+  collapse?: boolean;
+  toggle?: TMenuItemToggle;
+  dropdownProps?: TMenuDropdown;
+  trigger?: TMenuItemTrigger;
   children?: IMenuItemConfig[];
   childrenIndex?: number;
 }
@@ -79,10 +83,7 @@ export interface IMenuItemRef {
   hide: () => void;
   isOpen: () => boolean;
 }
-export interface IMenuHeadingProps {
-  className?: string;
-  children: ReactNode;
-}
+
 export interface IMenuLinkProps {
   path?: string;
   externalLink?: boolean;
@@ -95,7 +96,10 @@ export interface IMenuLinkProps {
   handleToggle?: TMenuEventHandler;
   children?: ReactNode;
 }
-
+export interface IMenuHeadingProps {
+  className?: string;
+  children: ReactNode;
+}
 export interface IMenuIconProps {
   className?: string;
   children: ReactNode;
@@ -106,12 +110,22 @@ export interface IMenuTitleProps {
   children?: ReactNode;
 }
 export interface IMenuSubProps {
-  ref?: unknown;
   parentId?: string;
-  tabIndex?: TMenuTabIndex;
+  show?: TMenuShow;
+  enter?: boolean;
+  toggle?: TMenuToggle;
+  ref?: unknown;
+  menuItemRef?: unknown;
+  tabIndex?: number;
   className?: string;
-  disableAnimation?: boolean;
-  open?: boolean;
+  rootClassName?: string;
+  baseClassName?: string;
+  onClick?: TMenuClickEvent;
+  handleParentHide?: CallableFunction;
+  handleClick?: TMenuEventHandler;
+  handleEntered?: () => void;
+  handleExited?: () => void;
+  accordionIn?: boolean;
   children?: ReactNode;
 }
 export type TMenuConfig = IMenuItemConfig[];
@@ -125,3 +139,20 @@ export interface IMenuArrowProps {
   className?: string;
   open?: boolean;
 }
+export interface IMenuToggleProps {
+  className?: string;
+  tabIndex?: TMenuTabIndex;
+  hasItemSub?: boolean;
+  menuItemRef?: unknown;
+  handleToggle?: TMenuEventHandler;
+  handleClick?: TMenuEventHandler;
+  onClick?: TMenuClickEvent;
+  children?: ReactNode;
+}
+
+export interface IMenuBreadcrumb {
+  title?: string;
+  path?: string;
+  active?: boolean;
+}
+export type TMenuBreadcrumbs = IMenuBreadcrumb[];

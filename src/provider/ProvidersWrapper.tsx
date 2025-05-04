@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter } from "react-router-dom";
 
-import { ThemeProvider } from "@/provider";
+import { MenusProvider, ThemeProvider } from "./";
 
 const queryClient = new QueryClient();
 const ProvidersWrapper = ({ children }: PropsWithChildren) => {
@@ -11,7 +11,7 @@ const ProvidersWrapper = ({ children }: PropsWithChildren) => {
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <ThemeProvider>
-          <BrowserRouter>{children}</BrowserRouter>
+            <MenusProvider>{children}</MenusProvider>
         </ThemeProvider>
       </HelmetProvider>
     </QueryClientProvider>

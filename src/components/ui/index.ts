@@ -1,3 +1,5 @@
+
+//Base Component
 export * from "./Accordion/Accordion";
 export * from "./Accordion/AccordionItem";
 export * from "./Avatar/Avatar";
@@ -13,6 +15,11 @@ export * from "./Table/Table";
 export * from "./Separator/Separator";
 export * from "./Scrollable/Scrollable";
 
+// Mavigation
+export * from './Menu'
+
+
+//Forms
 export * from "./Checkbox/Checkbox";
 export * from "./FileInput/FileInput";
 export * from "./ImageInput/ImageInput";

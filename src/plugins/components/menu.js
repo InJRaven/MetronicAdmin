@@ -18,7 +18,6 @@ export default plugin(({ addComponents, theme }) => {
       flexGrow: 1,
       alignItems: "center",
       flexGrow: 1,
-      gap: "1rem",
       border: "1px solid transparent",
       paddingInlineStart: "1rem",
       paddingInlineEnd: "1rem",
@@ -87,6 +86,7 @@ export default plugin(({ addComponents, theme }) => {
         bottom: 0,
         borderInlineStartWidth: "1px",
         borderColor: "var(--tw-gray-300)",
+        zIndex: 10,
       },
       ".menu-item > .menu-link, .menu-item > .menu-label ": {
         paddingBottom: "0.8rem",
@@ -113,6 +113,7 @@ export default plugin(({ addComponents, theme }) => {
           color: "var(--tw-gray-500)",
         },
         ".menu-link:hover, .menu-label:hover": {
+
           ".menu-title": {
             color: "var(--tw-gray-900)",
           },
@@ -121,6 +122,11 @@ export default plugin(({ addComponents, theme }) => {
           },
         },
         "&.here > .menu-link": {
+          ".light &": {
+            borderColor: "var(--tw-gray-100)",
+            borderRadius: "0.6rem",
+            backgroundColor: "var(--tw-secondary-active)",
+          },
           ".menu-title": {
             color: "var(--tw-gray-900)",
           },
@@ -130,7 +136,6 @@ export default plugin(({ addComponents, theme }) => {
         },
         ".menu-link": {
           "&.active": {
-            borderColor: "var(--tw-gray-100)",
             borderRadius: "0.6rem",
             backgroundColor: "var(--tw-secondary-active)",
             ".dark &": {

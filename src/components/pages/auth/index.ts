@@ -1,4 +1,2 @@
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-
-export {SignIn, SignUp}
+export * from "./SignIn/SignIn";
+export * from "./SignUp/SignUp";

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 const SignUp = () => {
   return (
     <>
@@ -85,4 +84,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export { SignUp };

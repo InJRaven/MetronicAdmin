@@ -1,7 +1,6 @@
-import Home from "./Home/Home";
-import Singers from "./Singers/Singers";
-import Musics from "./Musics/Musics";
-import Albums from "./Albums/Albums";
-import Settings from "./Settings/Settings";
-
-export {Home, Singers, Musics, Albums, Settings}
+export * from "./Dashboard/Dashboard";
+export * from "./MenuPage/MenuPage"
+export * from "./Singers/Singers";
+export * from "./Musics/Musics";
+export * from "./Albums/Albums";
+export * from "./Settings/Settings";

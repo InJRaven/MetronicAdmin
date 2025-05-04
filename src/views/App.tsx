@@ -1,12 +1,11 @@
-import { FC, Suspense } from "react";
-import { useRoutes } from "react-router-dom";
-import { authRoutesConfig, mainRoutesConfig } from "@/routes/RoutesConfig";
-import ScrollToTop from "@/utils/ScrollToTop";
-import { useTheme } from "@hooks";
+import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "@ui";
 import { PathnameProvider } from "@/provider";
+import ScrollToTop from "@/utils/ScrollToTop";
+import { AppRouting } from "@/routes/AppRouting";
+import { useTheme } from "@/hooks";
 
-export const ThemeToggle: FC = () => {
+export const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -19,15 +18,16 @@ export const ThemeToggle: FC = () => {
   );
 };
 
-const App: React.FC = () => {
-  const routes = useRoutes([...mainRoutesConfig, ...authRoutesConfig]);
+const App = () => {
   return (
-    <PathnameProvider>
-      <ThemeToggle />
-      <ScrollToTop />
-      <Suspense fallback={<div>Loading...</div>}>{routes}</Suspense>
+    <BrowserRouter>
+      <PathnameProvider>
+        <ThemeToggle />
+        <ScrollToTop />
+        <AppRouting />
+      </PathnameProvider>
       <Toaster />
-    </PathnameProvider>
+    </BrowserRouter>
   );
 };
 

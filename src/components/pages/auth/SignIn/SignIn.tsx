@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 const SignIn = () => {
   return (
     <>
@@ -75,4 +74,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export { SignIn };

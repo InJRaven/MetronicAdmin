@@ -1,9 +1,5 @@
-
-
 const Musics = () => {
-  return (
-    <h1>Music Page</h1>
-  );
+  return <h1>Music Page</h1>;
 };
 
-export default Musics;
+export { Musics };

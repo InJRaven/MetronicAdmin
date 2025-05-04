@@ -20,7 +20,6 @@ const useResponsive = (
 
   if (query === "up" && key) {
     key = breakpoints.includes(key) && screens ? screens[key] : key;
-
     return useMediaQuery(`(min-width: ${key})`);
   }
 

@@ -1,26 +1,18 @@
 import { SignIn, SignUp } from "@pages/auth";
-import {
-  Albums,
-  Home,
-  Settings,
-  Singers,
-  Musics,
-} from "@pages/main";
+import { Dashboard, Albums, Settings, Singers, Musics } from "@pages/main";
 
-import MainLayout from "@/layout/MainLayout";
-import AuthLayout from "@/layout/AuthLayout";
-
+import { MainLayout } from "@/layout/MainLayout";
+import { AuthLayout } from "@/layout/AuthLayout";
 
 const mainRoutesConfig = [
   {
     path: "/",
     element: <MainLayout />,
     children: [
-      { path: "", element: <Home /> },
+      { path: "", element: <Dashboard /> },
       { path: "singers", element: <Singers /> },
       { path: "musics", element: <Musics /> },
       { path: "albums", element: <Albums /> },
-
       { path: "settings", element: <Settings /> },
     ],
   },

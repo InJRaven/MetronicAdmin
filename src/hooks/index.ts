@@ -1,6 +1,7 @@
 export * from "./useTheme";
 export * from "./useMediaQuery";
 export * from "./useResponsive";
+export * from './useResponsiveProp'
 export * from "./useViewPort";
 export * from "./usePathname";
 export * from "./useMatchPath"
