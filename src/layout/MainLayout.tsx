@@ -1,18 +1,18 @@
-import { Header, SideBar } from "./partials";
-import { Outlet } from "react-router-dom";
+import useBodyClasses from "@/hooks/useBodyClasses";
+import { Main, MainLayoutProvider } from ".";
 
 const MainLayout = () => {
+  useBodyClasses(`
+    antialiased
+    h-full
+    text-base
+    text-foreground
+    bg-background`);
+
   return (
-    <div className="main-layout">
-      <SideBar />
-      <main id="main" className="main">
-        <Header />
-        <div className="container">
-          <Outlet />
-        </div>
-      </main>
-    </div>
+    <MainLayoutProvider>
+      <Main />
+    </MainLayoutProvider>
   );
 };
-
 export { MainLayout };

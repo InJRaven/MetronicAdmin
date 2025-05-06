@@ -18,7 +18,7 @@ import {
 } from "@radix-ui/react-select";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { KeenIcons } from "@/components/ui";
+import { KeenIcon } from "@/components/ui";
 
 const selectTriggerVariants = cva(
   "radix-select ring-0 ring-offset-0 ring-offset-background focus:ring-offset-0",
@@ -52,7 +52,7 @@ const SelectTrigger = forwardRef<
   >
     {children}
     <Icon asChild>
-      <KeenIcons icon="Down" style="Duotone" />
+      <KeenIcon icon="down"/>
     </Icon>
   </Trigger>
 ));
@@ -68,7 +68,7 @@ const SelectScrollUpButton = forwardRef<
     className={cn("radix-select-scroll-button", className)}
     {...props}
   >
-    <KeenIcons icon="Up" style="Duotone" />
+    <KeenIcon icon="up"/>
   </ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = ScrollUpButton.displayName;
@@ -82,7 +82,7 @@ const SelectScrollDownButton = forwardRef<
     className={cn("radix-select-scroll-button", className)}
     {...props}
   >
-    <KeenIcons icon="Down" style="Duotone" />
+    <KeenIcon icon="down"/>
   </ScrollDownButton>
 ));
 SelectScrollDownButton.displayName = ScrollDownButton.displayName;
@@ -126,7 +126,7 @@ const SelectItem = forwardRef<
   <Item ref={ref} className={cn("radix-select-item", className)} {...props}>
     <span className="radix-check">
       <ItemIndicator>
-        <KeenIcons icon="Check" style="Duotone" />
+        <KeenIcon icon="check"/>
       </ItemIndicator>
     </span>
 

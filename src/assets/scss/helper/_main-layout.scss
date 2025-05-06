@@ -1,9 +1,0 @@
-.main-layout {
-    @apply min-h-screen w-full bg-light dark:bg-coal-600 grid grid-rows-1 grid-cols-[auto_1fr];
-    .main {
-      @apply col-start-2 row-start-1 col-span-1 row-span-1 w-full flex flex-col gap-[2rem];
-      .container {
-        @apply pt-0 pr-[4rem] pb-[3rem] pl-[4rem] flex flex-col gap-[4rem];
-      }
-    }
-  }

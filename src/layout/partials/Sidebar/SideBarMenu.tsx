@@ -11,7 +11,8 @@ import {
   MenuTitle,
   TMenuConfig,
 } from "@ui";
-import { MenuSub } from "@ui";
+import { MenuSub, KeenIcon } from "@ui";
+
 import clsx from "clsx";
 
 const levelGap = [
@@ -142,9 +143,11 @@ const SideBarMenu = () => {
           {...(item.trigger && { trigger: item.trigger })}
         >
           <MenuLink className={clsx(levelGap[0])}>
-            <MenuIcon>
-              <i className={item.icon} />
-            </MenuIcon>
+            {item.icon && (
+              <MenuIcon>
+                <KeenIcon icon={item.icon} style="outline" />
+              </MenuIcon>
+            )}
             <MenuTitle>{item.title}</MenuTitle>
             <MenuArrow />
           </MenuLink>
@@ -157,9 +160,11 @@ const SideBarMenu = () => {
       return (
         <MenuItem key={index}>
           <MenuLink path={item.path} className={clsx(levelGap[0])}>
-            <MenuIcon>
-              <i className={item.icon} />
-            </MenuIcon>
+            {item.icon && (
+              <MenuIcon>
+                <KeenIcon icon={item.icon} style="outline" />
+              </MenuIcon>
+            )}
             <MenuTitle>{item.title}</MenuTitle>
           </MenuLink>
         </MenuItem>

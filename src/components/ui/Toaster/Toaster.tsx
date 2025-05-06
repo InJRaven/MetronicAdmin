@@ -2,7 +2,7 @@ import { ComponentProps, FC } from "react";
 import { Toaster as Sonner } from "sonner";
 import { useTheme } from "@hooks";
 
-import { KeenIcons } from "../KeenIcons/KeenIcons";
+import { KeenIcon } from "@ui";
 
 interface ToasterProps extends Omit<ComponentProps<typeof Sonner>, "position"> {
   position?:
@@ -22,18 +22,14 @@ const Toaster: FC<ToasterProps> = ({ position = "bottom-right", ...props }) => {
       position={position}
       className="toaster group"
       icons={{
-        success: <KeenIcons icon={"Shield Tick"} style={"Filled"} />,
-        info: <KeenIcons icon={"Information 2"} style={"Filled"} />,
-        warning: <KeenIcons icon={"Information 1"} style={"Filled"} />,
-        error: <KeenIcons icon={"Shield Cross"} style={"Filled"} />,
+        success: <KeenIcon icon="shield-tick" style="filled" />,
+        info: <KeenIcon icon="information-2" style="filled" />,
+        warning: <KeenIcon icon="information-1" style="filled" />,
+        error: <KeenIcon icon="shield-cross" style="filled" />,
         loading: (
-          <KeenIcons
-            icon={"Loading"}
-            style={"Filled"}
-            className="animate-spin"
-          />
+          <KeenIcon icon="loading" style="filled" className="animate-spin" />
         ),
-        close: <KeenIcons icon={"Cross"} style={"Duotone"} />,
+        close: <KeenIcon icon="cross" />,
       }}
       toastOptions={{
         classNames: {

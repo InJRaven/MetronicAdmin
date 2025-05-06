@@ -1,7 +1,7 @@
 import {
   Avatar,
   Container,
-  KeenIcons,
+  KeenIcon,
   ImageInput,
   type IImageInputProps,
   type TImageInputFiles,

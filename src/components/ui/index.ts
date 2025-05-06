@@ -30,6 +30,6 @@ export * from "./Select/Select";
 export * from "./Textarea/Textarea";
 export * from "./Switch/Switch";
 
-export * from "./KeenIcons/KeenIcons";
+export * from './KeenIcon/KeenIcon';
 export * from "./Toaster/Toaster";
 export * from "./Tooltip/Tooltip";

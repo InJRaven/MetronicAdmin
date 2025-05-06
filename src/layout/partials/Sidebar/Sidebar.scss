@@ -1,10 +1,8 @@
 .sidebar {
-  @apply col-start-1 row-start-1 col-span-1 row-span-1 flex flex-col border-r border-gray-200 transition-all duration-200;
-  width: theme("custom.layouts.sidebar.width.desktop");
+  @apply bg-light lg:border-e lg:border-e-gray-200 dark:border-e-gray-300 lg:fixed lg:top-0 lg:bottom-0 lg:z-20 lg:flex flex-col items-stretch shrink-0;
 
   &__header {
-    @apply relative flex items-center self-stretch px-[2.5rem] border-b border-gray-200 transition-colors duration-200;
-    height: theme("custom.layouts.header.height.desktop");
+    @apply hidden lg:flex items-center relative justify-between px-[1.2rem] lg:px-[2.4rem] shrink-0;
     .link-logo {
       @apply flex items-center gap-[1rem];
       i {
@@ -36,7 +34,6 @@
       &--link {
         @apply cursor-pointer flex flex-grow gap-[1rem] items-center border border-transparent transition-colors duration-200 rounded-md hover:bg-secondary-active dark:hover:bg-coal-300 dark:hover:border-gray-200 ps-[1rem] pe-[1rem] py-[0.6rem];
         height: theme("custom.components.btn.DEFAULT.height");
-        // items-start text-gray-500 dark:text-gray-400 w-[20px]
         .menu-icon {
           @apply flex items-start shrink-0 text-gray-500 dark:text-gray-400 w-[2rem] text-xl;
         }

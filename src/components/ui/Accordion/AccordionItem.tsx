@@ -1,4 +1,4 @@
-import { Collapsible, KeenIcons } from "@/components/ui";
+import { Collapsible, KeenIcon } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 import { memo, ReactNode } from "react";
@@ -25,9 +25,9 @@ const AccordionItemComponent = ({
       indicator || (
         <span className="accordion-indicator">
           {isOpen ? (
-            <KeenIcons icon="Minus" style="Duotone" />
+            <KeenIcon icon="minus"/>
           ) : (
-            <KeenIcons icon="Plus" style="Duotone" />
+            <KeenIcon icon="plus"/>
           )}
         </span>
       )

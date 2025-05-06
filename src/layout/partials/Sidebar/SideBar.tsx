@@ -3,7 +3,7 @@ import { getHeight } from "@/utils";
 import clsx from "clsx";
 import "./Sidebar.scss";
 
-import { SideBarContent } from "./";
+import { SideBarContent, SidebarHeader } from "./";
 import { useResponsive, useViewport } from "@hooks";
 interface SideBarType {
   className?: string;
@@ -33,6 +33,8 @@ const SideBar: React.FC<SideBarType> = () => {
   const handleCollapse = () => setIsCollapse((prev) => !prev);
   return (
     <aside className={clsx("sidebar", isCollapse && "collapse")}>
+        {desktopMode && <SidebarHeader />}
+
       <SideBarContent {...(desktopMode && { height: scrollableHeight })}/>
     </aside>
   );
