@@ -1,28 +1,24 @@
-import { useTheme } from "@/hooks";
+import { useLocation } from "react-router-dom";
 import "./Header.scss";
 import { Container } from "@/components/ui";
-import clsx from "clsx";
+import { Breadcrumbs } from "@/layout/partials";
+import { HeaderTopBar } from "./";
 
 interface HeaderType {
   className?: string;
 }
 
 const Header: React.FC<HeaderType> = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
 
   return (
-    <header className="header justify-center">
+    <header className="header">
       <Container.Fixed className="flex items-center justify-between">
-        <div className="breadcrumb">
-          <h1 className="text-2.5xl font-bold">Breadcrumb</h1>
-        </div>
-
-        <button className="btn btn-icon btn-outline" onClick={toggleTheme}>
-          <i className={ clsx( theme === 'light' ? 'ki-outline ki-moon' : 'ki-outline ki-sun')}/>
-        </button>
+        {pathname.includes("/account") ? <Breadcrumbs /> : <div />}
+        <HeaderTopBar />
       </Container.Fixed>
     </header>
   );
 };
 
-export default Header;
+export { Header };

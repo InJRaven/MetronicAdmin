@@ -42,8 +42,6 @@ const MainLayoutProvider = ({ children }: PropsWithChildren) => {
         );
 
         if (response.status === 200) {
-          console.log(response.data);
-
           setMenuConfig("primary", response.data);
         }
       } catch (Err) {

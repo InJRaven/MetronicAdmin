@@ -13,6 +13,7 @@ export default plugin(({ addComponents, theme }) => {
         paddingInlineStart: theme("custom.components.container.fixed.px.xl"),
         paddingInlineEnd: theme("custom.components.container.fixed.px.xl"), // Logical property for LTR/RTL
         maxWidth: theme("custom.components.container.fixed")["max-width"],
+        margin: 'auto',
       },
     },
   });

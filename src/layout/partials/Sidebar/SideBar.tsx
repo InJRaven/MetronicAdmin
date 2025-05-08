@@ -27,17 +27,16 @@ const SideBar: React.FC<SideBarType> = () => {
     }
   }, [viewportHeight]);
 
-  const desktopMode = useResponsive('up', 'lg');
-
+  const desktopMode = useResponsive("up", "lg");
 
   const handleCollapse = () => setIsCollapse((prev) => !prev);
   return (
     <aside className={clsx("sidebar", isCollapse && "collapse")}>
-        {desktopMode && <SidebarHeader />}
+      {desktopMode && <SidebarHeader />}
 
-      <SideBarContent {...(desktopMode && { height: scrollableHeight })}/>
+      <SideBarContent {...(desktopMode && { height: scrollableHeight })} />
     </aside>
   );
 };
 
-export default SideBar;
+export { SideBar };

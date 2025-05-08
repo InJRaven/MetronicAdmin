@@ -12,8 +12,6 @@ const Main = () => {
   const { getMenuConfig } = useMenus();
   const menuConfig = getMenuConfig("primary");
   const menuItem = useMenuCurrentItem(pathname, menuConfig);
-
-  console.log(menuItem);
   useEffect(() => {
     const bodyClass = document.body.classList;
 
@@ -38,9 +36,12 @@ const Main = () => {
         <title>{menuItem?.title}</title>
       </Helmet>
       <SideBar />
-      <div className="wrapper flex grow flex-col">
+      <div className="wrapper flex grow flex-col ">
         <Header />
-        <main className="grow content pt-[2rem]" role="content">
+        <main
+          className="grow content pt-[2rem]"
+          role="content"
+        >
           <Outlet />
         </main>
       </div>

@@ -7,7 +7,8 @@ const MainLayout = () => {
     h-full
     text-base
     text-foreground
-    bg-background`);
+    bg-background
+    `);
 
   return (
     <MainLayoutProvider>

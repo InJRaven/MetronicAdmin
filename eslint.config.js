@@ -25,6 +25,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-unused-vars": ["error", "off"],
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
     },
   }
 );
