@@ -13,8 +13,8 @@ const Header: React.FC<HeaderType> = () => {
 
   return (
     <header className="header">
-      <Container.Fixed className="flex items-center justify-between">
-        {pathname.includes("/account") ? <Breadcrumbs /> : <div />}
+      <Container.Fixed className="custom-container justify-between">
+        {pathname.includes("/") ? <Breadcrumbs /> : <div />}
         <HeaderTopBar />
       </Container.Fixed>
     </header>

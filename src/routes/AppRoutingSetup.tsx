@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
-import {  Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import { AuthLayout, MainLayout } from "@/layout";
 import {
   Albums,
   Dashboard,
-  MenuPage,
+  SidebarSetting,
   Musics,
   Settings,
   Singers,
@@ -16,7 +16,7 @@ const AppRoutingSetup = (): ReactElement => {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Dashboard />} />
-        <Route path="menu" element={<MenuPage />} />
+        <Route path="menu" element={<SidebarSetting />} />
         <Route path="singers" element={<Singers />} />
         <Route path="musics" element={<Musics />} />
         <Route path="albums" element={<Albums />} />

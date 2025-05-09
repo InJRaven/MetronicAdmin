@@ -1,0 +1,20 @@
+.menu-content {
+  @apply flex flex-col flex-grow gap-2;
+  .menu-heading {
+    .input {
+      @apply dark:bg-transparent text-base;
+    }
+  }
+  .menu-item {
+    .menu-link {
+      @apply cursor-default;
+      .input {
+        @apply dark:bg-transparent text-base;
+      }
+    }
+
+    .menu-icon {
+      @apply text-gray-500;
+    }
+  }
+}

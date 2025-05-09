@@ -1,5 +1,5 @@
 .header {
-  @apply fixed top-0 z-10 start-0 end-0 flex items-stretch shrink-0 bg-[--tw-page-bg] dark:bg-[--tw-page-bg-dark]  border-b border-gray-200 dark:border-gray-300;
+  @apply fixed top-0 z-10 start-0 end-0 flex items-stretch shrink-0 bg-background  border-b border-gray-200 dark:border-gray-300;
   &-top-bar{
     @apply flex items-center gap-[0.8rem] lg:gap-[1.4rem];
   }

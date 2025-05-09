@@ -1,0 +1,7 @@
+.custom-container{
+  @apply h-full flex items-stretch;
+}
+
+.section-heading {
+  @apply flex flex-wrap items-center lg:items-end justify-between gap-[2rem] pb-7.5;
+}

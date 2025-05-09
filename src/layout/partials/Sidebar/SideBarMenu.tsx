@@ -110,7 +110,7 @@ const SideBarMenu = () => {
     index: number,
     level: number = 0
   ) => {
-    if (item.children) {
+    if (item.children && item.children.length >0) {
       return (
         <MenuItem
           key={index}

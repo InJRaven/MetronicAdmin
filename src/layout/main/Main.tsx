@@ -36,7 +36,7 @@ const Main = () => {
         <title>{menuItem?.title}</title>
       </Helmet>
       <SideBar />
-      <div className="wrapper flex grow flex-col ">
+      <div className="wrapper flex grow flex-col">
         <Header />
         <main
           className="grow content pt-[2rem]"

@@ -7,7 +7,7 @@ const MenuTitleComponent = ({ className, children }: IMenuTitleProps) => {
   return (
     <span
       className={clsx(
-        "menu-title transition-colors duration-200",
+        "menu-title",
         className && className
       )}
     >

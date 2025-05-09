@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import "./keenicons/styles.bundle.css";
 import clsx from "clsx";
 
-type TKeenIconsStyle = "duotone" | "filled" | "solid" | "outline";
+type TKeenIconsStyle = "duotone" | "filled" | "solid" | "outline" | string;
 interface IKeenIconsProps {
   icon: string;
   style?: TKeenIconsStyle;

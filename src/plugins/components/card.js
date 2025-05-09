@@ -6,7 +6,7 @@ export default plugin(({ addComponents, theme }) => {
       display: "flex",
       flexDirection: "column",
       boxShadow: "var(--tw-card-box-shadow)",
-      backgroudColor: "var(--tw-card-background-color)",
+      backgroundColor: "var(--tw-card-background-color)",
       borderRadius: theme("custom.components.common.borderRadius.card"),
       border: "var(--tw-card-border)",
     },

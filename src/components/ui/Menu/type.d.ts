@@ -68,6 +68,7 @@ export interface IMenuItemConfig {
   disabled?: boolean;
   heading?: string;
   icon?: string;
+  iconStyle?: string;
   path?: string;
   rootPath?: string;
   collapse?: boolean;
