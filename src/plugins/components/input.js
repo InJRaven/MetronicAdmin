@@ -22,7 +22,7 @@ export default plugin(({ addComponents, theme }) => {
         color: "var(--tw-gray-500)",
       },
       "&:hover": {
-        "border-color": "var(--tw-gray-400)",
+        borderColor: "var(--tw-gray-400)",
       },
       "&:focus, &:has(input:focus)": {
         borderColor: "var(--tw-primary)",
@@ -41,11 +41,15 @@ export default plugin(({ addComponents, theme }) => {
         boxShadow: "none",
       },
       "&:disabled, &:has(input:disabled)": {
+        userSelect: "none",
         backgroundColor: "var(--tw-gray-100)",
         color: "var(--tw-gray-400)",
         opacity: "0.5",
         "&::placeholder, input::placeholder": {
           color: "var(--tw-gray-300)",
+        },
+        "&:hover": {
+          borderColor: "var(--tw-gray-300)",
         },
       },
     },

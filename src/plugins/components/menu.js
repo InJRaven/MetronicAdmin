@@ -113,7 +113,6 @@ export default plugin(({ addComponents, theme }) => {
           color: "var(--tw-gray-500)",
         },
         ".menu-link:hover, .menu-label:hover": {
-
           ".menu-title": {
             color: "var(--tw-gray-900)",
           },

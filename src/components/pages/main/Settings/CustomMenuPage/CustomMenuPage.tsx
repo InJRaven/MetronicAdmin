@@ -1,31 +1,11 @@
-import {
-  Button,
-  Container,
-  KeenIcon,
-} from "@/components/ui";
+import { Button, Container, KeenIcon } from "@/components/ui";
 import { Fragment } from "react/jsx-runtime";
+import "./CustomMenu.scss";
+import { MenuTreeView } from "./";
 
-import "./SidebarSetting.scss";
-import { useMenus } from "@/hooks";
-import clsx from "clsx";
-
-
-const SidebarSetting = () => {
+const CustomMenuPage = () => {
 
 
-
-
-
-
-
-
-
-
-  
-  const { getMenuConfig } = useMenus();
-  const menuConfig = getMenuConfig("primary");
-
-  
   return (
     <Fragment>
       <Container.Fixed>
@@ -49,10 +29,10 @@ const SidebarSetting = () => {
         </div>
       </Container.Fixed>
       <Container.Fixed className="custom-container flex-col">
-        
+        <MenuTreeView />
       </Container.Fixed>
     </Fragment>
   );
 };
 
-export { SidebarSetting };
+export { CustomMenuPage };

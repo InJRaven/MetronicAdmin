@@ -252,6 +252,7 @@ const MenuItemComponent = forwardRef<IMenuItemRef | null, IMenuItemProps>(
 
       return cloneElement(child, modifiedProps);
     };
+    
     const renderContent = () => {
       const modifiedChildren = Children.map(children, (child) => {
         if (isValidElement(child)) {
@@ -319,7 +320,7 @@ const MenuItemComponent = forwardRef<IMenuItemRef | null, IMenuItemProps>(
             setShow(true);
           }
 
-          if(isTopLevel) setHere(true);
+          if(hasSub && isTopLevel) setHere(true);
         } else {
           if (propToggle === "accordion") {
             setShow(false);

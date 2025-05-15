@@ -6,11 +6,21 @@ import {
   type IImageInputProps,
   type TImageInputFiles,
   type IImageInputFile,
-  Dialog,
   Collapsible,
   Accordion,
   AccordionItem,
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  Modal,
+  ModalContent,
+  ModalBody,
+  ModalBackdrop,
+  ModalHeader,
+  ModalTitle,
 } from "@/components/ui";
+import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import clsx from "clsx";
 
 import { useState } from "react";
@@ -29,10 +39,10 @@ const Dashboard = () => {
     setImages(newImages); // Cập nhật danh sách file
   };
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const handleClick = () => {
-    setIsOpen(!isOpen)
-  }
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleClick = () => setIsOpen(true);
+
+  const handleClose = () => setIsOpen(false);
   return (
     <div className="flex">
       <Container.Fixed>
@@ -58,7 +68,7 @@ const Dashboard = () => {
                     className="btn btn-icon size-[2rem] btn-icon-xs btn-light shadow-default absolute z-1 -top-0.5 -right-0.5 rounded-full"
                     onClick={() => onImageRemove(0)}
                   >
-                    <KeenIcons icon={"Cross"} style={"Outline"} />
+                    <KeenIcon icon={"cross"} style={"outline"} />
                   </div>
                 )}
                 <div
@@ -103,31 +113,35 @@ const Dashboard = () => {
           </ImageInput>
         </div>
 
-            <button className="btn btn-primary" onClick={handleClick}>Collapsiple</button>
-        <Collapsible.Root open={isOpen}>
-          <Collapsible.Content>
-            <div className="text-gray-700 text-md pb-4">
-              Metronic embraces flexible licensing options that empower you to
-              choose the perfect fit for your project's needs and budget.
-              Understanding the factors influencing each plan's pricing helps
-              you make an informed decision.
-            </div>
-          </Collapsible.Content>
-        </Collapsible.Root>
+        <button className="btn btn-primary" onClick={handleClick}>
+          Modal
+        </button>
 
-        <Dialog.Root>
-          <Dialog.Trigger className="btn">Edit Profile</Dialog.Trigger>
+        <Modal open={isOpen} onClose={handleClose} zIndex={1000}>
+          <ModalContent className="modal-center">
+            <ModalHeader>
+              <ModalTitle>
+                Modal Title
+              </ModalTitle>
+            </ModalHeader>
+            <ModalBody>
+              <p>This is the modal content. You can add any content here.</p>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
 
-          <Dialog.Content side={"left"}>
-            <Dialog.Header>Header</Dialog.Header>
-            <Dialog.Title>Edit profile</Dialog.Title>
-            <Dialog.Description>
+        <Dialog>
+          <DialogTrigger className="btn">Edit Profile</DialogTrigger>
+          <DialogContent side={"left"}>
+            <DialogHeader>Header</DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
               Make changes to your profile here. Click save when you're done.
-            </Dialog.Description>
-          </Dialog.Content>
-        </Dialog.Root>
+            </DialogDescription>
+          </DialogContent>
+        </Dialog>
       </Container.Fixed>
     </div>
   );
 };
-export {Dashboard};
+export { Dashboard };

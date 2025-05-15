@@ -3,7 +3,7 @@ import { IMenuIconProps } from "./";
 
 const MenuIcon = ({ className, children }: IMenuIconProps) => {
   return (
-    <span className={clsx("menu-icon transition-colors duration-200", className && className)}>
+    <span className={clsx("menu-icon", className && className)}>
       {children}
     </span>
   );

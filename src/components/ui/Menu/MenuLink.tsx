@@ -32,21 +32,16 @@ const MenuLinkComponent = ({
           target={target}
           rel="noopener noreferrer"
           onClick={handleClick}
-          className={clsx(
-            "menu-link",
-            className && className
-          )}
+          className={clsx("menu-link", className && className)}
         />
       );
     } else {
       return (
         <NavLink
+          end
           to={path}
           onClick={handleClick}
-          className={clsx(
-            "menu-link",
-            className && className
-          )}
+          className={clsx("menu-link", className && className)}
         >
           {modifiedChildren}
         </NavLink>
@@ -56,10 +51,7 @@ const MenuLinkComponent = ({
     if (hasItemSub) {
       return (
         <div
-          className={clsx(
-            "menu-link",
-            className && className
-          )}
+          className={clsx("menu-link", className && className)}
           onClick={handleToggle}
         >
           {modifiedChildren}
@@ -68,10 +60,7 @@ const MenuLinkComponent = ({
     } else {
       return (
         <div
-          className={clsx(
-            "menu-link",
-            className && className
-          )}
+          className={clsx("menu-link", className && className)}
           onClick={handleClick}
         >
           {modifiedChildren}
