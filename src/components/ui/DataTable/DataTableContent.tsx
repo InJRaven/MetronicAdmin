@@ -3,7 +3,7 @@ import { DataTableEmpty, TDataTableLayoutCellSpacing, useDataTable } from ".";
 
 import { cn } from "@/lib/utils";
 const DataTableContent = <TData,>() => {
-  const { table, props } = useDataTable();
+  const { table, props,loading } = useDataTable();
   const headCellSpacingOptions: Record<TDataTableLayoutCellSpacing, string> = {
     xs: "px-2.5",
     sm: "px-3",
