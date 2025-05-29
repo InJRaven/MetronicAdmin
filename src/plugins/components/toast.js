@@ -50,7 +50,10 @@ export default plugin(({ addComponents, theme }) => {
       },
 
       ".toast[data-type=loading]": {
-        
+        ".sonner-loader": {
+          height: "100%",
+          width: "100%",
+        },
       },
     },
   });

@@ -18,6 +18,7 @@ export * from "./Modal";
 // Mavigation
 export * from "./Menu";
 export * from "./TreeView";
+export * from "./DataTable";
 
 //Forms
 export * from "./Checkbox/Checkbox";

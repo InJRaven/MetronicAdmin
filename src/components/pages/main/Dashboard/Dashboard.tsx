@@ -19,14 +19,37 @@ import {
   ModalBackdrop,
   ModalHeader,
   ModalTitle,
+  DataTable,
 } from "@/components/ui";
+
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
+import { ColumnDef } from "@tanstack/react-table";
+import axios from "axios";
 import clsx from "clsx";
 
 import { useState } from "react";
 
 // import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
+
+const handleFetchData = async () => {
+  try {
+    const res = await axios.get(
+      "https://6817c7535a4b07b9d1cd3afa.mockapi.io/api/v1/Song"
+    );
+    console.log(res);
+  } catch (error) {
+    console.error("Failed to fetch songs:", error);
+    throw error;
+  }
+};
+const columns: ColumnDef<any>[] = [
+  { accessorKey: "title", header: "Song Title" },
+  { accessorKey: "artist", header: "Artist" },
+  { accessorKey: "duration", header: "Duration" },
+  { accessorKey: "genre", header: "Genre" },
+  { accessorKey: "releaseYear", header: "Release Year" },
+];
 
 const Dashboard = () => {
   // ga('create', `G-${PUBLIC_GA}`, 'auto');
@@ -120,9 +143,7 @@ const Dashboard = () => {
         <Modal open={isOpen} onClose={handleClose} zIndex={1000}>
           <ModalContent className="modal-center">
             <ModalHeader>
-              <ModalTitle>
-                Modal Title
-              </ModalTitle>
+              <ModalTitle>Modal Title</ModalTitle>
             </ModalHeader>
             <ModalBody>
               <p>This is the modal content. You can add any content here.</p>
@@ -140,6 +161,8 @@ const Dashboard = () => {
             </DialogDescription>
           </DialogContent>
         </Dialog>
+
+        <DataTable layout={{ card: true }}/>
       </Container.Fixed>
     </div>
   );
