@@ -6,103 +6,273 @@ export default plugin(({ addComponents, theme }) => {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      lineHeight: "1",
-      borderRadius: theme("custom.components.common.borderRadius.badge"),
-      padding: "0.8rem",
-      color: "var(--tw-gray-700)",
-      backgroundColor: "var(--tw-gray-200)",
       border: "1px solid transparent",
       fontWeight: theme("fontWeight.medium"),
-      fontSize: theme("fontSize.2xs"),
-      gap: "0.6rem",
 
-      "&.badge-pill": {
-        borderRadius: "3rem",
-        paddingInlineStart: "1rem",
-        paddingInlineEnd: "1rem",
+      "&:focus": {
+        "--tw-ring-offset-shadow":
+          "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+        "--tw-ring-shadow":
+          "var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+        boxShadow:
+          "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+        outline: "none",
+      },
+
+      svg: {
+        marginInlineStart: "-1px",
+        flexShrink: 0,
       },
     },
-    ".badge-circle,.badge-dot": {
-      width: "0.6rem",
-      height: "0.6rem",
-      padding: 0,
-      borderRadius: "50%",
-      backgroundColor: "var(--tw-gray-700)",
-      flexShrink: 0,
-      lineHeight: 0,
+  });
+
+  //Badge Variants
+  addComponents({
+    ".badge-primary": {
+      backgroundColor: theme("colors.primary.DEFAULT"),
+      color: theme("colors.primary.foreground"),
     },
+    ".badge-secondary": {
+      backgroundColor: theme("colors.secondary.DEFAULT"),
+      color: theme("colors.secondary.foreground"),
+    },
+    ".badge-success": {
+      backgroundColor: "var(--tw-success)",
+      color: "white",
+    },
+    ".badge-warning": {
+      backgroundColor: "var(--tw-warning)",
+      color: "white",
+    },
+    ".badge-info": {
+      backgroundColor: "var(--tw-info)",
+      color: "white",
+    },
+    ".badge-mono": {
+      backgroundColor: theme("colors.mono.DEFAULT"),
+      color: theme("colors.mono.foreground"),
+    },
+    ".badge-destructive": {
+      backgroundColor: theme("colors.destructive.DEFAULT"),
+      color: theme("colors.destructive.foreground"),
+    },
+  });
+
+  //Badge Size
+  addComponents({
     ".badge-xs": {
-      fontSize: theme("fontSize.3xs"),
-      padding: "0.3rem 0.4rem",
+      borderRadius: theme("borderRadius.sm"),
+      padding: "0 0.4rem",
+      height: "1.6rem",
+      minWidth: "1.6rem",
       gap: "0.4rem",
-      "&.badge-pill": {
-        paddingInlineStart: "0.4rem",
-        paddingInlineEnd: "0.4rem",
+      fontSize: theme("fontSize.3xs"),
+      lineHeight: theme("fontSize.3xs.lineHeight.1"),
+      svg: {
+        height: "1.2rem",
+        width: "1.2rem",
       },
 
-      ".badge-circle,.badge-dot": {
-        width: "0.4rem",
-        height: "0.4rem",
+      i: {
+        fontSize: theme("fontSize.xs"),
       },
     },
     ".badge-sm": {
-      padding: "0.5rem 0.6rem",
-      gap: "0.5rem",
-      "&.badge-pill": {
-        paddingInlineStart: "0.6rem",
-        paddingInlineEnd: "0.6rem",
+      borderRadius: theme("borderRadius.sm"),
+      padding: "0 0.5rem",
+      height: "2rem",
+      minWidth: "2rem",
+      gap: "0.4rem",
+      fontSize: theme("fontSize.3xs"),
+      lineHeight: theme("fontSize.3xs.lineHeight.1"),
+      svg: {
+        height: "1.2rem",
+        width: "1.2rem",
       },
-
-      ".badge-circle,.badge-dot": {
-        width: "0.5rem",
-        height: "0.5rem",
+      i: {
+        fontSize: theme("fontSize.xs"),
+      },
+    },
+    ".badge-md": {
+      borderRadius: theme("borderRadius.md"),
+      padding: "0 0.72rem",
+      height: "2.4rem",
+      minWidth: "2.4rem",
+      gap: "0.6rem",
+      fontSize: theme("fontSize.2sm"),
+      lineHeight: theme("fontSize.2sm.lineHeight.1"),
+      svg: {
+        height: "1.4rem",
+        width: "1.4rem",
+      },
+      i: {
+        fontSize: theme("fontSize.sm"),
       },
     },
     ".badge-lg": {
+      borderRadius: theme("borderRadius.md"),
+      padding: "0 0.8rem",
+      height: "2.8rem",
+      minWidth: "2.8rem",
+      gap: "0.6rem",
       fontSize: theme("fontSize.2sm"),
-      padding: "0.9rem 1.1rem",
-      gap: "0.7rem",
-      "&.badge-pill": {
-        paddingInlineStart: "1.1rem",
-        paddingInlineEnd: "1.1rem",
+      lineHeight: theme("fontSize.2sm.lineHeight.1"),
+
+      svg: {
+        height: "1.4rem",
+        width: "1.4rem",
       },
 
-      ".badge-circle,.badge-dot": {
-        width: "0.7rem",
-        height: "0.7rem",
+      i: {
+        fontSize: theme("fontSize.sm"),
       },
     },
   });
 
-  //Defualt Option
+  // Appearance Badge
   addComponents({
-    ".badge-outline": {
-      color: "var(--tw-gray-600)",
-      borderColor: "var(--tw-gray-300)",
-      backgroundColor: "var(--tw-gray-100)",
+    ".appearance-solid": {
+      borderColor: "transparent",
+    },
+    ".appearance-stroke": {
+      border: "1px solid var(--border)",
+      color: theme("colors.secondary.foreground"),
+      backgroundColor: "transparent",
+    },
+    ".appearance-ghost": {
+      borderColor: "transparent",
+      backgroundColor: "transparent",
+      "&.badge-xs": { padding: 0 },
+      "&.badge-sm": { padding: 0 },
+      "&.badge-md": { padding: 0 },
+      "&.badge-lg": { padding: 0 },
     },
   });
 
-  const colors = ["primary", "success", "danger", "warning", "info", "dark"];
+  // Compound Variants
+  const colors = [
+    "primary",
+    "secondary",
+    "success",
+    "warning",
+    "info",
+    "mono",
+    "destructive",
+  ];
 
-  colors.forEach((color) => {
-    addComponents({
-      [`.badge-${color}`]: {
-        color: theme("colors.white"),
-        "background-color": `var(--tw-${color})`,
-        ".badge-circle,.badge-dot": {
-          backgroundColor: theme("colors.white"),
+  colors.forEach((c) => {
+    if (c === "primary") {
+      addComponents({
+        [`.badge-${c}.appearance-outline`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          borderColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
         },
-      },
-      [`.badge-outline.badge-${color}`]: {
-        color: `var(--tw-${color})`,
-        backgroundColor: `var(--tw-${color}-light)`,
-        borderColor: `var(--tw-${color}-clarity)`,
+        [`.badge-${c}.appearance-light`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          color: theme("colors.primary.DEFAULT"),
+        },
+        [`.badge-${c}.appearance-ghost`]: {
+          color: theme("colors.primary.DEFAULT"),
+        },
+      });
+    } else if (c === "secondary") {
+      addComponents({
+        [`.badge-${c}.appearance-outline`]: {
+          backgroundColor: theme("fontSize.secondary.DEFAULT"),
+          border: `1px solid var(--border)`,
+          color: theme("fontSize.secondary.foreground"),
+          "@media (prefers-color-scheme: dark)": {
+            backgroundColor: `color-mix(in oklab,var(--${c}) 50%,transparent)`,
+          },
+        },
+        [`.badge-${c}.appearance-light`]: {
+          backgroundColor: theme("fontSize.secondary.DEFAULT"),
+          color: theme("fontSize.secondary.foreground"),
+          "@media (prefers-color-scheme: dark)": {
+            backgroundColor: `color-mix(in oklab,var(--${c}) 50%,transparent)`,
+          },
+        },
+        [`.badge-${c}.appearance-ghost`]: {
+          color: theme("colors.secondary.foreground"),
+        },
+      });
+    } else if (c === "mono") {
+      addComponents({
+        [`.badge-${c}.appearance-outline`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          borderColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          color: theme("colors.mono.DEFAULT"),
+        },
+        [`.badge-${c}.appearance-light`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          color: theme("colors.mono.DEFAULT"),
+        },
+        [`.badge-${c}.appearance-ghost`]: {
+          color: theme("colors.mono.DEFAULT"),
+        },
+      });
+    } else if (c === "destructive") {
+      addComponents({
+        [`.badge-${c}.appearance-outline`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          borderColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          color: theme("colors.destructive.DEFAULT"),
+        },
+        [`.badge-${c}.appearance-light`]: {
+          backgroundColor: `color-mix(in oklab,var(--${c}) 10%,transparent)`,
+          color: theme("colors.destructive.DEFAULT"),
+        },
+        [`.badge-${c}.appearance-ghost`]: {
+          color: theme("colors.destructive.DEFAULT"),
+        },
+      });
+    } else {
+      addComponents({
+        [`.badge-${c}.appearance-outline`]: {
+          backgroundColor: `var(--tw-${c}-clarity)`,
+          border: `1px solid var(--tw-${c}-surface)`,
+          color: theme("fontSize.secondary.foreground"),
+          "@media (prefers-color-scheme: dark)": {
+            backgroundColor: `color-mix(in oklab,var(--tw-${c}-clarity) 50%,transparent)`,
+            borderColor: `var(--tw-${c}-surface)`,
+          },
+        },
+        [`.badge-${c}.appearance-light`]: {
+          backgroundColor: `var(--tw-${c}-light)`,
+          border: `1px solid var(--tw-${c}-surface)`,
+          color: `var(--tw-${c})`,
+          "@media (prefers-color-scheme: dark)": {
+            backgroundColor: `color-mix(in oklab,var(--tw-${c}-surface) 50%,transparent)`,
+          },
+        },
+        [`.badge-${c}.appearance-ghost`]: {
+          color: `var(--tw-${c})`,
+        },
+      });
+    }
+  });
 
-        ".badge-circle,.badge-dot": {
-          backgroundColor: `var(--tw-${color})`,
-        },
+  //Badge Button
+  addComponents({
+    ".badge-button": {
+      cursor: "pointer",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      lineHeight: 1,
+      height: "1.4rem",
+      minWidth: "1.4rem",
+      padding: 0,
+      borderRadius: theme("borderRadius.md"),
+      marginInlineEnd: "-2px",
+      opacity: "0.6",
+      "&>svg": {
+        height: "1.4rem",
+        width: "1.4rem",
+        opacity: "1 !important",
       },
-    });
+
+      "&:hover": { opacity: 1 },
+    },
   });
 });

@@ -1,66 +1,126 @@
 import { forwardRef, HTMLAttributes, ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva("badge", {
   variants: {
     variant: {
-      Default: "",
-      Outline: "badge-outline",
+      primary: "badge-primary",
+      secondary: "badge-secondary",
+      success: "badge-success",
+      warning: "badge-warning",
+      info: "badge-info",
+      mono: "badge-mono",
+      destructive: "badge-destructive",
     },
-    type: {
-      Default: "",
-      Pill: "badge-pill",
+    appearance: {
+      solid: "appearance-solid",
+      outline: "appearance-outline",
+      light: "appearance-light",
+      stroke: "appearance-stroke",
+      ghost: "appearance-ghost",
+    },
+    disabled: {
+      true: "disabled",
+      false: "",
     },
     size: {
-      "Extra Small": "badge-xs",
-      Small: "badge-sm",
-      Default: "",
-      Large: "badge-lg",
+      lg: "badge-lg",
+      md: "badge-md",
+      sm: "badge-sm",
+      xs: "badge-xs",
     },
-    color: {
-      Default: "",
-      Primary: "badge-primary",
-      Success: "badge-success",
-      Danger: "badge-danger",
-      Warning: "badge-warning",
-      Info: "badge-info",
-      Dark: "badge-dark",
+
+    shape: {
+      default: "",
+      circle: "rounded-full",
     },
-    defaultVariants: {
-      variant: "Default",
-      type: "Default",
-      size: "Default",
-      color: "Default",
+  },
+  defaultVariants: {
+    variant: "secondary",
+    appearance: "solid",
+    size: "md",
+  },
+});
+
+const badgeButtonVariants = cva("badge-button transition-all", {
+  variants: {
+    variant: {
+      default: "",
     },
+  },
+  defaultVariants: {
+    variant: "default",
   },
 });
 
 interface BadgeProps
-  extends Omit<HTMLAttributes<HTMLSpanElement>, "color" | "content"> {
-  type?: VariantProps<typeof badgeVariants>["type"];
-  variant?: VariantProps<typeof badgeVariants>["variant"];
-  size?: VariantProps<typeof badgeVariants>["size"];
-  color?: VariantProps<typeof badgeVariants>["color"];
-  isDot?: boolean;
-  children?: string | ReactNode;
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {
+  asChild?: boolean;
+  dotClassName?: string;
+  disabled?: boolean;
 }
 
-const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  (
-    { type, variant, size, color, className, children, ...props },
-    ref
-  ) => {
-    return (
-      <span
-        ref={ref}
-        className={cn(badgeVariants({ type, variant, size, color }), className)}
-        {...props}
-      >
-        {children}
-      </span>
-    );
-  }
-);
-Badge.displayName = "Badge";
-export {Badge};
+interface BadgeButtonProps
+  extends React.ButtonHTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeButtonVariants> {
+  asChild?: boolean;
+}
+
+type BadgeDotProps = HTMLAttributes<HTMLSpanElement>;
+
+const Badge = ({
+  className,
+  variant,
+  size,
+  appearance,
+  shape,
+  asChild = false,
+  disabled,
+  ...props
+}: BadgeProps) => {
+  const Comp = asChild ? Slot : "span";
+  return (
+    <Comp
+      data-slot="badge"
+      className={cn(
+        badgeVariants({ variant, size, appearance, shape, disabled }),
+        className
+      )}
+      {...props}
+    />
+  );
+};
+
+const BadgeButton = ({
+  className,
+  variant,
+  asChild = false,
+  ...props
+}: BadgeButtonProps) => {
+  const Comp = asChild ? Slot : "span";
+  return (
+    <Comp
+      data-slot="badge-button"
+      className={cn(badgeButtonVariants({ variant, className }))}
+      role="button"
+      {...props}
+    />
+  );
+};
+
+const BadgeDot = ({ className, ...props }: BadgeDotProps) => {
+  return (
+    <span
+      data-slot="badge-dot"
+      className={cn(
+        "size-[0.6rem] rounded-full bg-[currentColor] opacity-75 leading-none",
+        className
+      )}
+      {...props}
+    />
+  );
+};
+export { Badge, BadgeButton, BadgeDot };

@@ -1,144 +1,72 @@
 import {
-
   Container,
-  KeenIcon,
-  ImageInput,
-  type IImageInputProps,
-  type TImageInputFiles,
-  type IImageInputFile,
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  Modal,
-  ModalContent,
-  ModalBody,
-  ModalHeader,
-  ModalTitle,
-
+  Button,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Badge,
+  BadgeDot,
+  BadgeButton,
 } from "@/components/ui";
 
-import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
-
-import clsx from "clsx";
-
-import { useState } from "react";
-
+import { Fragment, useState } from "react";
 
 import { toast } from "sonner";
 
-
-
 const Dashboard = () => {
   // ga('create', `G-${PUBLIC_GA}`, 'auto');
-  const [images, setImages] = useState<TImageInputFiles>([]);
-  // Hàm xử lý thay đổi giá trị images
-  const handleImageChange = (
-    newImages: TImageInputFiles,
-    updatedIndexes?: number[]
-  ) => {
-    setImages(newImages); // Cập nhật danh sách file
-  };
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleClick = () => setIsOpen(true);
 
-  const handleClose = () => setIsOpen(false);
+ 
   return (
     <div className="flex">
       <Container.Fixed>
-        <button className="btn btn-primary" onClick={() => toast.info("Hello")}>
+        <button
+          aria-invalid={true}
+          className="btn btn-xs btn-mono"
+          onClick={() => toast.info("Hello")}
+        >
           Show Notification
         </button>
-        <div className="image-input size-[6.4rem] space-y-4">
-          <ImageInput
-            value={images}
-            onChange={handleImageChange}
-            multiple={false}
-          >
-            {({
-              fileList,
-              onImageUpload,
-              onImageRemove,
-              isDragging,
-              dragProps,
-            }) => (
-              <>
-                {fileList.length > 0 && (
-                  <div
-                    className="btn btn-icon size-[2rem] btn-icon-xs btn-light shadow-default absolute z-1 -top-0.5 -right-0.5 rounded-full"
-                    onClick={() => onImageRemove(0)}
-                  >
-                    <KeenIcon icon={"cross"} style={"outline"} />
-                  </div>
-                )}
-                <div
-                  className={clsx(
-                    "image-input-placeholder rounded-full border-2",
-                    fileList.length > 0 ? "border-success" : " border-gray-300"
-                  )}
-                  style={
-                    fileList.length > 0
-                      ? { backgroundImage: `url(${fileList[0].dataURL})` }
-                      : {}
-                  }
-                >
-                  <div className="image-input-preview rounded-full"></div>
-                  <div
-                    {...dragProps}
-                    className={`flex items-center justify-center cursor-pointer h-[2rem] left-0 right-0 bottom-0 bg-dark-clarity absolute ${
-                      isDragging ? "opacity-85" : ""
-                    }`}
-                    onClick={onImageUpload}
-                  >
-                    <svg
-                      className="fill-light opacity-80"
-                      height="12"
-                      viewBox="0 0 14 12"
-                      width="14"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.6665 2.64585H11.2232C11.0873 2.64749 10.9538 2.61053 10.8382 2.53928C10.7225 2.46803 10.6295 2.36541 10.5698 2.24335L10.0448 1.19918C9.91266 0.931853 9.70808 0.707007 9.45438 0.550249C9.20068 0.393491 8.90806 0.311121 8.60984 0.312517H5.38984C5.09162 0.311121 4.799 0.393491 4.5453 0.550249C4.2916 0.707007 4.08701 0.931853 3.95484 1.19918L3.42984 2.24335C3.37021 2.36541 3.27716 2.46803 3.1615 2.53928C3.04584 2.61053 2.91234 2.64749 2.7765 2.64585H2.33317C1.90772 2.64585 1.49969 2.81486 1.19885 3.1157C0.898014 3.41654 0.729004 3.82457 0.729004 4.25002V10.0834C0.729004 10.5088 0.898014 10.9168 1.19885 11.2177C1.49969 11.5185 1.90772 11.6875 2.33317 11.6875H11.6665C12.092 11.6875 12.5 11.5185 12.8008 11.2177C13.1017 10.9168 13.2707 10.5088 13.2707 10.0834V4.25002C13.2707 3.82457 13.1017 3.41654 12.8008 3.1157C12.5 2.81486 12.092 2.64585 11.6665 2.64585ZM6.99984 9.64585C6.39413 9.64585 5.80203 9.46624 5.2984 9.12973C4.79478 8.79321 4.40225 8.31492 4.17046 7.75532C3.93866 7.19572 3.87802 6.57995 3.99618 5.98589C4.11435 5.39182 4.40602 4.84613 4.83432 4.41784C5.26262 3.98954 5.80831 3.69786 6.40237 3.5797C6.99644 3.46153 7.61221 3.52218 8.1718 3.75397C8.7314 3.98576 9.2097 4.37829 9.54621 4.88192C9.88272 5.38554 10.0623 5.97765 10.0623 6.58335C10.0608 7.3951 9.73765 8.17317 9.16365 8.74716C8.58965 9.32116 7.81159 9.64431 6.99984 9.64585Z"
-                        fill=""
-                      ></path>
-                      <path
-                        d="M7 8.77087C8.20812 8.77087 9.1875 7.7915 9.1875 6.58337C9.1875 5.37525 8.20812 4.39587 7 4.39587C5.79188 4.39587 4.8125 5.37525 4.8125 6.58337C4.8125 7.7915 5.79188 8.77087 7 8.77087Z"
-                        fill=""
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-              </>
-            )}
-          </ImageInput>
-        </div>
 
-        <button className="btn btn-primary" onClick={handleClick}>
+        <button
+          className="btn btn-default bac btn-primary"
+          onClick={handleClick}
+        >
           Modal
         </button>
 
-        <Modal open={isOpen} onClose={handleClose} zIndex={1000}>
-          <ModalContent className="modal-center">
-            <ModalHeader>
-              <ModalTitle>Modal Title</ModalTitle>
-            </ModalHeader>
-            <ModalBody>
-              <p>This is the modal content. You can add any content here.</p>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+        <Accordion type="multiple" indicator="plus">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is your return policy?</AccordionTrigger>
+            <AccordionContent>
+              We offer a 30-day return policy. Please keep your receipt and
+              return in original packaging.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-12">
+            <AccordionTrigger>What is your return policy?</AccordionTrigger>
+            <AccordionContent>
+              We offer a 30-day return policy. Please keep your receipt and
+              return in original packaging.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-13">
+            <AccordionTrigger>What is your return policy?</AccordionTrigger>
+            <AccordionContent>
+              We offer a 30-day return policy. Please keep your receipt and
+              return in original packaging.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
-        <Dialog>
-          <DialogTrigger className="btn">Edit Profile</DialogTrigger>
-          <DialogContent side={"left"}>
-            <DialogHeader>Header</DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
-          </DialogContent>
-        </Dialog>
+        <button data-invalid className="btn btn-input">
+          Test Button
+        </button>
+
 
       </Container.Fixed>
     </div>

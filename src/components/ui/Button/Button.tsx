@@ -1,72 +1,123 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { ButtonHTMLAttributes, SVGProps } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ChevronDown, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva("btn", {
+const buttonVariants = cva("btn group", {
   variants: {
-    isIcon: {
-      true: "btn-icon",
-    },
     variant: {
-      Default: "",
-      Outline: "btn-outline",
-      Clear: "btn-clear",
-      Subtle: "btn-subtle",
-      Link: "btn-link",
+      primary: "btn-primary",
+      mono: "btn-mono",
+      destructive: "btn-destructive",
+      secondary: "btn-secondary",
+      outline: "btn-outline",
+      dashed: "btn-dashed",
+      ghost: "btn-ghost",
+      dim: "btn-dim",
+      foreground: "btn-foreground",
+      inverse: "btn-inverse",
+    },
+    appearance: {
+      default: "",
+      ghost: "appearance-ghost",
+    },
+    underline: {
+      solid: "btn-underline-solid",
+      dashed: "btn-underline-dashed",
+    },
+    underlined: {
+      solid: "btn-underlined-solid",
+      dashed: "btn-underlined-dashed",
     },
     size: {
-      "Extra Small": "btn-xs",
-      Default: "",
-      Small: "btn-sm",
-      Large: "btn-lg",
+      lg: "btn-lg",
+      md: "btn-md",
+      sm: "btn-sm",
     },
-    color: {
-      Default: "", 
-      Primary: "btn-primary",
-      Secondary: "btn-secondary",
-      Success: "btn-success",
-      Danger: "btn-danger",
-      Warning: "btn-warning",
-      Info: "btn-info",
-      Dark: "btn-dark",
-      Light: "btn-light",
+    autoHeight: {
+      true: "btn-auto-height",
+      false: "",
+    },
+    shape: {
+      default: "",
+      circle: "rounded-full",
+    },
+    mode: {
+      default: "btn-default",
+      icon: "btn-icon",
+      link: "btn-link",
+      input: "btn-input",
     },
   },
   defaultVariants: {
-    isIcon: false,
-    variant: "Default",
-    size: "Default",
-    color: "Default",
+    variant: "primary",
+    mode: "default",
+    size: "md",
+    shape: "default",
+    appearance: "default",
   },
 });
 
 interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  isIcon?: boolean;
-  variant?: VariantProps<typeof buttonVariants>["variant"];
-  size?: VariantProps<typeof buttonVariants>["size"];
-  color?: VariantProps<typeof buttonVariants>["color"];
+  selected?: boolean;
 }
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { asChild, variant, size, color, isIcon = false, className, ...props },
-    ref
-  ) => {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          buttonVariants({ isIcon, variant, size, color }),
-          className
-        )}
-        {...props}
-      />
-    );
-  }
-);
+const Button = ({
+  className,
+  selected,
+  variant,
+  shape,
+  appearance,
+  mode,
+  size,
+  autoHeight,
+  underlined,
+  underline,
+  asChild = false,
+  ...props
+}: ButtonProps) => {
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      className={cn(
+        buttonVariants({
+          variant,
+          size,
+          shape,
+          appearance,
+          mode,
+          autoHeight,
+          underlined,
+          underline,
+          className,
+        }),
+        asChild && props.disabled && "disabled"
+      )}
+      {...(selected && { "data-state": "open" })}
+      {...props}
+    />
+  );
+};
 
-Button.displayName = "Button";
-export { Button };
+interface ButtonArrowProps extends SVGProps<SVGSVGElement> {
+  icon?: LucideIcon;
+}
+
+const ButtonArrow = ({
+  icon: Icon = ChevronDown,
+  className,
+  ...props
+}: ButtonArrowProps) => {
+  return (
+    <Icon
+      data-slot="button-arrow"
+      className={cn("ms-auto -me-[0.4rem]", className)}
+      {...props}
+    />
+  );
+};
+
+export { Button, ButtonArrow };

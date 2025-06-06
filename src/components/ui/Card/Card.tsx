@@ -1,73 +1,149 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
 
-const CardRoot = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card", className)} {...props} />
-  )
-);
+// Biến thể cho Card chính
+const cardVariants = cva("card", {
+  variants: {
+    variant: {
+      default: "",
+      accent: "card-accent",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
-CardRoot.displayName = "Card";
 
-const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card-header", className)} {...props} />
-  )
-);
-CardHeader.displayName = "CardHeader";
-
-const CardTitle = forwardRef<
-  HTMLHeadingElement,
-  HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn("card-title", className)} {...props} />
-));
-CardTitle.displayName = "CardTitle";
-
-const CardBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card-body", className)} {...props} />
-  )
-);
-CardBody.displayName = "CardBody";
-
-const CardDescription = forwardRef<
-  HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("card-description", className)} {...props} />
-));
-CardDescription.displayName = "CardDescription";
-
-const CardGroup = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card-group", className)} {...props} />
-  )
-);
-CardGroup.displayName = "CardGroup";
-
-const CardTable = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card-table", className)} {...props} />
-  )
-);
-CardTable.displayName = "CardTable";
-
-const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("card-footer", className)} {...props} />
-  )
-);
-CardFooter.displayName = "CardFooter";
-
-const Card = {
-  Root: CardRoot,
-  Header: CardHeader,
-  Title: CardTitle,
-  Body: CardBody,
-  Description: CardDescription,
-  Group: CardGroup,
-  Table: CardTable,
-  Footer: CardFooter,
+const Card = ({
+  className,
+  variant = "default",
+  ...props
+}: HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>) => {
+  return (
+    <div
+      data-slot="card"
+      className={cn(cardVariants({ variant }), className)}
+      {...props}
+    />
+  );
 };
-export { Card };
+
+
+const CardHeader = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-header"
+      className={cn("card-header", className)}
+      {...props}
+    />
+  );
+};
+
+const CardContent = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-content"
+      className={cn("card-content", className)}
+      {...props}
+    />
+  );
+};
+
+const CardTable = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-table"
+      className={cn("card-table", className)}
+      {...props}
+    />
+  );
+};
+
+const CardFooter = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn("card-footer", className)}
+      {...props}
+    />
+  );
+};
+
+const CardHeading = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-heading"
+      className={cn("space-y-1", className)}
+      {...props}
+    />
+  );
+};
+
+const CardDescription = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn("card-description", className)}
+      {...props}
+    />
+  );
+};
+
+const CardToolbar = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      data-slot="card-toolbar"
+      className={cn("card-toolbar", className)}
+      {...props}
+    />
+  );
+};
+
+const CardTitle = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLHeadingElement>) => {
+  return (
+    <h2
+      data-slot="card-title"
+      className={cn("card-title", className)}
+      {...props}
+    />
+  );
+};
+
+// ✅ Xuất ra toàn bộ các phần
+export {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardFooter,
+  CardHeading,
+  CardTitle,
+  CardTable,
+  CardToolbar,
+};

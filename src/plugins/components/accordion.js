@@ -3,43 +3,47 @@ import plugin from "tailwindcss/plugin";
 export default plugin(({ addComponents, theme }) => {
   addComponents({
     ".accordion": {
-      display: "flex",
-      flexDirection: "column",
-
-      '.active': {
-        '.accordion-content': {
-          display: 'block',
-          transition: 'height 300ms ease',
-        }
-      }
-    },
-    ".accordion-item": {
-      display: "flex",
-      flexDirection: "column",
-      "&:not(:last-child)": {
-        borderBottomWidth: "1px",
-        borderBottomColor: "var(--tw-gray-200)",
+      ".accordion-item": {
+        borderBottom: "1px solid var(--border)",
       },
-    },
-    ".accordion-toggle": {
-      display: "flex",
-      flexGrow: "1",
-      alignItems: "center",
-      justifyContent: "space-between",
-      padding: "1.6rem 0",
-      span: {
-        fontSize: theme("fontSize.base"),
-        lineHeight: theme("fontSize.base.1.lineHeight"),
-        color: "var(--tw-gray-900)",
+      ".accordion-content": {
+        overflow: "hidden",
+        fontSize: theme("fontSize.sm"),
+        color: theme('colors.accent.foreground')
+      },
+      ".accordion-trigger": {
+        display: "flex",
+        flex: "1 1 0",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: "1rem",
+        padding: "1.6rem 0",
         fontWeight: theme("fontWeight.medium"),
+        color: theme('colors.foreground'),
       },
     },
-    ".accordion-content": {
-      overflow: "hidden",
-      transition: "height 300ms ease",
+  });
+
+  // Outline
+  addComponents({
+    ".accordion.accordion-outline": {
+      ".accordion-item": {
+        border: "1px solid var(--border)",
+        borderRadius: theme("borderRadius.lg"),
+        paddingInlineStart: "1.6rem",
+        paddingInlineEnd: "1.6rem",
+      },
     },
-
-
-
+  });
+  //Solid
+  addComponents({
+    ".accordion.accordion-solid": {
+      ".accordion-item": {
+        borderRadius: theme("borderRadius.lg"),
+        paddingInlineStart: "1.6rem",
+        paddingInlineEnd: "1.6rem",
+        backgroundColor: "var(--accent) / 0.7",
+      },
+    },
   });
 });
