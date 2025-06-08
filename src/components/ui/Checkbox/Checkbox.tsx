@@ -1,40 +1,44 @@
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Root, Indicator } from "@radix-ui/react-checkbox";
 import { cn } from "@/lib/utils";
 
+import { Check, Minus } from "lucide-react";
 
-const checkboxVariants = cva("radix-checkbox", {
+const checkboxVariants = cva("checkbox group peer", {
   variants: {
+    variant: {
+      primary: "checkbox-primary",
+      mono: "checkbox-mono",
+    },
     size: {
-      Small: "radix-checkbox-sm",
-      Default: "",
-      Large: "radix-checkbox-lg",
+      sm: "checkbox-sm",
+      md: "checkbox-md",
+      lg: "checkbox-lg",
     },
   },
   defaultVariants: {
-    size: "Default",
+    variant: "primary",
+    size: "md",
   },
 });
-interface CheckboxProps
-  extends Omit<ComponentPropsWithoutRef<typeof Root>, "size"> {
-  size?: VariantProps<typeof checkboxVariants>["size"];
-}
 
-const Checkbox = forwardRef<ComponentRef<typeof Root>, CheckboxProps>(
-  ({className, size, ...props }, ref) => {
-    return(
+export interface CheckboxProps
+  extends ComponentPropsWithoutRef<typeof Root>,
+    VariantProps<typeof checkboxVariants> {}
+const Checkbox = ({ className, variant, size, ...props }: CheckboxProps) => {
+  return (
     <Root
-      ref={ref}
-      className={cn(checkboxVariants({ size }), className)}
+      data-slot="checkbox"
+      className={cn(checkboxVariants({ variant, size }), className)}
       {...props}
     >
-      <Indicator />
+      <Indicator className="checkbox-indicator">
+        <Check className="group-data-[state=indeterminate]:hidden" />
+        <Minus className="hidden group-data-[state=indeterminate]:block" />
+      </Indicator>
     </Root>
-  )}
-
-);
-
-
+  );
+};
 
 export { Checkbox };

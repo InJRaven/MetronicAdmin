@@ -8,6 +8,7 @@ import {
   Badge,
   BadgeDot,
   BadgeButton,
+  Checkbox,
 } from "@/components/ui";
 
 import { Fragment, useState } from "react";
@@ -20,7 +21,6 @@ const Dashboard = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleClick = () => setIsOpen(true);
 
- 
   return (
     <div className="flex">
       <Container.Fixed>
@@ -67,7 +67,9 @@ const Dashboard = () => {
           Test Button
         </button>
 
-
+        <label htmlFor="" className="flex items-center">
+          <Checkbox variant="primary" size='lg' checked='indeterminate'/> checkbox
+        </label>
       </Container.Fixed>
     </div>
   );

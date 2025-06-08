@@ -3,10 +3,6 @@ import plugin from "tailwindcss/plugin";
 export default plugin(({ addComponents, theme }) => {
   addComponents({
     ".btn": {
-      "--tw-ring-offset-color": theme("colors.background"),
-      "--tw-ring-color": theme("colors.ring"),
-      "--tw-ring-offset-shadow":
-        "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
       cursor: "pointer",
       display: "inline-flex",
       alignItems: "center",
@@ -48,9 +44,6 @@ export default plugin(({ addComponents, theme }) => {
     ".btn-default": {
       "&:focus-visible": {
         "--tw-ring-offset-width": "2px",
-        " --tw-ring-offset-shadow":
-          "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
-
         outline: "none",
         "--tw-ring-shadow":
           "var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
@@ -347,8 +340,6 @@ export default plugin(({ addComponents, theme }) => {
             [`.btn-${c}.btn-${v}`]: {
               "--tw-shadow-color":
                 "color-mix(in oklab, oklch(0 0 0) 5%, transparent)",
-              "--tw-inset-shadow": "0 0 #0000",
-              "--tw-inset-ring-shadow": "0 0 #0000",
               "--tw-shadow":
                 "0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05))",
               boxShadow:
