@@ -1,10 +1,11 @@
+import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ComponentProps } from "react";
 import { DayPicker } from "react-day-picker";
 
 type CalendarProps = ComponentProps<typeof DayPicker>;
 const Calendar = ({
-  //   mode = "single",
   className,
   classNames,
   showOutsideDays = true,
@@ -12,32 +13,45 @@ const Calendar = ({
 }: CalendarProps) => (
   <DayPicker
     showOutsideDays={showOutsideDays}
-    className={cn("calendar-wrapper", className)}
+    className={cn("p-[1.2rem]", className)}
     classNames={{
-      months: "calendar",
-      month: "calendar__month",
-      month_caption: "calendar__header",
-      month_grid: "calendar__body",
-      weekdays: "weekdays",
-      week_number_header:'week_number_header',
-      week_number: "week__number",
-      weekday: "weekdays__item",
-      weeks: "weeks",
-      week: "weeks__item",
-      day: "day",
-      day_button: "weeks__item--button",
-      outside: "outsite",
-      range_start: "day-range-start",
-      range_middle: "day-range-middle",
-      range_end: "day-range-end",
-      nav: "calendar__navigation",
+      months: "months",
+      month: "w-full",
+      month_caption: "calendar-header",
+      caption_label: "caption",
+      nav: "calendar-navigation",
+      button_previous: cn(
+        buttonVariants({ variant: "ghost" }),
+        "calendar-button "
+      ),
+      button_next: cn(buttonVariants({ variant: "ghost" }), "calendar-button"),
+      weekday: "weekday",
+      day_button: "day-button",
+      day: "group day",
+      range_start: "range-start",
+      range_end: "range-end",
+      range_middle: "range-middle",
       today: "today",
-      selected: "selected",
-      button_previous: "absolute top-[1rem] left-[1rem]",
-      button_next: "absolute top-[1rem] right-[1rem]",
-      footer: "calendar__footer",
+      outside: "outside",
+      hidden: "invisible",
+      week_number: "week-number",
+
       ...classNames,
     }}
+    components={{
+      Chevron: (props) => {
+        if (props.orientation === "left") {
+          return (
+            <ChevronLeft className="h-[1.6rem] w-[1.6rem] rtl:rotate-180" />
+          );
+        } else {
+          return (
+            <ChevronRight className="h-[1.6rem] w-[1.6rem] rtl:rotate-180" />
+          );
+        }
+      },
+    }}
+    {...props}
     {...props}
   />
 );

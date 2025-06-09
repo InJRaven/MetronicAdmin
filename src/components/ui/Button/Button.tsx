@@ -120,4 +120,4 @@ const ButtonArrow = ({
   );
 };
 
-export { Button, ButtonArrow };
+export { Button, ButtonArrow, buttonVariants };

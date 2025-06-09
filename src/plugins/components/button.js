@@ -201,7 +201,7 @@ export default plugin(({ addComponents, theme }) => {
     },
 
     ".btn-link": {
-      color: theme("colors.primary"),
+      color: theme("colors.primary.DEFAULT"),
       height: "auto",
       padding: 0,
       backgroundColor: "transparent",
@@ -357,7 +357,7 @@ export default plugin(({ addComponents, theme }) => {
     addComponents({
       [`.btn-primary.btn-link.btn-underline-${u}`]: {
         fontWeight: theme("fontWeight.medium"),
-        color: theme("colors.primary"),
+        color: theme("colors.primary.DEFAULT"),
 
         'svg:not([role="img"]):not([class*="text-"])': {
           opacity: "0.6",
@@ -433,7 +433,7 @@ export default plugin(({ addComponents, theme }) => {
       },
       [`.btn-foreground.btn-link.btn-underlined-${u}`]: {
         fontWeight: theme("fontWeight.medium"),
-        color: theme("colors.foreground.DEFAULT"),
+        color: theme("colors.foreground"),
         textDecorationLine: "underline",
         textUnderlineOffset: "4px",
         textDecorationStyle: `${u}`,
