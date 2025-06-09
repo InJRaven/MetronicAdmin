@@ -405,43 +405,43 @@ export default plugin(({ addComponents, theme }) => {
     addComponents({
       [`.btn-primary.btn-link.btn-underlined-${u}`]: {
         fontWeight: theme("fontWeight.medium"),
-        color: theme("colors.primary"),
-
+        color: theme("colors.primary.DEFAULT"),
+        textDecorationLine: "underline",
+        textUnderlineOffset: "4px",
+        textDecorationStyle: `${u}`,
         'svg:not([role="img"]):not([class*="text-"])': {
           opacity: "0.6",
         },
 
         "&:hover": {
           color: "color-mix(in oklab,var(--primary) 90%,transparent)",
-          textDecorationLine: "underline",
-          textUnderlineOffset: "4px",
-          textDecorationStyle: `${u}`,
         },
       },
       [`.btn-inverse.btn-link.btn-underlined-${u}`]: {
         fontWeight: theme("fontWeight.medium"),
         color: "inherit",
+        textDecorationLine: "underline",
+        textUnderlineOffset: "4px",
+        textDecorationStyle: `${u}`,
+
         'svg:not([role="img"]):not([class*="text-"])': {
           opacity: "0.6",
         },
         "&:hover": {
           color: "color-mix(in oklab,var(--primary) 90%,transparent)",
-          textDecorationLine: "underline",
-          textUnderlineOffset: "4px",
-          textDecorationStyle: `${u}`,
         },
       },
       [`.btn-foreground.btn-link.btn-underlined-${u}`]: {
         fontWeight: theme("fontWeight.medium"),
-        color: theme("colors.foreground"),
+        color: theme("colors.foreground.DEFAULT"),
+        textDecorationLine: "underline",
+        textUnderlineOffset: "4px",
+        textDecorationStyle: `${u}`,
         'svg:not([role="img"]):not([class*="text-"])': {
           opacity: "0.6",
         },
         "&:hover": {
           color: "color-mix(in oklab,var(--primary) 90%,transparent)",
-          textDecorationLine: "underline",
-          textUnderlineOffset: "4px",
-          textDecorationStyle: `${u}`,
         },
       },
     });
