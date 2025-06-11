@@ -12,7 +12,7 @@ export * from "./Dialog";
 export * from "./Progress/Progress";
 export * from "./Table/Table";
 export * from "./Separator/Separator";
-export * from "./Scrollable/Scrollable";
+export * from "./ScrollArea/ScrollArea";
 export * from "./Scrollspy/Scrollspy";
 
 export * from "./Modal";
