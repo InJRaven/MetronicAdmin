@@ -13,6 +13,8 @@ export * from "./Progress/Progress";
 export * from "./Table/Table";
 export * from "./Separator/Separator";
 export * from "./Scrollable/Scrollable";
+export * from "./Scrollspy/Scrollspy";
+
 export * from "./Modal";
 
 // Mavigation
