@@ -21,6 +21,7 @@ export * from "./TreeView";
 export * from "./DataTable";
 export * from "./AspectRatio/AspecRatio";
 //Forms
+export * from "./Label/Label";
 export * from "./Checkbox/Checkbox";
 export * from "./FileInput/FileInput";
 export * from "./ImageInput/ImageInput";
