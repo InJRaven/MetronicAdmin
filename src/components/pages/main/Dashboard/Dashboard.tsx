@@ -1,18 +1,12 @@
 import {
   Container,
-  Button,
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-  Badge,
-  BadgeDot,
-  BadgeButton,
   Checkbox,
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
   Calendar,
+
 } from "@/components/ui";
 
 import { Fragment, useState } from "react";
@@ -77,9 +71,10 @@ const Dashboard = () => {
         </label>
 
         <div className="w-[500px]">
-          
-          <Calendar mode="range" numberOfMonths={2}/>
+          <Calendar mode="range" numberOfMonths={2} />
         </div>
+
+        <p className="text-[oklch(94.5% 0.129 101.54)]">test</p>
       </Container.Fixed>
     </div>
   );

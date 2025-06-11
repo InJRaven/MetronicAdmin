@@ -183,7 +183,7 @@ export default plugin(({ addComponents, theme }) => {
   addComponents({
     ".btn-icon": {
       alignItems: "center",
-      justifyItems: "center",
+      justifyContent: "center",
       width: theme("custom.components.btn.DEFAULT.height"),
       flexShrink: 0,
       padding: 0,
@@ -501,33 +501,33 @@ export default plugin(({ addComponents, theme }) => {
   addComponents({
     ".btn-icon.btn-sm": {
       width: "2.8rem",
-      heith: "2.8rem",
+      height: "2.8rem",
 
       'svg:not([role="img"]):not([class*="size-"])': {
         width: "1.4rem",
-        heith: "1.4rem",
+        height: "1.4rem",
         fontSize: theme("fontSize.sm"),
       },
     },
 
     ".btn-icon.btn-md": {
       width: "3.4rem",
-      heith: "3.4rem",
+      height: "3.4rem",
 
       'svg:not([role="img"]):not([class*="size-"])': {
         width: "1.4rem",
-        heith: "1.4rem",
+        height: "1.4rem",
         fontSize: theme("fontSize.base"),
       },
     },
 
     ".btn-icon.btn-lg": {
       width: "4rem",
-      heith: "4rem",
+      height: "4rem",
 
       'svg:not([role="img"]):not([class*="size-"])': {
         width: "1.4rem",
-        heith: "1.4rem",
+        height: "1.4rem",
         fontSize: theme("fontSize.base"),
       },
     },

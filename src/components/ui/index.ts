@@ -1,6 +1,6 @@
 //Base Component
 export * from "./Accordion/Accordion";
-// export * from "./Accordion/AccordionItem";
+export * from "./Alert/Alert";
 export * from "./Avatar/Avatar";
 export * from "./Button/Button";
 export * from "./Badge/Badge";

@@ -34,80 +34,99 @@ module.exports = {
               brand: {
                 default: "var(--color-orange-500)",
                 active: "var(--color-orange-600)",
+                border: "var(--color-orange-200)",
                 light: "var(--color-orange-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-orange-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-orange-50)",
               },
               primary: {
                 default: "var(--color-blue-500)",
                 active: "var(--color-blue-600)",
+                border: "var(--color-blue-200)",
                 light: "var(--color-blue-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-blue-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-blue-50)",
               },
               success: {
                 default: "var(--color-green-500)",
                 active: "var(--color-green-600)",
+                border: "var(--color-green-200)",
                 light: "var(--color-green-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-green-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-green-50)",
               },
               info: {
                 default: "var(--color-violet-500)",
                 active: "var(--color-violet-600)",
+                border: "var(--color-violet-200)",
                 light: "var(--color-violet-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-violet-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-violet-50)",
               },
               danger: {
                 default: "var(--color-red-500)",
                 active: "var(--color-red-600)",
+                border: "var(--color-red-200)",
                 light: "var(--color-red-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-red-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-red-50)",
               },
               warning: {
                 default: "var(--color-yellow-500)",
                 active: "var(--color-yellow-600)",
+                border: "var(--color-yellow-200)",
                 light: "var(--color-yellow-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-yellow-500) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-yellow-50)",
               },
               dark: {
                 default: "var(--color-gray-800)",
                 active: "var(--color-gray-950)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-gray-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-gray-800) 20%, transparent)",
                 inverse: "#ffffff",
+                surface: "var(--color-gray-50)",
               },
               light: {
                 default: "var(--color-white)",
                 active: "var(--color-gray-50)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-white)",
                 clarity:
                   "color-mix(in oklch, var(--color-white) 20%, transparent)",
                 inverse: "var(--color-gray-700)",
+                surface: "var(--color-white)",
               },
               secondary: {
                 default: "var(--color-gray-100)",
                 active: "var(--color-gray-200)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-gray-100)",
                 clarity:
                   "color-mix(in oklch, var(--color-gray-100) 20%, transparent)",
                 inverse: "var(--color-gray-700)",
+                surface: "var(--color-gray-50)",
               },
             },
             dark: {
               brand: {
                 default: "var(--color-orange-600)",
                 active: "var(--color-orange-500)",
+                border: "var(--color-orange-200)",
                 light: "var(--color-orange-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-orange-600) 20%, transparent)",
@@ -117,6 +136,7 @@ module.exports = {
               primary: {
                 default: "var(--color-blue-600)",
                 active: "var(--color-blue-500)",
+                border: "var(--color-blue-200)",
                 light: "var(--color-blue-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-blue-600) 20%, transparent)",
@@ -126,6 +146,7 @@ module.exports = {
               success: {
                 default: "var(--color-green-600)",
                 active: "var(--color-green-500)",
+                border: "var(--color-green-200)",
                 light: "var(--color-green-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-green-600) 20%, transparent)",
@@ -135,6 +156,7 @@ module.exports = {
               info: {
                 default: "var(--color-violet-600)",
                 active: "var(--color-violet-500)",
+                border: "var(--color-violet-200)",
                 light: "var(--color-violet-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-violet-600) 20%, transparent)",
@@ -144,6 +166,7 @@ module.exports = {
               danger: {
                 default: "var(--color-red-600)",
                 active: "var(--color-red-500)",
+                border: "var(--color-red-200)",
                 light: "var(--color-red-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-red-600) 20%, transparent)",
@@ -153,6 +176,7 @@ module.exports = {
               warning: {
                 default: "var(--color-yellow-600)",
                 active: "var(--color-yellow-500)",
+                border: "var(--color-yellow-200)",
                 light: "var(--color-yellow-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-yellow-600) 20%, transparent)",
@@ -162,6 +186,7 @@ module.exports = {
               dark: {
                 default: "var(--color-gray-800)",
                 active: "var(--color-gray-700)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-gray-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-gray-800) 20%, transparent)",
@@ -171,6 +196,7 @@ module.exports = {
               light: {
                 default: "var(--color-gray-200)",
                 active: "var(--color-gray-100)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-white)",
                 clarity:
                   "color-mix(in oklch, var(--color-gray-200) 20%, transparent)",
@@ -180,6 +206,7 @@ module.exports = {
               secondary: {
                 default: "var(--color-gray-300)",
                 active: "var(--color-gray-200)",
+                border: "var(--color-gray-200)",
                 light: "var(--color-gray-950)",
                 clarity:
                   "color-mix(in oklch, var(--color-gray-300) 20%, transparent)",
@@ -218,7 +245,6 @@ module.exports = {
         "museo-extra": ["Museo Sans Display ExtraBlack", "sans-serif"],
       },
       colors: {
-        //begin: Shadcn REUI Colors
         background: "var(--background)",
         foreground: "var(--foreground)",
         mono: {
@@ -280,6 +306,8 @@ module.exports = {
           DEFAULT: "var(--tw-primary)",
           active: "var(--tw-primary-active)",
           light: "var(--tw-primary-light)",
+          border: "var(--tw-primary-border)",
+          surface: "var(--tw-primary-surface)",
           clarity: "var(--tw-primary-clarity)",
           inverse: "var(--tw-primary-inverse)",
           foreground: "var(--primary-foreground)",
@@ -288,22 +316,28 @@ module.exports = {
           DEFAULT: "var(--tw-success)",
           active: "var(--tw-success-active)",
           light: "var(--tw-success-light)",
+          border: "var(--tw-success-border)",
+          surface: "var(--tw-success-surface)",
           clarity: "var(--tw-success-clarity)",
-          border: "oklch(26.6% .065 152.934)",
           inverse: "var(--tw-success-inverse)",
+          foreground: "#fff",
         },
         warning: {
           DEFAULT: "var(--tw-warning)",
           active: "var(--tw-warning-active)",
           light: "var(--tw-warning-light)",
+          border: "var(--tw-warning-border)",
+          surface: "var(--tw-warning-surface)",
           clarity: "var(--tw-warning-clarity)",
-          border: "oklch(28.6% .066 53.813)",
           inverse: "var(--tw-warning-inverse)",
+          foreground: "#fff",
         },
         danger: {
           DEFAULT: "var(--tw-danger)",
           active: "var(--tw-danger-active)",
           light: "var(--tw-danger-light)",
+          border: "var(--tw-danger-border)",
+          surface: "var(--tw-danger-surface)",
           clarity: "var(--tw-danger-clarity)",
           inverse: "var(--tw-danger-inverse)",
         },
@@ -311,39 +345,50 @@ module.exports = {
           DEFAULT: "var(--tw-info)",
           active: "var(--tw-info-active)",
           light: "var(--tw-info-light)",
+          border: "var(--tw-info-border)",
+          surface: "var(--tw-info-surface)",
           clarity: "var(--tw-info-clarity)",
-          border: "oklch(28.3% .141 291.089)",
           inverse: "var(--tw-info-inverse)",
+          foreground: "#fff",
         },
         dark: {
           DEFAULT: "var(--tw-dark)",
           active: "var(--tw-dark-active)",
           light: "var(--tw-dark-light)",
+          border: "var(--tw-dark-border)",
+          surface: "var(--tw-dark-surface)",
           clarity: "var(--tw-dark-clarity)",
           inverse: "var(--tw-dark-inverse)",
-        },
-        secondary: {
-          DEFAULT: "var(--tw-secondary)",
-          active: "var(--tw-secondary-active)",
-          light: "var(--tw-secondary-light)",
-          clarity: "var(--tw-secondary-clarity)",
-          inverse: "var(--tw-secondary-inverse)",
-          foreground: "var(--secondary-foreground)",
         },
         light: {
           DEFAULT: "var(--tw-light)",
           active: "var(--tw-light-active)",
           light: "var(--tw-light-light)",
+          border: "var(--tw-light-border)",
+          surface: "var(--tw-light-surface)",
           clarity: "var(--tw-light-clarity)",
           inverse: "var(--tw-light-inverse)",
+        },
+        secondary: {
+          DEFAULT: "var(--tw-secondary)",
+          active: "var(--tw-secondary-active)",
+          light: "var(--tw-secondary-light)",
+          border: "var(--tw-secondary-border)",
+          surface: "var(--tw-secondary-surface)",
+          clarity: "var(--tw-secondary-clarity)",
+          inverse: "var(--tw-secondary-inverse)",
+          foreground: "var(--secondary-foreground)",
         },
         brand: {
           DEFAULT: "var(--tw-brand)",
           active: "var(--tw-brand-active)",
           light: "var(--tw-brand-light)",
+          border: "var(--tw-brand-border)",
+          surface: "var(--tw-brand-surface)",
           clarity: "var(--tw-brand-clarity)",
           inverse: "var(--tw-brand-inverse)",
         },
+
         coal: {
           100: "#15171C",
           200: "#13141A",
@@ -740,6 +785,8 @@ module.exports = {
     require("./src/plugins/components/menu"),
     require("./src/plugins/components/tree-view"),
     require("./src/plugins/components/avatar"),
+    require("./src/plugins/components/alert"),
+
     require("./src/plugins/components/accordion"),
     require("./src/plugins/components/input"),
     // require('./src/plugins/components/input-group'),

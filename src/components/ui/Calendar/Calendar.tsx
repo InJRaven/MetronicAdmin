@@ -52,7 +52,6 @@ const Calendar = ({
       },
     }}
     {...props}
-    {...props}
   />
 );
 Calendar.displayName = "Calendar";
