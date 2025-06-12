@@ -96,7 +96,7 @@ export default plugin(({ addComponents, theme }) => {
   addComponents({
     ".checkbox-primary": {
       '&[data-state="checked"]': {
-        backgroundColor: theme("colors.primary.DEFAULT"),
+        backgroundColor: theme("color-mixcolors.primary.DEFAULT"),
         borderColor: theme("colors.primary.DEFAULT"),
         color: theme("colors.primary.foreground"),
       },
