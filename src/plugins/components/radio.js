@@ -1,96 +1,121 @@
 import plugin from "tailwindcss/plugin";
-import svgToDataUri from "mini-svg-data-uri";
 
 export default plugin(({ addComponents, theme }) => {
   addComponents({
-    '.radio[type="radio"]': {
-      flexShrink: "0",
-      appearance: "none",
-      boxShadow: "none",
-      borderRadius: "50%",
-      height: theme("custom.components.radio.DEFAULT.size"),
-      width: theme("custom.components.radio.DEFAULT.size"),
-      border: "1px solid var(--tw-gray-300)",
-      backgroundColor: "var(--tw-light-light)",
-      ".dark &": {
-        backgroundColor: "var(--tw-coal-500)",
-      },
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
-      backgroundPosition: "center",
+    ".radio-group": {
+      display: "grid",
+      gap: theme("spacing[2.5]"),
 
-      '&:checked, &[aria-checked="true"]': {
-        backgroundColor: "var(--tw-primary)",
-        border: "1px solid var(--tw-primary)",
-        backgroundImage: `url("${svgToDataUri(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10.9995" cy="11" r="5.86667" fill="white"/></svg>'
-        )}")`,
-      },
-      "&:focus-visible": {
-        outline: "none",
-        boxShadow: "none",
-      },
-      "&:focus": {
-        borderColor: "var(--tw-primary)",
-        boxShadow: "var(--tw-input-focus-box-shadow)",
-        color: "var(--tw-gray-700)",
-        "&::placeholder": {
-          color: "var(--tw-gray-600)",
+      ".radio": {
+        "--tw-ring-offset-color": theme("colors.background"),
+        aspectRatio: "1 / 1",
+        borderRadius: "9999px",
+        outlineStyle: "none",
+
+        "&:focus": {
+          outline: "none",
         },
-      },
-      "&:active": {
-        color: "var(--tw-gray-700)",
-        "&::placeholder": {
-          color: "var(--tw-gray-600)",
+
+        "&:focus-visible": {
+          "--tw-ring-color": theme("colors.ring"),
+          "--tw-ring-offset-width": "2px",
+          "--tw-ring-shadow":
+            "var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+          boxShadow:
+            "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
         },
-        boxShadow: "none",
-      },
-      "&:disabled": {
-        cursor: "not-allowed",
-        backgroundColor: "var(--tw-gray-200)",
-        border: "1px solid var(--tw-gray-300)",
-        '&:checked, &[aria-checked="true"]': {
-          backgroundColor: "var(--tw-primary-clarity)",
-          border: "0",
+
+        "&:disabled": {
+          cursor: "not allowed",
+          opacity: "0.5",
         },
-      },
-    },
-    '.radio-sm[type="radio"]': {
-      height: theme("custom.components.radio.sm.size"),
-      width: theme("custom.components.radio.sm.size"),
-      '&:checked, &[aria-checked="true"]': {
-        backgroundImage: `url("${svgToDataUri(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9.0002" cy="8.99995" r="4.8" fill="white"/></svg>'
-        )}")`,
-      },
-    },
-    '.radio-lg[type="radio"]': {
-      height: theme("custom.components.radio.lg.size"),
-      width: theme("custom.components.radio.lg.size"),
-      '&:checked, &[aria-checked="true"]': {
-        backgroundImage: `url("${svgToDataUri(
-          '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="12.9997" cy="13" r="6.93333" fill="white"/></svg>'
-        )}")`,
+
+        "&[aria-invalid='true']": {
+          "--tw-ring-color":
+            "color-mix(in oklab, var(--destructive) 10%, transparent)",
+          borderColor:
+            "color-mix(in oklab, var(--destructive) 60%, transparent)",
+        },
+
+        ".dark &[aria-invalid='true']": {
+          "--tw-ring-color":
+            "color-mix(in oklab, var(--destructive) 20%, transparent)",
+          borderColor: theme("colors.destructive.DEFAULT"),
+        },
+
+        '[data-invalid="true"] &': {
+          "--tw-ring-color":
+            "color-mix(in oklab, var(--destructive) 10%, transparent)",
+          borderColor:
+            "color-mix(in oklab, var(--destructive) 60%, transparent)",
+        },
+
+        '.dark [data-invalid="true"] &': {
+          "--tw-ring-color":
+            "color-mix(in oklab, var(--destructive) 20%, transparent)",
+          borderColor: theme("colors.destructive.DEFAULT"),
+        },
+
+        ".radio-indicator": {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        },
       },
     },
   });
 
-  // Group & labels
+  //Radio Variant
   addComponents({
-    ".radio-group": {
-      display: "flex",
-      alignItems: "center",
-      gap: "0.6rem",
+    ".radio": {
+      "&.radio-primary": {
+        borderColor: theme("colors.input"),
+        color: theme("colors.primary.DEFAULT"),
+        "&[data-state=checked]": {
+          backgroundColor: theme("colors.primary.DEFAULT"),
+          borderColor: theme("colors.primary.DEFAULT"),
+          color: theme("colors.primary.foreground"),
+        },
+      },
+      "&.radio-mono": {
+        borderColor: theme("colors.input"),
+        color: theme("colors.mono.DEFAULT"),
+        "&[data-state=checked]": {
+          backgroundColor: theme("colors.mono.DEFAULT"),
+          borderColor: theme("colors.mono.DEFAULT"),
+          color: theme("colors.mono.foreground"),
+        },
+      },
     },
-    ".radio-label": {
-      color: "var(--tw-gray-800)",
-      fontWeight: theme("fontWeight.medium"),
-      fontSize: theme("fontSize.2sm"),
-      lineHeight: theme("fontSize.2sm.1.lineHeight"),
-    },
-    ".radio-label-lg": {
-      fontSize: theme("fontSize.sm"),
-      lineHeight: theme("fontSize.sm.1.lineHeight"),
+  });
+
+  // Radio Size
+  addComponents({
+    ".radio": {
+      "&.radio-sm": {
+        height: "1.8rem",
+        width: "1.8rem",
+        "& svg": {
+          height: "0.8rem",
+          width: "0.8rem",
+        },
+      },
+      "&.radio-md": {
+        height: "2rem",
+        width: "2rem",
+        "& svg": {
+          height: "1rem",
+          width: "1rem",
+        },
+      },
+      "&.radio-lg": {
+        height: "2.2rem",
+        width: "2.2rem",
+        "& svg": {
+          height: "1.2rem",
+          width: "1.2rem",
+        },
+      },
     },
   });
 });

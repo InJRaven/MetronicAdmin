@@ -20,8 +20,7 @@ export default plugin(({ addComponents, theme }) => {
         "var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)",
 
       "::placeholder": {
-        color:
-          "color-mix(in oklab, color-mix(in oklab, var(--muted-foreground) 80%, transparent) var(--tw-shadow-alpha), transparent)",
+        color: "color-mix(in oklab, var(--muted-foreground) 80%, transparent)",
       },
 
       "&:focus-visible": {
@@ -46,14 +45,12 @@ export default plugin(({ addComponents, theme }) => {
         "--tw-ring-color":
           "color-mix(in oklab, var(--destructive) 10%, transparent)",
         borderColor: "color-mix(in oklab, var(--destructive) 60%, transparent)",
-
-        ".dark &": {
-          "--tw-ring-color":
-            "color-mix(in oklab, var(--destructive) 20%, transparent)",
-          borderColor: theme("colors.destructive.DEFAULT"),
-        },
       },
-
+      ".dark &[aria-invalid='true']": {
+        "--tw-ring-color":
+          "color-mix(in oklab, var(--destructive) 20%, transparent)",
+        borderColor: theme("colors.destructive.DEFAULT"),
+      },
       "&[type='file']": {
         paddingBlock: 0,
       },
