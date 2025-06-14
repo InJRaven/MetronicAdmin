@@ -10,7 +10,13 @@ import {
   Label,
   SwitchWrapper,
   SwitchIndicator,
+  Input,
+  InputGroup,
+  InputAddon,
+  InputWrapper,
+  Button,
 } from "@/components/ui";
+import { Euro, TicketPercent, User, X } from "lucide-react";
 
 import { Fragment, useId, useState } from "react";
 
@@ -116,12 +122,12 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-2.5">
+        <div className="flex w-full items-center space-x-2.5">
           <SwitchWrapper>
             <Switch id={id} size="xl" />
             <SwitchIndicator
               state="off"
-              className="text-[10px] font-medium text-muted-foreground uppercase"
+              className="-ml-[1px] text-[10px] font-medium text-muted-foreground uppercase"
             >
               Off
             </SwitchIndicator>
@@ -133,6 +139,62 @@ const Dashboard = () => {
             </SwitchIndicator>
           </SwitchWrapper>
           <Label htmlFor={id}>Text Indicator</Label>
+        </div>
+
+        <div className="space-y-5 w-full gap-1.5">
+          <InputGroup>
+            <InputAddon>Addon</InputAddon>
+            <Input type="email" placeholder="Start addon" />
+          </InputGroup>
+          <InputGroup>
+            <Input type="email" placeholder="End addon" />
+            <InputAddon>Addon</InputAddon>
+          </InputGroup>
+          <InputGroup>
+            <InputAddon mode="icon">
+              <Euro />
+            </InputAddon>
+            <Input type="email" placeholder="Start icon addon" />
+          </InputGroup>
+          <InputGroup>
+            <Input type="email" placeholder="End icon addon" />
+            <InputAddon mode="icon">
+              <TicketPercent />
+            </InputAddon>
+          </InputGroup>
+        </div>
+
+        <div className="space-y-5 w-80">
+          <InputWrapper>
+            <Euro />
+            <Input type="email" placeholder="Start icon" />
+          </InputWrapper>
+          <InputWrapper>
+            <Input type="email" placeholder="End icon" />
+            <TicketPercent />
+          </InputWrapper>
+          <InputWrapper>
+            <Button
+              size="sm"
+              variant="dim"
+              mode="icon"
+              className="size-5 -ms-0.5"
+            >
+              <User />
+            </Button>
+            <Input type="email" placeholder="Start clickble icon" />
+          </InputWrapper>
+          <InputWrapper>
+            <Input type="email" placeholder="End clickble icon" />
+            <Button
+              size="sm"
+              variant="dim"
+              mode="icon"
+              className="size-5 -me-0.5"
+            >
+              <X />
+            </Button>
+          </InputWrapper>
         </div>
       </Container.Fixed>
     </div>
